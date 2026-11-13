@@ -1,0 +1,84 @@
+{
+  "reference": "1D sequence",
+  "variants": {
+    "1D sequence": {
+      "accuracy": {
+        "mean": 0.9407334910148709,
+        "std": 0.015362064768102968,
+        "n_seeds": 3,
+        "values": [
+          0.9396460321344099,
+          0.9259440502406002,
+          0.9566103906696029
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.9563971547319187,
+        "std": 0.0017875302799643233,
+        "n_seeds": 3,
+        "values": [
+          0.9573339970670878,
+          0.9543359343519204,
+          0.9575215327767477
+        ]
+      },
+      "params": 106372,
+      "description": "the prefix as a byte sequence; the primary representation"
+    },
+    "2D byte image 28x28": {
+      "accuracy": {
+        "mean": 0.9565922663549284,
+        "std": 0.024482641985675162,
+        "n_seeds": 3,
+        "values": [
+          0.928717070385776,
+          0.9664518935377756,
+          0.9746078351412337
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.9594946802851311,
+        "std": 0.009467080694398862,
+        "n_seeds": 3,
+        "values": [
+          0.9485869190010394,
+          0.9643231213208073,
+          0.965574000533546
+        ]
+      },
+      "params": 3300996,
+      "description": "Wang et al. ICOIN 2017: the same 784 bytes reshaped to a square",
+      "delta_macro_f1": 0.00309752555321241,
+      "seed_noise": 0.009467080694398862,
+      "verdict": "inconclusive"
+    },
+    "1D Deep Packet": {
+      "accuracy": {
+        "mean": 0.9617033230930955,
+        "std": 0.030241896317098164,
+        "n_seeds": 3,
+        "values": [
+          0.9267868308729577,
+          0.9796101459913547,
+          0.9787129924149743
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.9615258297359762,
+        "std": 0.02089446872505257,
+        "n_seeds": 3,
+        "values": [
+          0.9374064785034291,
+          0.9730644531543182,
+          0.9741065575501814
+        ]
+      },
+      "params": 323682,
+      "description": "Lotfollahi et al. 2020, at the same budget",
+      "delta_macro_f1": 0.005128675004057559,
+      "seed_noise": 0.02089446872505257,
+      "verdict": "inconclusive"
+    }
+  },
+  "budget": "784B"
+}

@@ -1,0 +1,2015 @@
+{
+  "model": "wang1d",
+  "budget": "784B",
+  "seed": 0,
+  "overall": {
+    "accuracy": 0.41363973313565605,
+    "macro_f1": 0.5122629763125135,
+    "weighted_f1": 0.3806635648239734,
+    "balanced_accuracy": 0.5641307769107816,
+    "per_class": [
+      {
+        "name": "chat",
+        "support": 914,
+        "precision": 0.5206953642384106,
+        "recall": 0.688183807439825,
+        "f1": 0.592836946277097,
+        "predicted": 1208
+      },
+      {
+        "name": "email",
+        "support": 417,
+        "precision": 0.19148936170212766,
+        "recall": 0.1510791366906475,
+        "f1": 0.16890080428954424,
+        "predicted": 329
+      },
+      {
+        "name": "file",
+        "support": 145,
+        "precision": 0.9514563106796117,
+        "recall": 0.6758620689655173,
+        "f1": 0.7903225806451614,
+        "predicted": 103
+      },
+      {
+        "name": "streaming",
+        "support": 474,
+        "precision": 0.7066974595842956,
+        "recall": 0.6455696202531646,
+        "f1": 0.6747519294377068,
+        "predicted": 433
+      },
+      {
+        "name": "voip",
+        "support": 593,
+        "precision": 0.3173913043478261,
+        "recall": 0.24620573355817876,
+        "f1": 0.2773029439696106,
+        "predicted": 460
+      },
+      {
+        "name": "vpn_chat",
+        "support": 686,
+        "precision": 0.5,
+        "recall": 0.008746355685131196,
+        "f1": 0.017191977077363897,
+        "predicted": 12
+      },
+      {
+        "name": "vpn_email",
+        "support": 44,
+        "precision": 0.8571428571428571,
+        "recall": 0.9545454545454546,
+        "f1": 0.9032258064516128,
+        "predicted": 49
+      },
+      {
+        "name": "vpn_file",
+        "support": 149,
+        "precision": 0.2407108239095315,
+        "recall": 1.0,
+        "f1": 0.3880208333333333,
+        "predicted": 619
+      },
+      {
+        "name": "vpn_p2p",
+        "support": 72,
+        "precision": 0.9142857142857143,
+        "recall": 0.8888888888888888,
+        "f1": 0.9014084507042254,
+        "predicted": 70
+      },
+      {
+        "name": "vpn_streaming",
+        "support": 110,
+        "precision": 0.7735849056603774,
+        "recall": 0.7454545454545455,
+        "f1": 0.7592592592592593,
+        "predicted": 106
+      },
+      {
+        "name": "vpn_voip",
+        "support": 443,
+        "precision": 0.135258358662614,
+        "recall": 0.20090293453724606,
+        "f1": 0.16167120799273388,
+        "predicted": 658
+      }
+    ],
+    "n": 4047,
+    "confusion": [
+      [
+        629,
+        263,
+        1,
+        4,
+        13,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4
+      ],
+      [
+        138,
+        63,
+        0,
+        90,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      [
+        2,
+        0,
+        98,
+        30,
+        15,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        306,
+        166,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        438,
+        3,
+        3,
+        3,
+        146,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        7,
+        108,
+        1,
+        13,
+        551
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        42,
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        149,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        64,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        15,
+        5,
+        82,
+        5
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        340,
+        0,
+        11,
+        89
+      ]
+    ],
+    "meta": {
+      "budget": "784B",
+      "width": 784,
+      "mean_padding_fraction": 0.5866653555417719
+    },
+    "concealment_gap": -0.1315994114885401
+  },
+  "strata": {
+    "flow_length": {
+      "[0,128)": {
+        "accuracy": 0.6393088552915767,
+        "macro_f1": 0.5048114456666982,
+        "weighted_f1": 0.5642730631736309,
+        "balanced_accuracy": 0.531153409990078,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 113,
+            "precision": 0.9819819819819819,
+            "recall": 0.9646017699115044,
+            "f1": 0.9732142857142857,
+            "predicted": 111
+          },
+          {
+            "name": "email",
+            "support": 11,
+            "precision": 0.5,
+            "recall": 0.18181818181818182,
+            "f1": 0.26666666666666666,
+            "predicted": 4
+          },
+          {
+            "name": "file",
+            "support": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "streaming",
+            "support": 7,
+            "precision": 0.5454545454545454,
+            "recall": 0.8571428571428571,
+            "f1": 0.6666666666666665,
+            "predicted": 11
+          },
+          {
+            "name": "voip",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 10
+          },
+          {
+            "name": "vpn_chat",
+            "support": 24,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_file",
+            "support": 133,
+            "precision": 0.48014440433212996,
+            "recall": 1.0,
+            "f1": 0.6487804878048781,
+            "predicted": 277
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 7,
+            "precision": 1.0,
+            "recall": 0.7142857142857143,
+            "f1": 0.8333333333333333,
+            "predicted": 5
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 29,
+            "precision": 1.0,
+            "recall": 0.9655172413793104,
+            "f1": 0.9824561403508771,
+            "predicted": 28
+          },
+          {
+            "name": "vpn_voip",
+            "support": 134,
+            "precision": 0.7647058823529411,
+            "recall": 0.09701492537313433,
+            "f1": 0.17218543046357618,
+            "predicted": 17
+          }
+        ],
+        "n": 463,
+        "confusion": null,
+        "meta": {
+          "stratum": "[0,128)",
+          "underpowered": false
+        },
+        "concealment_gap": 0.059461617506932685
+      },
+      "[128,256)": {
+        "accuracy": 0.35786924939467313,
+        "macro_f1": 0.42166945382079835,
+        "weighted_f1": 0.348752431710059,
+        "balanced_accuracy": 0.5198527609910107,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 738,
+            "precision": 0.5010638297872341,
+            "recall": 0.6382113821138211,
+            "f1": 0.5613825983313468,
+            "predicted": 940
+          },
+          {
+            "name": "email",
+            "support": 160,
+            "precision": 0.18012422360248448,
+            "recall": 0.3625,
+            "f1": 0.24066390041493774,
+            "predicted": 322
+          },
+          {
+            "name": "file",
+            "support": 26,
+            "precision": 0.9259259259259259,
+            "recall": 0.9615384615384616,
+            "f1": 0.9433962264150944,
+            "predicted": 27
+          },
+          {
+            "name": "streaming",
+            "support": 29,
+            "precision": 0.85,
+            "recall": 0.5862068965517241,
+            "f1": 0.6938775510204082,
+            "predicted": 20
+          },
+          {
+            "name": "voip",
+            "support": 543,
+            "precision": 0.7401129943502824,
+            "recall": 0.24125230202578268,
+            "f1": 0.36388888888888893,
+            "predicted": 177
+          },
+          {
+            "name": "vpn_chat",
+            "support": 485,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_email",
+            "support": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 1
+          },
+          {
+            "name": "vpn_file",
+            "support": 2,
+            "precision": 0.03389830508474576,
+            "recall": 1.0,
+            "f1": 0.06557377049180328,
+            "predicted": 59
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 13,
+            "precision": 0.9090909090909091,
+            "recall": 0.7692307692307693,
+            "f1": 0.8333333333333333,
+            "predicted": 11
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 13,
+            "precision": 0.8571428571428571,
+            "recall": 0.9230769230769231,
+            "f1": 0.888888888888889,
+            "predicted": 14
+          },
+          {
+            "name": "vpn_voip",
+            "support": 55,
+            "precision": 0.02631578947368421,
+            "recall": 0.23636363636363636,
+            "f1": 0.04735883424408014,
+            "predicted": 494
+          }
+        ],
+        "n": 2065,
+        "confusion": null,
+        "meta": {
+          "stratum": "[128,256)",
+          "underpowered": false
+        },
+        "concealment_gap": -0.07291702211073936
+      },
+      "[256,512)": {
+        "accuracy": 0.4882032667876588,
+        "macro_f1": 0.44779178771894185,
+        "weighted_f1": 0.5131014510521791,
+        "balanced_accuracy": 0.6097162239428503,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 6,
+            "precision": 0.13157894736842105,
+            "recall": 0.8333333333333334,
+            "f1": 0.22727272727272727,
+            "predicted": 38
+          },
+          {
+            "name": "email",
+            "support": 86,
+            "precision": 1.0,
+            "recall": 0.011627906976744186,
+            "f1": 0.022988505747126436,
+            "predicted": 1
+          },
+          {
+            "name": "file",
+            "support": 83,
+            "precision": 0.9733333333333334,
+            "recall": 0.8795180722891566,
+            "f1": 0.9240506329113923,
+            "predicted": 75
+          },
+          {
+            "name": "streaming",
+            "support": 205,
+            "precision": 0.6601307189542484,
+            "recall": 0.4926829268292683,
+            "f1": 0.5642458100558659,
+            "predicted": 153
+          },
+          {
+            "name": "voip",
+            "support": 15,
+            "precision": 0.0234375,
+            "recall": 0.2,
+            "f1": 0.04195804195804196,
+            "predicted": 128
+          },
+          {
+            "name": "vpn_chat",
+            "support": 50,
+            "precision": 0.5714285714285714,
+            "recall": 0.08,
+            "f1": 0.14035087719298248,
+            "predicted": 7
+          },
+          {
+            "name": "vpn_email",
+            "support": 21,
+            "precision": 0.7777777777777778,
+            "recall": 1.0,
+            "f1": 0.8750000000000001,
+            "predicted": 27
+          },
+          {
+            "name": "vpn_file",
+            "support": 1,
+            "precision": 0.034482758620689655,
+            "recall": 1.0,
+            "f1": 0.06666666666666667,
+            "predicted": 29
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 24,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 24
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 12
+          },
+          {
+            "name": "vpn_voip",
+            "support": 60,
+            "precision": 0.631578947368421,
+            "recall": 0.6,
+            "f1": 0.6153846153846154,
+            "predicted": 57
+          }
+        ],
+        "n": 551,
+        "confusion": null,
+        "meta": {
+          "stratum": "[256,512)",
+          "underpowered": false
+        },
+        "concealment_gap": 0.06530966333323723
+      },
+      "[512,784)": {
+        "accuracy": 0.30538922155688625,
+        "macro_f1": 0.2929064379374938,
+        "weighted_f1": 0.2771440260561397,
+        "balanced_accuracy": 0.4217171717171717,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 22,
+            "precision": 0.6176470588235294,
+            "recall": 0.9545454545454546,
+            "f1": 0.75,
+            "predicted": 34
+          },
+          {
+            "name": "email",
+            "support": 15,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "file",
+            "support": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 1
+          },
+          {
+            "name": "streaming",
+            "support": 35,
+            "precision": 0.6,
+            "recall": 0.6,
+            "f1": 0.6,
+            "predicted": 35
+          },
+          {
+            "name": "voip",
+            "support": 11,
+            "precision": 0.058823529411764705,
+            "recall": 0.09090909090909091,
+            "f1": 0.07142857142857142,
+            "predicted": 17
+          },
+          {
+            "name": "vpn_chat",
+            "support": 38,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_file",
+            "support": 1,
+            "precision": 0.020833333333333332,
+            "recall": 1.0,
+            "f1": 0.04081632653061225,
+            "predicted": 48
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 2
+          },
+          {
+            "name": "vpn_voip",
+            "support": 40,
+            "precision": 0.20689655172413793,
+            "recall": 0.15,
+            "f1": 0.17391304347826086,
+            "predicted": 29
+          }
+        ],
+        "n": 167,
+        "confusion": null,
+        "meta": {
+          "stratum": "[512,784)",
+          "underpowered": false
+        },
+        "concealment_gap": -0.015762411881354133
+      },
+      "[784,1024)": {
+        "accuracy": 0.3484848484848485,
+        "macro_f1": 0.13681027966742254,
+        "weighted_f1": 0.3638425066996496,
+        "balanced_accuracy": 0.1495726495726496,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 2,
+            "precision": 0.25,
+            "recall": 0.5,
+            "f1": 0.3333333333333333,
+            "predicted": 4
+          },
+          {
+            "name": "email",
+            "support": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "file",
+            "support": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "streaming",
+            "support": 26,
+            "precision": 0.9565217391304348,
+            "recall": 0.8461538461538461,
+            "f1": 0.8979591836734695,
+            "predicted": 23
+          },
+          {
+            "name": "voip",
+            "support": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 8
+          },
+          {
+            "name": "vpn_chat",
+            "support": 11,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_file",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 29
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 1
+          },
+          {
+            "name": "vpn_voip",
+            "support": 17,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 1
+          }
+        ],
+        "n": 66,
+        "confusion": null,
+        "meta": {
+          "stratum": "[784,1024)",
+          "underpowered": false
+        },
+        "concealment_gap": 0.22703222703222709
+      },
+      "[1024,1500)": {
+        "accuracy": 0.1678832116788321,
+        "macro_f1": 0.21238208926978194,
+        "weighted_f1": 0.1895686519716067,
+        "balanced_accuracy": 0.33103617629933424,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 3,
+            "precision": 0.16666666666666666,
+            "recall": 0.3333333333333333,
+            "f1": 0.2222222222222222,
+            "predicted": 6
+          },
+          {
+            "name": "email",
+            "support": 10,
+            "precision": 1.0,
+            "recall": 0.1,
+            "f1": 0.18181818181818182,
+            "predicted": 1
+          },
+          {
+            "name": "file",
+            "support": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "streaming",
+            "support": 33,
+            "precision": 0.8571428571428571,
+            "recall": 0.18181818181818182,
+            "f1": 0.30000000000000004,
+            "predicted": 7
+          },
+          {
+            "name": "voip",
+            "support": 7,
+            "precision": 0.0975609756097561,
+            "recall": 0.5714285714285714,
+            "f1": 0.16666666666666669,
+            "predicted": 41
+          },
+          {
+            "name": "vpn_chat",
+            "support": 19,
+            "precision": 1.0,
+            "recall": 0.10526315789473684,
+            "f1": 0.1904761904761905,
+            "predicted": 2
+          },
+          {
+            "name": "vpn_email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_file",
+            "support": 1,
+            "precision": 0.015151515151515152,
+            "recall": 1.0,
+            "f1": 0.02985074626865672,
+            "predicted": 66
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 7,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 7
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_voip",
+            "support": 54,
+            "precision": 0.14285714285714285,
+            "recall": 0.018518518518518517,
+            "f1": 0.03278688524590164,
+            "predicted": 7
+          }
+        ],
+        "n": 137,
+        "confusion": null,
+        "meta": {
+          "stratum": "[1024,1500)",
+          "underpowered": false
+        },
+        "concealment_gap": -0.022813437298175254
+      },
+      "[1500,inf)": {
+        "accuracy": 0.45652173913043476,
+        "macro_f1": 0.40173887822990223,
+        "weighted_f1": 0.40481945184441015,
+        "balanced_accuracy": 0.5370358497628862,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 30,
+            "precision": 0.28,
+            "recall": 0.7,
+            "f1": 0.4,
+            "predicted": 75
+          },
+          {
+            "name": "email",
+            "support": 132,
+            "precision": 1.0,
+            "recall": 0.007575757575757576,
+            "f1": 0.015037593984962407,
+            "predicted": 1
+          },
+          {
+            "name": "file",
+            "support": 23,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "streaming",
+            "support": 139,
+            "precision": 0.7228260869565217,
+            "recall": 0.9568345323741008,
+            "f1": 0.823529411764706,
+            "predicted": 184
+          },
+          {
+            "name": "voip",
+            "support": 15,
+            "precision": 0.08860759493670886,
+            "recall": 0.4666666666666667,
+            "f1": 0.14893617021276595,
+            "predicted": 79
+          },
+          {
+            "name": "vpn_chat",
+            "support": 59,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 3
+          },
+          {
+            "name": "vpn_email",
+            "support": 22,
+            "precision": 1.0,
+            "recall": 0.9545454545454546,
+            "f1": 0.9767441860465117,
+            "predicted": 21
+          },
+          {
+            "name": "vpn_file",
+            "support": 11,
+            "precision": 0.0990990990990991,
+            "recall": 1.0,
+            "f1": 0.180327868852459,
+            "predicted": 111
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 18,
+            "precision": 0.7727272727272727,
+            "recall": 0.9444444444444444,
+            "f1": 0.85,
+            "predicted": 22
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 66,
+            "precision": 0.8571428571428571,
+            "recall": 0.6363636363636364,
+            "f1": 0.7304347826086957,
+            "predicted": 49
+          },
+          {
+            "name": "vpn_voip",
+            "support": 83,
+            "precision": 0.37735849056603776,
+            "recall": 0.24096385542168675,
+            "f1": 0.29411764705882354,
+            "predicted": 53
+          }
+        ],
+        "n": 598,
+        "confusion": null,
+        "meta": {
+          "stratum": "[1500,inf)",
+          "underpowered": false
+        },
+        "concealment_gap": 0.00308057361450792
+      }
+    },
+    "class_support": {
+      "0-766": {
+        "accuracy": 0.831858407079646,
+        "macro_f1": 0.9129040903842981,
+        "weighted_f1": 0.8951184940134488,
+        "balanced_accuracy": 0.862962962962963,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "file",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "streaming",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "voip",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_chat",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 3
+          },
+          {
+            "name": "vpn_email",
+            "support": 44,
+            "precision": 1.0,
+            "recall": 0.9545454545454546,
+            "f1": 0.9767441860465117,
+            "predicted": 42
+          },
+          {
+            "name": "vpn_file",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 22
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 72,
+            "precision": 0.927536231884058,
+            "recall": 0.8888888888888888,
+            "f1": 0.9078014184397163,
+            "predicted": 69
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 110,
+            "precision": 1.0,
+            "recall": 0.7454545454545455,
+            "f1": 0.8541666666666666,
+            "predicted": 82
+          },
+          {
+            "name": "vpn_voip",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 8
+          }
+        ],
+        "n": 226,
+        "confusion": null,
+        "meta": {
+          "stratum": "0-766",
+          "underpowered": false
+        },
+        "concealment_gap": -0.01778559637084931
+      },
+      "767-3180": {
+        "accuracy": 0.8401360544217688,
+        "macro_f1": 0.9032921810699588,
+        "weighted_f1": 0.9046079337084628,
+        "balanced_accuracy": 0.8379310344827586,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 2
+          },
+          {
+            "name": "email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "file",
+            "support": 145,
+            "precision": 1.0,
+            "recall": 0.6758620689655173,
+            "f1": 0.8065843621399177,
+            "predicted": 98
+          },
+          {
+            "name": "streaming",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 30
+          },
+          {
+            "name": "voip",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 15
+          },
+          {
+            "name": "vpn_chat",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_file",
+            "support": 149,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 149
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_voip",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          }
+        ],
+        "n": 294,
+        "confusion": null,
+        "meta": {
+          "stratum": "767-3180",
+          "underpowered": false
+        },
+        "concealment_gap": 0.0013157526385040308
+      },
+      "3181-4044": {
+        "accuracy": 0.2612664004563605,
+        "macro_f1": 0.37386738985546136,
+        "weighted_f1": 0.3272739926200787,
+        "balanced_accuracy": 0.3001739031654915,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 439
+          },
+          {
+            "name": "email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 3
+          },
+          {
+            "name": "file",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 4
+          },
+          {
+            "name": "streaming",
+            "support": 474,
+            "precision": 0.9902912621359223,
+            "recall": 0.6455696202531646,
+            "f1": 0.7816091954022989,
+            "predicted": 309
+          },
+          {
+            "name": "voip",
+            "support": 593,
+            "precision": 0.46794871794871795,
+            "recall": 0.24620573355817876,
+            "f1": 0.32265193370165746,
+            "predicted": 312
+          },
+          {
+            "name": "vpn_chat",
+            "support": 686,
+            "precision": 1.0,
+            "recall": 0.008746355685131196,
+            "f1": 0.017341040462427744,
+            "predicted": 6
+          },
+          {
+            "name": "vpn_email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 7
+          },
+          {
+            "name": "vpn_file",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 108
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 1
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 13
+          },
+          {
+            "name": "vpn_voip",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 551
+          }
+        ],
+        "n": 1753,
+        "confusion": null,
+        "meta": {
+          "stratum": "3181-4044",
+          "underpowered": false
+        },
+        "concealment_gap": -0.04659339723538264
+      },
+      "4045-6992": {
+        "accuracy": 0.44024802705749716,
+        "macro_f1": 0.4154533752277089,
+        "weighted_f1": 0.5074452424428241,
+        "balanced_accuracy": 0.3467219595559062,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 914,
+            "precision": 0.8200782268578879,
+            "recall": 0.688183807439825,
+            "f1": 0.7483640690065437,
+            "predicted": 767
+          },
+          {
+            "name": "email",
+            "support": 417,
+            "precision": 0.19325153374233128,
+            "recall": 0.1510791366906475,
+            "f1": 0.1695827725437416,
+            "predicted": 326
+          },
+          {
+            "name": "file",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 1
+          },
+          {
+            "name": "streaming",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 94
+          },
+          {
+            "name": "voip",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 133
+          },
+          {
+            "name": "vpn_chat",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 3
+          },
+          {
+            "name": "vpn_email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_file",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 340
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 11
+          },
+          {
+            "name": "vpn_voip",
+            "support": 443,
+            "precision": 0.898989898989899,
+            "recall": 0.20090293453724606,
+            "f1": 0.3284132841328413,
+            "predicted": 99
+          }
+        ],
+        "n": 1774,
+        "confusion": null,
+        "meta": {
+          "stratum": "4045-6992",
+          "underpowered": false
+        },
+        "concealment_gap": 0.09199186721511515
+      }
+    },
+    "encryption": {
+      "unknown": {
+        "accuracy": 0.3712966525586764,
+        "macro_f1": 0.4398720203576559,
+        "weighted_f1": 0.3398006777059316,
+        "balanced_accuracy": 0.47744662248992226,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 655,
+            "precision": 0.4552661381653454,
+            "recall": 0.6137404580152672,
+            "f1": 0.5227568270481145,
+            "predicted": 883
+          },
+          {
+            "name": "email",
+            "support": 182,
+            "precision": 0.19805194805194806,
+            "recall": 0.33516483516483514,
+            "f1": 0.24897959183673465,
+            "predicted": 308
+          },
+          {
+            "name": "file",
+            "support": 107,
+            "precision": 0.9702970297029703,
+            "recall": 0.9158878504672897,
+            "f1": 0.9423076923076923,
+            "predicted": 101
+          },
+          {
+            "name": "streaming",
+            "support": 151,
+            "precision": 0.8269230769230769,
+            "recall": 0.2847682119205298,
+            "f1": 0.42364532019704426,
+            "predicted": 52
+          },
+          {
+            "name": "voip",
+            "support": 553,
+            "precision": 0.4557823129251701,
+            "recall": 0.2423146473779385,
+            "f1": 0.3164108618654073,
+            "predicted": 294
+          },
+          {
+            "name": "vpn_chat",
+            "support": 539,
+            "precision": 0.5714285714285714,
+            "recall": 0.0074211502782931356,
+            "f1": 0.014652014652014652,
+            "predicted": 7
+          },
+          {
+            "name": "vpn_email",
+            "support": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 2
+          },
+          {
+            "name": "vpn_file",
+            "support": 136,
+            "precision": 0.38095238095238093,
+            "recall": 1.0,
+            "f1": 0.5517241379310345,
+            "predicted": 357
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 20,
+            "precision": 0.9375,
+            "recall": 0.75,
+            "f1": 0.8333333333333334,
+            "predicted": 16
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 42,
+            "precision": 0.851063829787234,
+            "recall": 0.9523809523809523,
+            "f1": 0.898876404494382,
+            "predicted": 47
+          },
+          {
+            "name": "vpn_voip",
+            "support": 213,
+            "precision": 0.06015037593984962,
+            "recall": 0.15023474178403756,
+            "f1": 0.08590604026845637,
+            "predicted": 532
+          }
+        ],
+        "n": 2599,
+        "confusion": null,
+        "meta": {
+          "stratum": "unknown",
+          "underpowered": false
+        },
+        "concealment_gap": -0.1000713426517243
+      },
+      "plaintext": {
+        "accuracy": 0.8403908794788274,
+        "macro_f1": 0.3412717750963172,
+        "weighted_f1": 0.8484656284839943,
+        "balanced_accuracy": 0.3486546747091771,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 211,
+            "precision": 0.965,
+            "recall": 0.9146919431279621,
+            "f1": 0.9391727493917275,
+            "predicted": 200
+          },
+          {
+            "name": "email",
+            "support": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 18
+          },
+          {
+            "name": "file",
+            "support": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "streaming",
+            "support": 44,
+            "precision": 0.8936170212765957,
+            "recall": 0.9545454545454546,
+            "f1": 0.9230769230769231,
+            "predicted": 47
+          },
+          {
+            "name": "voip",
+            "support": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 3
+          },
+          {
+            "name": "vpn_chat",
+            "support": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_file",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 8
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 25,
+            "precision": 0.8214285714285714,
+            "recall": 0.92,
+            "f1": 0.8679245283018867,
+            "predicted": 28
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 11,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_voip",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 3
+          }
+        ],
+        "n": 307,
+        "confusion": null,
+        "meta": {
+          "stratum": "plaintext",
+          "underpowered": false
+        },
+        "concealment_gap": 0.5071938533876772
+      },
+      "encrypted_tls": {
+        "accuracy": 0.48655256723716384,
+        "macro_f1": 0.35543230488984157,
+        "weighted_f1": 0.41999397358970864,
+        "balanced_accuracy": 0.4417206442484692,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 15,
+            "precision": 0.23728813559322035,
+            "recall": 0.9333333333333333,
+            "f1": 0.37837837837837834,
+            "predicted": 59
+          },
+          {
+            "name": "email",
+            "support": 107,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "file",
+            "support": 10,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "streaming",
+            "support": 133,
+            "precision": 0.75,
+            "recall": 0.9699248120300752,
+            "f1": 0.8459016393442623,
+            "predicted": 172
+          },
+          {
+            "name": "voip",
+            "support": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 41
+          },
+          {
+            "name": "vpn_chat",
+            "support": 54,
+            "precision": 0.4,
+            "recall": 0.037037037037037035,
+            "f1": 0.06779661016949153,
+            "predicted": 5
+          },
+          {
+            "name": "vpn_email",
+            "support": 22,
+            "precision": 1.0,
+            "recall": 0.9545454545454546,
+            "f1": 0.9767441860465117,
+            "predicted": 21
+          },
+          {
+            "name": "vpn_file",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 28
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 31,
+            "precision": 0.5142857142857142,
+            "recall": 0.5806451612903226,
+            "f1": 0.5454545454545455,
+            "predicted": 35
+          },
+          {
+            "name": "vpn_voip",
+            "support": 30,
+            "precision": 0.3125,
+            "recall": 0.5,
+            "f1": 0.38461538461538464,
+            "predicted": 48
+          }
+        ],
+        "n": 409,
+        "confusion": null,
+        "meta": {
+          "stratum": "encrypted_tls",
+          "underpowered": false
+        },
+        "concealment_gap": 0.06456166869986707
+      },
+      "encrypted_other": {
+        "accuracy": 0.09090909090909091,
+        "macro_f1": 0.09523809523809525,
+        "weighted_f1": 0.05194805194805196,
+        "balanced_accuracy": 0.16666666666666666,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 2,
+            "precision": 0.2,
+            "recall": 0.5,
+            "f1": 0.28571428571428575,
+            "predicted": 5
+          },
+          {
+            "name": "email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 1
+          },
+          {
+            "name": "file",
+            "support": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "streaming",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 1
+          },
+          {
+            "name": "voip",
+            "support": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 4
+          },
+          {
+            "name": "vpn_chat",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_file",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_voip",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          }
+        ],
+        "n": 11,
+        "confusion": null,
+        "meta": {
+          "stratum": "encrypted_other",
+          "underpowered": false
+        },
+        "concealment_gap": -0.04329004329004329
+      },
+      "unencrypted_binary": {
+        "accuracy": 0.4696261682242991,
+        "macro_f1": 0.445527981360416,
+        "weighted_f1": 0.43946192140241863,
+        "balanced_accuracy": 0.5149652034068208,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 5,
+            "precision": 0.045454545454545456,
+            "recall": 0.4,
+            "f1": 0.0816326530612245,
+            "predicted": 44
+          },
+          {
+            "name": "email",
+            "support": 93,
+            "precision": 1.0,
+            "recall": 0.021505376344086023,
+            "f1": 0.04210526315789474,
+            "predicted": 2
+          },
+          {
+            "name": "file",
+            "support": 9,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 2
+          },
+          {
+            "name": "streaming",
+            "support": 142,
+            "precision": 0.6190476190476191,
+            "recall": 0.6408450704225352,
+            "f1": 0.629757785467128,
+            "predicted": 147
+          },
+          {
+            "name": "voip",
+            "support": 28,
+            "precision": 0.14634146341463414,
+            "recall": 0.42857142857142855,
+            "f1": 0.2181818181818182,
+            "predicted": 82
+          },
+          {
+            "name": "vpn_chat",
+            "support": 44,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_email",
+            "support": 21,
+            "precision": 0.8076923076923077,
+            "recall": 1.0,
+            "f1": 0.8936170212765957,
+            "predicted": 26
+          },
+          {
+            "name": "vpn_file",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 27
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 26,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 26
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 18,
+            "precision": 1.0,
+            "recall": 0.9444444444444444,
+            "f1": 0.9714285714285714,
+            "predicted": 17
+          },
+          {
+            "name": "vpn_voip",
+            "support": 42,
+            "precision": 0.5454545454545454,
+            "recall": 0.7142857142857143,
+            "f1": 0.6185567010309277,
+            "predicted": 55
+          }
+        ],
+        "n": 428,
+        "confusion": null,
+        "meta": {
+          "stratum": "unencrypted_binary",
+          "underpowered": false
+        },
+        "concealment_gap": -0.006066059957997361
+      },
+      "opaque_high_entropy": {
+        "accuracy": 0.17064846416382254,
+        "macro_f1": 0.23251278766346323,
+        "weighted_f1": 0.17531386025649556,
+        "balanced_accuracy": 0.31719950232608457,
+        "per_class": [
+          {
+            "name": "chat",
+            "support": 26,
+            "precision": 1.0,
+            "recall": 0.6538461538461539,
+            "f1": 0.7906976744186047,
+            "predicted": 17
+          },
+          {
+            "name": "email",
+            "support": 30,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "file",
+            "support": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "streaming",
+            "support": 4,
+            "precision": 0.07142857142857142,
+            "recall": 0.25,
+            "f1": 0.11111111111111112,
+            "predicted": 14
+          },
+          {
+            "name": "voip",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 36
+          },
+          {
+            "name": "vpn_chat",
+            "support": 46,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_email",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_file",
+            "support": 13,
+            "precision": 0.06532663316582915,
+            "recall": 1.0,
+            "f1": 0.12264150943396228,
+            "predicted": 199
+          },
+          {
+            "name": "vpn_p2p",
+            "support": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "vpn_streaming",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 0.875,
+            "f1": 0.9333333333333333,
+            "predicted": 7
+          },
+          {
+            "name": "vpn_voip",
+            "support": 158,
+            "precision": 0.6,
+            "recall": 0.0759493670886076,
+            "f1": 0.13483146067415733,
+            "predicted": 20
+          }
+        ],
+        "n": 293,
+        "confusion": null,
+        "meta": {
+          "stratum": "opaque_high_entropy",
+          "underpowered": false
+        },
+        "concealment_gap": -0.057198927406967665
+      }
+    }
+  },
+  "failed_classes": [
+    "vpn_chat"
+  ]
+}

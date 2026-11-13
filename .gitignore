@@ -1,0 +1,23 @@
+# Corpora and derived stores. 55 GB of pcaps and 483 MB of HDF5; both are
+# rebuilt by scripts/get_datasets.sh and scripts/build_store.py.
+data/
+stores/
+
+# Third-party paper PDFs and prior-phase submissions. The twelve reviewed
+# papers are cited in full in the report's reference list instead.
+papers/
+
+# Submission bundle, rebuilt by zipping the tracked files.
+Phase3_i232548_i232582.zip
+
+# Run logs and scratch
+*.log
+logs/
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/

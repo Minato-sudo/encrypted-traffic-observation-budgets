@@ -1,0 +1,46 @@
+{
+  "corpus": "iscx",
+  "seed": 0,
+  "n_test": 4047,
+  "note": "McNemar's exact test on paired per-sample correctness. The seed-noise verdicts reported elsewhere answer a different question \u2014 whether a difference exceeds run-to-run variation \u2014 and both are given because either alone is misleading.",
+  "pairs": {
+    "saturation": {
+      "question": "does 784B beat the saturation point 256B?",
+      "a": {
+        "label": "256B",
+        "accuracy": 0.3938720039535458,
+        "macro_f1": 0.48912679852959423
+      },
+      "b": {
+        "label": "784B",
+        "accuracy": 0.41363973313565605,
+        "macro_f1": 0.5122629763125135
+      },
+      "mcnemar": {
+        "n01": 254,
+        "n10": 174,
+        "p_value": 0.00012875216980012962
+      },
+      "bytes_ratio": 3.0625
+    },
+    "ports": {
+      "question": "does masking the port bytes change the result at 256B?",
+      "a": {
+        "label": "ports retained",
+        "accuracy": 0.3938720039535458,
+        "macro_f1": 0.48912679852959423
+      },
+      "b": {
+        "label": "ports masked",
+        "accuracy": 0.39807264640474427,
+        "macro_f1": 0.4961287474782591
+      },
+      "mcnemar": {
+        "n01": 234,
+        "n10": 217,
+        "p_value": 0.4512396571019624
+      }
+    }
+  },
+  "seconds": 34.729302406311035
+}

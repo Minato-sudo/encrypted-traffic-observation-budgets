@@ -1,0 +1,58 @@
+{
+  "reference": "all heads supervised",
+  "variants": {
+    "all heads supervised": {
+      "accuracy": {
+        "mean": 0.9745897108265593,
+        "std": 0.004578022146838156,
+        "n_seeds": 3,
+        "values": [
+          0.976374955821983,
+          0.9780061441426746,
+          0.9693880325150205
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.9713900423567398,
+        "std": 0.012937676012104654,
+        "n_seeds": 3,
+        "values": [
+          0.9740509518174434,
+          0.9827903822294614,
+          0.9573287930233146
+        ]
+      },
+      "params": 698580,
+      "description": "auxiliary classification head at every budget"
+    },
+    "terminal head only": {
+      "accuracy": {
+        "mean": 0.9832259467688879,
+        "std": 0.003453003030597276,
+        "n_seeds": 3,
+        "values": [
+          0.9839327950411875,
+          0.9862708316341788,
+          0.979474213631297
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.9794030783560302,
+        "std": 0.007424195803345186,
+        "n_seeds": 3,
+        "values": [
+          0.9824289926426992,
+          0.984836455884572,
+          0.9709437865408198
+        ]
+      },
+      "params": 589444,
+      "description": "the same encoder, supervised only at the deepest budget",
+      "delta_macro_f1": 0.008013035999290485,
+      "seed_noise": 0.012937676012104654,
+      "verdict": "inconclusive"
+    }
+  },
+  "ceiling": 1024,
+  "note": "evaluate_model reads the deepest head, so this compares like with like: the question is whether supervising the shallow heads costs the deep one anything"
+}

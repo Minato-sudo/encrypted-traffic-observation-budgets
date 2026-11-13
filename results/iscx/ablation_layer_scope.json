@@ -1,0 +1,88 @@
+{
+  "reference": "all layers",
+  "variants": {
+    "all layers": {
+      "accuracy": {
+        "mean": 0.4418911127584219,
+        "std": 0.026528480983632176,
+        "n_seeds": 3,
+        "values": [
+          0.41363973313565605,
+          0.4457622930565851,
+          0.46627131208302447
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.5245213025171503,
+        "std": 0.02078194553650305,
+        "n_seeds": 3,
+        "values": [
+          0.5122629763125135,
+          0.5127845948240748,
+          0.5485163364148629
+        ]
+      },
+      "params": 104059,
+      "description": "the prefix as preprocessed"
+    },
+    "headers only": {
+      "accuracy": {
+        "mean": 0.4782143151305494,
+        "std": 0.06117841394173716,
+        "n_seeds": 3,
+        "values": [
+          0.4161106992834198,
+          0.48010872251050163,
+          0.5384235235977267
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.48570994941380974,
+        "std": 0.06349761095436768,
+        "n_seeds": 3,
+        "values": [
+          0.4131798155042445,
+          0.5126754812615218,
+          0.5312745514756628
+        ]
+      },
+      "params": 104059,
+      "description": "link, network and transport headers of every packet, concatenated",
+      "delta_macro_f1": -0.03881135310334061,
+      "seed_noise": 0.06349761095436768,
+      "verdict": "inconclusive",
+      "mean_bytes_available": 194.16827279466273,
+      "fraction_of_budget_filled": 0.22536534999470506
+    },
+    "payload only": {
+      "accuracy": {
+        "mean": 0.3828350218268676,
+        "std": 0.023703680018765962,
+        "n_seeds": 3,
+        "values": [
+          0.39436619718309857,
+          0.398566839634297,
+          0.3555720286632073
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.4267670280112019,
+        "std": 0.0039055924854584944,
+        "n_seeds": 3,
+        "values": [
+          0.4222578750651143,
+          0.4290872356053843,
+          0.42895597336310715
+        ]
+      },
+      "params": 104059,
+      "description": "application-layer bytes only",
+      "delta_macro_f1": -0.09775427450594842,
+      "seed_noise": 0.02078194553650305,
+      "verdict": "worse",
+      "mean_bytes_available": 329.8598962194218,
+      "fraction_of_budget_filled": 0.2998810532367135
+    }
+  },
+  "budget": "784B"
+}

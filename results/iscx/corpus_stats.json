@@ -1,0 +1,166 @@
+{
+  "n_sessions": 31855,
+  "n_classes": 11,
+  "class_names": [
+    "chat",
+    "email",
+    "file",
+    "streaming",
+    "voip",
+    "vpn_chat",
+    "vpn_email",
+    "vpn_file",
+    "vpn_p2p",
+    "vpn_streaming",
+    "vpn_voip"
+  ],
+  "class_counts": {
+    "chat": 6093,
+    "email": 4077,
+    "file": 1242,
+    "streaming": 3181,
+    "voip": 3953,
+    "vpn_chat": 4014,
+    "vpn_email": 293,
+    "vpn_file": 994,
+    "vpn_p2p": 475,
+    "vpn_streaming": 541,
+    "vpn_voip": 6992
+  },
+  "true_length": {
+    "median": 274,
+    "p90": 1922
+  },
+  "packet_count": {
+    "median": 2,
+    "p90": 14
+  },
+  "padded_fraction_at_budget": {
+    "64B": 0.0040495997488620315,
+    "128B": 0.051200753413906765,
+    "256B": 0.48130591743839274,
+    "512B": 0.8484382357557684,
+    "784B": 0.870255846805839,
+    "1024B": 0.8791712447025585,
+    "1500B": 0.8937686391461309
+  },
+  "strata": {
+    "unknown": 0.6253335426149741,
+    "plaintext": 0.06768168262439178,
+    "encrypted_tls": 0.07430544655470099,
+    "encrypted_other": 0.002950871134829697,
+    "unencrypted_binary": 0.2079108460210328,
+    "opaque_high_entropy": 0.021817611050070632
+  },
+  "tls": {
+    "handshakes_parsed": 1742,
+    "deprecated_fraction": 0.1354764638346728
+  },
+  "class_capture_files": {
+    "chat": 10,
+    "email": 4,
+    "file": 25,
+    "streaming": 24,
+    "voip": 8,
+    "vpn_chat": 10,
+    "vpn_email": 2,
+    "vpn_file": 6,
+    "vpn_p2p": 1,
+    "vpn_streaming": 5,
+    "vpn_voip": 6
+  },
+  "single_capture_classes": [
+    "vpn_p2p"
+  ],
+  "captures": {
+    "registered": 140,
+    "contributing_sessions": 101,
+    "contributed_nothing": [
+      "AIMchat1",
+      "AIMchat2",
+      "ICQchat1",
+      "ICQchat2",
+      "facebook_audio1b",
+      "facebook_audio2b",
+      "facebook_audio3",
+      "facebook_audio4",
+      "facebook_video1b",
+      "facebook_video2b",
+      "facebookchat1",
+      "facebookchat2",
+      "facebookchat3",
+      "gmailchat1",
+      "gmailchat2",
+      "gmailchat3",
+      "hangouts_audio1b",
+      "hangouts_audio2b",
+      "hangouts_audio3",
+      "hangouts_audio4",
+      "hangouts_video1b",
+      "hangouts_video2b",
+      "scp1",
+      "sftp1",
+      "skype_audio1b",
+      "skype_audio2b",
+      "skype_audio3",
+      "skype_audio4",
+      "skype_file4",
+      "skype_file5",
+      "skype_file6",
+      "skype_file7",
+      "skype_file8",
+      "skype_video1b",
+      "skype_video2b",
+      "voipbuster1b",
+      "voipbuster2b",
+      "voipbuster3b",
+      "vpn_hangouts_audio2"
+    ]
+  },
+  "definitely_not_encrypted_fraction": 0.2755925286454246,
+  "confirmed_tls_fraction": 0.07430544655470099,
+  "taxonomy": {
+    "scheme": "category, vpn-aware",
+    "expected": [
+      "chat",
+      "email",
+      "file",
+      "p2p",
+      "streaming",
+      "voip",
+      "vpn_chat",
+      "vpn_email",
+      "vpn_file",
+      "vpn_p2p",
+      "vpn_streaming",
+      "vpn_voip"
+    ],
+    "missing": [
+      "p2p"
+    ]
+  },
+  "split_strategy": {
+    "chat": "temporal (group split left a split empty)",
+    "email": "group",
+    "file": "group",
+    "streaming": "group",
+    "voip": "temporal (group split left a split empty)",
+    "vpn_chat": "group",
+    "vpn_email": "temporal (single capture file)",
+    "vpn_file": "temporal (group split left a split empty)",
+    "vpn_p2p": "temporal (single capture file)",
+    "vpn_streaming": "group",
+    "vpn_voip": "group"
+  },
+  "split_strategy_counts": {
+    "temporal": 5,
+    "group": 6
+  },
+  "temporally_split_classes": [
+    "chat",
+    "voip",
+    "vpn_email",
+    "vpn_file",
+    "vpn_p2p"
+  ]
+}

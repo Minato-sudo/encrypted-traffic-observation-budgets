@@ -1,0 +1,300 @@
+{
+  "budget": "1024B",
+  "model": "wang1d",
+  "controls": {
+    "zero": {
+      "n_train": 249457,
+      "n_test": 51963,
+      "accuracy": {
+        "mean": 0.9377890678623891,
+        "std": 0.00526132245899121,
+        "n_seeds": 3,
+        "values": [
+          0.9339530050228046,
+          0.9437869253122414,
+          0.9356272732521217
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.9350975179168922,
+        "std": 0.0067023810736281594,
+        "n_seeds": 3,
+        "values": [
+          0.928411139378017,
+          0.9418157877160773,
+          0.9350656266565821
+        ]
+      },
+      "accuracy_vs_padding_fraction": [
+        {
+          "padding_fraction": "[0.0,0.2]",
+          "n": 21467,
+          "accuracy": 0.860110867843667
+        },
+        {
+          "padding_fraction": "[0.2,0.4]",
+          "n": 1640,
+          "accuracy": 0.9841463414634146
+        },
+        {
+          "padding_fraction": "[0.4,0.6]",
+          "n": 1348,
+          "accuracy": 0.8753709198813057
+        },
+        {
+          "padding_fraction": "[0.6,0.8]",
+          "n": 7193,
+          "accuracy": 0.9892951480606145
+        },
+        {
+          "padding_fraction": "[0.8,1.0]",
+          "n": 20315,
+          "accuracy": 0.9922224956928378
+        }
+      ]
+    },
+    "embed": {
+      "n_train": 249457,
+      "n_test": 51963,
+      "accuracy": {
+        "mean": 0.9538453643297474,
+        "std": 0.010569911848031983,
+        "n_seeds": 3,
+        "values": [
+          0.9417085233723996,
+          0.9587976059888768,
+          0.961029963627966
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.9488873463685114,
+        "std": 0.006852374919095789,
+        "n_seeds": 3,
+        "values": [
+          0.9476231834144004,
+          0.9562837800725685,
+          0.9427550756185651
+        ]
+      },
+      "accuracy_vs_padding_fraction": [
+        {
+          "padding_fraction": "[0.0,0.2]",
+          "n": 21467,
+          "accuracy": 0.8764615456281735
+        },
+        {
+          "padding_fraction": "[0.2,0.4]",
+          "n": 1640,
+          "accuracy": 0.9951219512195122
+        },
+        {
+          "padding_fraction": "[0.4,0.6]",
+          "n": 1348,
+          "accuracy": 0.8620178041543026
+        },
+        {
+          "padding_fraction": "[0.6,0.8]",
+          "n": 7193,
+          "accuracy": 0.9922146531349924
+        },
+        {
+          "padding_fraction": "[0.8,1.0]",
+          "n": 20315,
+          "accuracy": 0.9937484617277873
+        }
+      ]
+    },
+    "mask": {
+      "n_train": 249457,
+      "n_test": 51963,
+      "accuracy": {
+        "mean": 0.956340729621718,
+        "std": 0.025622846012070134,
+        "n_seeds": 3,
+        "values": [
+          0.937551719492716,
+          0.945942305101707,
+          0.9855281642707311
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.9553468164849827,
+        "std": 0.017607885409792894,
+        "n_seeds": 3,
+        "values": [
+          0.9434978742719371,
+          0.9469625645552476,
+          0.9755800106277629
+        ]
+      },
+      "accuracy_vs_padding_fraction": [
+        {
+          "padding_fraction": "[0.0,0.2]",
+          "n": 21467,
+          "accuracy": 0.8726417291656962
+        },
+        {
+          "padding_fraction": "[0.2,0.4]",
+          "n": 1640,
+          "accuracy": 0.9140243902439025
+        },
+        {
+          "padding_fraction": "[0.4,0.6]",
+          "n": 1348,
+          "accuracy": 0.8560830860534124
+        },
+        {
+          "padding_fraction": "[0.6,0.8]",
+          "n": 7193,
+          "accuracy": 0.9902683164187405
+        },
+        {
+          "padding_fraction": "[0.8,1.0]",
+          "n": 20315,
+          "accuracy": 0.9947821806546887
+        }
+      ]
+    },
+    "convmask": {
+      "n_train": 249457,
+      "n_test": 51963,
+      "accuracy": {
+        "mean": 0.9469686764300239,
+        "std": 0.00547965017094166,
+        "n_seeds": 3,
+        "values": [
+          0.9409195004137559,
+          0.9516001770490541,
+          0.9483863518272617
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.939891520842998,
+        "std": 0.005290639305717901,
+        "n_seeds": 3,
+        "values": [
+          0.9339244988884488,
+          0.9440094263762596,
+          0.9417406372642855
+        ]
+      },
+      "accuracy_vs_padding_fraction": [
+        {
+          "padding_fraction": "[0.0,0.2]",
+          "n": 21467,
+          "accuracy": 0.8734336423347464
+        },
+        {
+          "padding_fraction": "[0.2,0.4]",
+          "n": 1640,
+          "accuracy": 0.9859756097560975
+        },
+        {
+          "padding_fraction": "[0.4,0.6]",
+          "n": 1348,
+          "accuracy": 0.8931750741839762
+        },
+        {
+          "padding_fraction": "[0.6,0.8]",
+          "n": 7193,
+          "accuracy": 0.9933268455442792
+        },
+        {
+          "padding_fraction": "[0.8,1.0]",
+          "n": 20315,
+          "accuracy": 0.9932069899089343
+        }
+      ]
+    },
+    "length_balanced": {
+      "n_train": 1694,
+      "n_test": 168,
+      "accuracy": {
+        "mean": 0.8214285714285715,
+        "std": 0.01030982623552906,
+        "n_seeds": 3,
+        "values": [
+          0.8154761904761905,
+          0.8333333333333334,
+          0.8154761904761905
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.7906923097615114,
+        "std": 0.013335260842672381,
+        "n_seeds": 3,
+        "values": [
+          0.775443872023349,
+          0.8001720721227129,
+          0.7964609851384722
+        ]
+      },
+      "accuracy_vs_padding_fraction": [
+        {
+          "padding_fraction": "[0.0,0.2]",
+          "n": 168,
+          "accuracy": 0.8154761904761905
+        }
+      ]
+    }
+  },
+  "length_balance": {
+    "n_bins": 8,
+    "classes_total": 20,
+    "classes_spanning_all_bins": [
+      "Geodo",
+      "Htbot",
+      "Miuref",
+      "Neris",
+      "Nsis-ay",
+      "Shifu",
+      "Virut"
+    ],
+    "classes_excluded": [
+      "Cridex",
+      "Tinba",
+      "Zeus",
+      "BitTorrent",
+      "Facetime",
+      "FTP",
+      "Gmail",
+      "MySQL",
+      "Outlook",
+      "Skype",
+      "SMB",
+      "Weibo",
+      "WorldOfWarcraft"
+    ],
+    "edges": [
+      69.0,
+      148.0,
+      186.0,
+      253.0,
+      510.0,
+      1180.0,
+      4558.0,
+      47499.0,
+      20788780.000000004
+    ],
+    "outcome": "balanced 7 of 20 classes across 8 length bins",
+    "n_retained": 1694,
+    "fraction_retained": 0.006790749507931227,
+    "n_train": 1694,
+    "n_val": 343,
+    "n_test": 168,
+    "chance_within_balanced_set": 0.14285714285714285
+  },
+  "deltas_vs_zero_padding": {
+    "embed": 0.01379,
+    "mask": 0.02025,
+    "convmask": 0.00479,
+    "length_balanced": -0.14441,
+    "length_balanced_caveat": "scored on a subset of classes with equalised length distributions, so its macro-F1 is not on the same scale as the others; compare it to chance within that subset, not to the zero-padding baseline"
+  },
+  "mask_attribution": {
+    "representation_effect": 0.01379,
+    "padding_symbol_effect": 0.00646,
+    "seed_noise": 0.01761,
+    "padding_symbol_conclusive": false
+  }
+}

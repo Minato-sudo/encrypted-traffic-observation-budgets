@@ -1,0 +1,19 @@
+{
+  "store": "stores/ustc.h5",
+  "model": "wang1d",
+  "pad_mode": "embed",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "seconds": 2146.3161795139313,
+  "stages": [
+    "padding"
+  ],
+  "epochs": 40,
+  "max_per_class": 0,
+  "corpus_name": "USTC-TFC2016",
+  "n_train": 249457,
+  "n_test": 51963
+}

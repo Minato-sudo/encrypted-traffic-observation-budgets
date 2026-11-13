@@ -1,0 +1,3432 @@
+{
+  "model": "wang1d",
+  "budget": "784B",
+  "seed": 0,
+  "overall": {
+    "accuracy": 0.9408810114889441,
+    "macro_f1": 0.9245426866906735,
+    "weighted_f1": 0.9378022872424189,
+    "balanced_accuracy": 0.9324027053360341,
+    "per_class": [
+      {
+        "name": "Cridex",
+        "support": 1229,
+        "precision": 0.9959481361426256,
+        "recall": 1.0,
+        "f1": 0.9979699553390174,
+        "predicted": 1234
+      },
+      {
+        "name": "Geodo",
+        "support": 1007,
+        "precision": 0.8960074280408542,
+        "recall": 0.958291956305859,
+        "f1": 0.9261036468330134,
+        "predicted": 1077
+      },
+      {
+        "name": "Htbot",
+        "support": 953,
+        "precision": 0.9554513481828839,
+        "recall": 0.8551941238195173,
+        "f1": 0.9025470653377631,
+        "predicted": 853
+      },
+      {
+        "name": "Miuref",
+        "support": 743,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "predicted": 743
+      },
+      {
+        "name": "Neris",
+        "support": 1330,
+        "precision": 0.831781914893617,
+        "recall": 0.9406015037593985,
+        "f1": 0.8828510938602682,
+        "predicted": 1504
+      },
+      {
+        "name": "Nsis-ay",
+        "support": 907,
+        "precision": 0.9283520982599796,
+        "recall": 1.0,
+        "f1": 0.9628450106157113,
+        "predicted": 977
+      },
+      {
+        "name": "Shifu",
+        "support": 1437,
+        "precision": 0.9869505494505495,
+        "recall": 1.0,
+        "f1": 0.9934324230902178,
+        "predicted": 1456
+      },
+      {
+        "name": "Tinba",
+        "support": 1275,
+        "precision": 0.99609375,
+        "recall": 1.0,
+        "f1": 0.9980430528375733,
+        "predicted": 1280
+      },
+      {
+        "name": "Virut",
+        "support": 931,
+        "precision": 0.9248554913294798,
+        "recall": 0.6874328678839957,
+        "f1": 0.7886629698089958,
+        "predicted": 692
+      },
+      {
+        "name": "Zeus",
+        "support": 851,
+        "precision": 0.9976470588235294,
+        "recall": 0.9964747356051704,
+        "f1": 0.9970605526161082,
+        "predicted": 850
+      },
+      {
+        "name": "BitTorrent",
+        "support": 1126,
+        "precision": 0.8459804658151766,
+        "recall": 1.0,
+        "f1": 0.9165649165649166,
+        "predicted": 1331
+      },
+      {
+        "name": "Facetime",
+        "support": 900,
+        "precision": 0.9911894273127754,
+        "recall": 1.0,
+        "f1": 0.9955752212389382,
+        "predicted": 908
+      },
+      {
+        "name": "FTP",
+        "support": 12555,
+        "precision": 0.9992836106025631,
+        "recall": 0.9999203504579849,
+        "f1": 0.999601879130504,
+        "predicted": 12563
+      },
+      {
+        "name": "Gmail",
+        "support": 967,
+        "precision": 0.8945420906567992,
+        "recall": 1.0,
+        "f1": 0.9443359374999999,
+        "predicted": 1081
+      },
+      {
+        "name": "MySQL",
+        "support": 11856,
+        "precision": 0.9782949574977304,
+        "recall": 0.9998313090418354,
+        "f1": 0.9889458974679848,
+        "predicted": 12117
+      },
+      {
+        "name": "Outlook",
+        "support": 1122,
+        "precision": 0.6862385321100918,
+        "recall": 1.0,
+        "f1": 0.8139281828073993,
+        "predicted": 1635
+      },
+      {
+        "name": "Skype",
+        "support": 914,
+        "precision": 1.0,
+        "recall": 0.5798687089715536,
+        "f1": 0.7340720221606648,
+        "predicted": 530
+      },
+      {
+        "name": "SMB",
+        "support": 5769,
+        "precision": 1.0,
+        "recall": 0.6304385508753684,
+        "f1": 0.773336168403147,
+        "predicted": 3637
+      },
+      {
+        "name": "Weibo",
+        "support": 4913,
+        "precision": 0.7777425993351275,
+        "recall": 1.0,
+        "f1": 0.8749777382012467,
+        "predicted": 6317
+      },
+      {
+        "name": "WorldOfWarcraft",
+        "support": 1178,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "predicted": 1178
+      }
+    ],
+    "n": 51963,
+    "confusion": [
+      [
+        1229,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        965,
+        36,
+        0,
+        0,
+        0,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        112,
+        815,
+        0,
+        3,
+        4,
+        13,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        743,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        2,
+        0,
+        1251,
+        25,
+        0,
+        0,
+        47,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        907,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1437,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1275,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        250,
+        41,
+        0,
+        0,
+        640,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        848,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1126,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        900,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        12554,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        967,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        11854,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1122,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        11,
+        0,
+        0,
+        0,
+        0,
+        373,
+        530,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        194,
+        8,
+        9,
+        114,
+        263,
+        140,
+        0,
+        3637,
+        1404,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4913,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1178
+      ]
+    ],
+    "meta": {
+      "budget": "784B",
+      "width": 784,
+      "mean_padding_fraction": 0.41189143806012674
+    },
+    "concealment_gap": 0.013259600551745354
+  },
+  "strata": {
+    "flow_length": {
+      "[0,128)": {
+        "accuracy": 0.9676840215439856,
+        "macro_f1": 0.7071561117145843,
+        "weighted_f1": 0.955262966865333,
+        "balanced_accuracy": 0.7065476190476191,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Htbot",
+            "support": 12,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 19,
+            "precision": 0.9047619047619048,
+            "recall": 1.0,
+            "f1": 0.9500000000000001,
+            "predicted": 21
+          },
+          {
+            "name": "Shifu",
+            "support": 312,
+            "precision": 0.968944099378882,
+            "recall": 1.0,
+            "f1": 0.9842271293375394,
+            "predicted": 322
+          },
+          {
+            "name": "Tinba",
+            "support": 170,
+            "precision": 0.9714285714285714,
+            "recall": 1.0,
+            "f1": 0.9855072463768115,
+            "predicted": 175
+          },
+          {
+            "name": "Virut",
+            "support": 6,
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1": 0.8333333333333334,
+            "predicted": 6
+          },
+          {
+            "name": "Zeus",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "BitTorrent",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Facetime",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "FTP",
+            "support": 21,
+            "precision": 1.0,
+            "recall": 0.9523809523809523,
+            "f1": 0.975609756097561,
+            "predicted": 20
+          },
+          {
+            "name": "Gmail",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "MySQL",
+            "support": 15,
+            "precision": 1.0,
+            "recall": 0.8666666666666667,
+            "f1": 0.9285714285714286,
+            "predicted": 13
+          },
+          {
+            "name": "Outlook",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Weibo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          }
+        ],
+        "n": 557,
+        "confusion": null,
+        "meta": {
+          "stratum": "[0,128)",
+          "underpowered": false
+        },
+        "concealment_gap": 0.2481068551507487
+      },
+      "[128,256)": {
+        "accuracy": 0.9947074010327023,
+        "macro_f1": 0.9280341619019623,
+        "weighted_f1": 0.994655962735369,
+        "balanced_accuracy": 0.9243133993460364,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 104,
+            "precision": 0.5486725663716814,
+            "recall": 0.5961538461538461,
+            "f1": 0.5714285714285714,
+            "predicted": 113
+          },
+          {
+            "name": "Htbot",
+            "support": 126,
+            "precision": 0.6635514018691588,
+            "recall": 0.5634920634920635,
+            "f1": 0.6094420600858369,
+            "predicted": 107
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 111,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 111
+          },
+          {
+            "name": "Shifu",
+            "support": 478,
+            "precision": 0.9855670103092784,
+            "recall": 1.0,
+            "f1": 0.9927310488058152,
+            "predicted": 485
+          },
+          {
+            "name": "Tinba",
+            "support": 1053,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1053
+          },
+          {
+            "name": "Virut",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 2
+          },
+          {
+            "name": "Zeus",
+            "support": 685,
+            "precision": 0.9985422740524781,
+            "recall": 1.0,
+            "f1": 0.99927060539752,
+            "predicted": 686
+          },
+          {
+            "name": "BitTorrent",
+            "support": 384,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 384
+          },
+          {
+            "name": "Facetime",
+            "support": 160,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 160
+          },
+          {
+            "name": "FTP",
+            "support": 9972,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 9972
+          },
+          {
+            "name": "Gmail",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "MySQL",
+            "support": 9782,
+            "precision": 0.9973491027732463,
+            "recall": 1.0,
+            "f1": 0.9986727922409393,
+            "predicted": 9808
+          },
+          {
+            "name": "Outlook",
+            "support": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 2
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 383,
+            "precision": 1.0,
+            "recall": 0.9321148825065274,
+            "f1": 0.9648648648648649,
+            "predicted": 357
+          },
+          {
+            "name": "Weibo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          }
+        ],
+        "n": 23240,
+        "confusion": null,
+        "meta": {
+          "stratum": "[128,256)",
+          "underpowered": false
+        },
+        "concealment_gap": 0.06662180083340674
+      },
+      "[256,512)": {
+        "accuracy": 0.9269901083372586,
+        "macro_f1": 0.9231792378942458,
+        "weighted_f1": 0.9286995421364119,
+        "balanced_accuracy": 0.9284562763107539,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 61
+          },
+          {
+            "name": "Htbot",
+            "support": 192,
+            "precision": 1.0,
+            "recall": 0.6770833333333334,
+            "f1": 0.8074534161490683,
+            "predicted": 130
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 12,
+            "precision": 0.9090909090909091,
+            "recall": 0.8333333333333334,
+            "f1": 0.8695652173913043,
+            "predicted": 11
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 37,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 37
+          },
+          {
+            "name": "Shifu",
+            "support": 559,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 559
+          },
+          {
+            "name": "Tinba",
+            "support": 51,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 51
+          },
+          {
+            "name": "Virut",
+            "support": 6,
+            "precision": 0.5454545454545454,
+            "recall": 1.0,
+            "f1": 0.7058823529411764,
+            "predicted": 11
+          },
+          {
+            "name": "Zeus",
+            "support": 80,
+            "precision": 1.0,
+            "recall": 0.9625,
+            "f1": 0.980891719745223,
+            "predicted": 77
+          },
+          {
+            "name": "BitTorrent",
+            "support": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1
+          },
+          {
+            "name": "Facetime",
+            "support": 569,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 569
+          },
+          {
+            "name": "FTP",
+            "support": 1132,
+            "precision": 0.9947275922671354,
+            "recall": 1.0,
+            "f1": 0.9973568281938325,
+            "predicted": 1138
+          },
+          {
+            "name": "Gmail",
+            "support": 20,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 20
+          },
+          {
+            "name": "MySQL",
+            "support": 984,
+            "precision": 0.8058968058968059,
+            "recall": 1.0,
+            "f1": 0.8925170068027211,
+            "predicted": 1221
+          },
+          {
+            "name": "Outlook",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 603,
+            "precision": 1.0,
+            "recall": 0.5970149253731343,
+            "f1": 0.7476635514018691,
+            "predicted": 360
+          },
+          {
+            "name": "Weibo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          }
+        ],
+        "n": 4246,
+        "confusion": null,
+        "meta": {
+          "stratum": "[256,512)",
+          "underpowered": false
+        },
+        "concealment_gap": 0.005520304242166096
+      },
+      "[512,784)": {
+        "accuracy": 0.8397699260476582,
+        "macro_f1": 0.8547671759267723,
+        "weighted_f1": 0.8924439025845289,
+        "balanced_accuracy": 0.9229317985399849,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Htbot",
+            "support": 5,
+            "precision": 1.0,
+            "recall": 0.4,
+            "f1": 0.5714285714285715,
+            "predicted": 2
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 146,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 146
+          },
+          {
+            "name": "Shifu",
+            "support": 10,
+            "precision": 0.8333333333333334,
+            "recall": 1.0,
+            "f1": 0.9090909090909091,
+            "predicted": 12
+          },
+          {
+            "name": "Tinba",
+            "support": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1
+          },
+          {
+            "name": "Virut",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Zeus",
+            "support": 2,
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "predicted": 3
+          },
+          {
+            "name": "BitTorrent",
+            "support": 81,
+            "precision": 0.8804347826086957,
+            "recall": 1.0,
+            "f1": 0.9364161849710982,
+            "predicted": 92
+          },
+          {
+            "name": "Facetime",
+            "support": 18,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 18
+          },
+          {
+            "name": "FTP",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 3
+          },
+          {
+            "name": "Gmail",
+            "support": 104,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 104
+          },
+          {
+            "name": "MySQL",
+            "support": 1075,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1075
+          },
+          {
+            "name": "Outlook",
+            "support": 9,
+            "precision": 0.02356020942408377,
+            "recall": 1.0,
+            "f1": 0.04603580562659846,
+            "predicted": 382
+          },
+          {
+            "name": "Skype",
+            "support": 914,
+            "precision": 1.0,
+            "recall": 0.5798687089715536,
+            "f1": 0.7340720221606648,
+            "predicted": 530
+          },
+          {
+            "name": "SMB",
+            "support": 51,
+            "precision": 1.0,
+            "recall": 0.9411764705882353,
+            "f1": 0.9696969696969697,
+            "predicted": 48
+          },
+          {
+            "name": "Weibo",
+            "support": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 17,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 17
+          }
+        ],
+        "n": 2434,
+        "confusion": null,
+        "meta": {
+          "stratum": "[512,784)",
+          "underpowered": false
+        },
+        "concealment_gap": 0.037676726657756565
+      },
+      "[784,1024)": {
+        "accuracy": 0.9896969696969697,
+        "macro_f1": 0.9778639271176585,
+        "weighted_f1": 0.993735736899916,
+        "balanced_accuracy": 0.9634995647307548,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 54,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 54
+          },
+          {
+            "name": "Htbot",
+            "support": 63,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 63
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 43,
+            "precision": 1.0,
+            "recall": 0.627906976744186,
+            "f1": 0.7714285714285715,
+            "predicted": 27
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 511,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 511
+          },
+          {
+            "name": "Shifu",
+            "support": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1
+          },
+          {
+            "name": "Tinba",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Virut",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 16
+          },
+          {
+            "name": "Zeus",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "BitTorrent",
+            "support": 75,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 75
+          },
+          {
+            "name": "Facetime",
+            "support": 153,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 153
+          },
+          {
+            "name": "FTP",
+            "support": 520,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 520
+          },
+          {
+            "name": "Gmail",
+            "support": 131,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 131
+          },
+          {
+            "name": "MySQL",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Outlook",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 34,
+            "precision": 1.0,
+            "recall": 0.9705882352941176,
+            "f1": 0.9850746268656716,
+            "predicted": 33
+          },
+          {
+            "name": "Weibo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 1
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 65,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 65
+          }
+        ],
+        "n": 1650,
+        "confusion": null,
+        "meta": {
+          "stratum": "[784,1024)",
+          "underpowered": false
+        },
+        "concealment_gap": 0.01587180978225755
+      },
+      "[1024,1500)": {
+        "accuracy": 0.9891304347826086,
+        "macro_f1": 0.9617735744672401,
+        "weighted_f1": 0.9889276834092443,
+        "balanced_accuracy": 0.9573710520086103,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 505,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 505
+          },
+          {
+            "name": "Htbot",
+            "support": 55,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 55
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 337,
+            "precision": 0.9793510324483776,
+            "recall": 0.9851632047477745,
+            "f1": 0.9822485207100592,
+            "predicted": 339
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 17,
+            "precision": 0.8095238095238095,
+            "recall": 1.0,
+            "f1": 0.8947368421052632,
+            "predicted": 21
+          },
+          {
+            "name": "Shifu",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Tinba",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Virut",
+            "support": 49,
+            "precision": 0.9069767441860465,
+            "recall": 0.7959183673469388,
+            "f1": 0.8478260869565216,
+            "predicted": 43
+          },
+          {
+            "name": "Zeus",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "BitTorrent",
+            "support": 196,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 196
+          },
+          {
+            "name": "Facetime",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "FTP",
+            "support": 60,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 60
+          },
+          {
+            "name": "Gmail",
+            "support": 204,
+            "precision": 0.9951219512195122,
+            "recall": 1.0,
+            "f1": 0.9975550122249389,
+            "predicted": 205
+          },
+          {
+            "name": "MySQL",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Outlook",
+            "support": 29,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 29
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "predicted": 3
+          },
+          {
+            "name": "Weibo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 16,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 16
+          }
+        ],
+        "n": 1472,
+        "confusion": null,
+        "meta": {
+          "stratum": "[1024,1500)",
+          "underpowered": false
+        },
+        "concealment_gap": 0.027154108942004207
+      },
+      "[1500,inf)": {
+        "accuracy": 0.8803093008059246,
+        "macro_f1": 0.9113416884190723,
+        "weighted_f1": 0.8743064412586664,
+        "balanced_accuracy": 0.9507902596934137,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 1229,
+            "precision": 0.9959481361426256,
+            "recall": 1.0,
+            "f1": 0.9979699553390174,
+            "predicted": 1234
+          },
+          {
+            "name": "Geodo",
+            "support": 344,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 344
+          },
+          {
+            "name": "Htbot",
+            "support": 500,
+            "precision": 0.9959677419354839,
+            "recall": 0.988,
+            "f1": 0.9919678714859438,
+            "predicted": 496
+          },
+          {
+            "name": "Miuref",
+            "support": 743,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 743
+          },
+          {
+            "name": "Neris",
+            "support": 936,
+            "precision": 0.782608695652174,
+            "recall": 0.9423076923076923,
+            "f1": 0.8550654386815317,
+            "predicted": 1127
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 66,
+            "precision": 0.5076923076923077,
+            "recall": 1.0,
+            "f1": 0.673469387755102,
+            "predicted": 130
+          },
+          {
+            "name": "Shifu",
+            "support": 77,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 77
+          },
+          {
+            "name": "Tinba",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Virut",
+            "support": 870,
+            "precision": 0.9609120521172638,
+            "recall": 0.6781609195402298,
+            "f1": 0.7951482479784366,
+            "predicted": 614
+          },
+          {
+            "name": "Zeus",
+            "support": 84,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 84
+          },
+          {
+            "name": "BitTorrent",
+            "support": 389,
+            "precision": 0.6672384219554031,
+            "recall": 1.0,
+            "f1": 0.8004115226337448,
+            "predicted": 583
+          },
+          {
+            "name": "Facetime",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 8
+          },
+          {
+            "name": "FTP",
+            "support": 850,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 850
+          },
+          {
+            "name": "Gmail",
+            "support": 508,
+            "precision": 0.8180354267310789,
+            "recall": 1.0,
+            "f1": 0.8999114260407439,
+            "predicted": 621
+          },
+          {
+            "name": "MySQL",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Outlook",
+            "support": 1082,
+            "precision": 0.8854337152209493,
+            "recall": 1.0,
+            "f1": 0.9392361111111112,
+            "predicted": 1222
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 4694,
+            "precision": 1.0,
+            "recall": 0.6041755432466979,
+            "f1": 0.7532536520584329,
+            "predicted": 2836
+          },
+          {
+            "name": "Weibo",
+            "support": 4912,
+            "precision": 0.7778305621536026,
+            "recall": 1.0,
+            "f1": 0.875033401621092,
+            "predicted": 6315
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 1080,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1080
+          }
+        ],
+        "n": 18364,
+        "confusion": null,
+        "meta": {
+          "stratum": "[1500,inf)",
+          "underpowered": false
+        },
+        "concealment_gap": -0.03703524716040585
+      }
+    },
+    "class_support": {
+      "0-6172": {
+        "accuracy": 0.9103128621089224,
+        "macro_f1": 0.9464612555210088,
+        "weighted_f1": 0.9433231007272339,
+        "balanced_accuracy": 0.9152686889153449,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Htbot",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Miuref",
+            "support": 743,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 743
+          },
+          {
+            "name": "Neris",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 907,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 907
+          },
+          {
+            "name": "Shifu",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Tinba",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Virut",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 3
+          },
+          {
+            "name": "Zeus",
+            "support": 851,
+            "precision": 1.0,
+            "recall": 0.9964747356051704,
+            "f1": 0.998234255444379,
+            "predicted": 848
+          },
+          {
+            "name": "BitTorrent",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 11
+          },
+          {
+            "name": "Facetime",
+            "support": 900,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 900
+          },
+          {
+            "name": "FTP",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Gmail",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "MySQL",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Outlook",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 373
+          },
+          {
+            "name": "Skype",
+            "support": 914,
+            "precision": 1.0,
+            "recall": 0.5798687089715536,
+            "f1": 0.7340720221606648,
+            "predicted": 530
+          },
+          {
+            "name": "SMB",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Weibo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          }
+        ],
+        "n": 4315,
+        "confusion": null,
+        "meta": {
+          "stratum": "0-6172",
+          "underpowered": false
+        },
+        "concealment_gap": -0.0031381547937748833
+      },
+      "6173-7487": {
+        "accuracy": 0.905421686746988,
+        "macro_f1": 0.9286766082992,
+        "weighted_f1": 0.9317774171832475,
+        "balanced_accuracy": 0.9001837896018744,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 1007,
+            "precision": 0.8960074280408542,
+            "recall": 0.958291956305859,
+            "f1": 0.9261036468330134,
+            "predicted": 1077
+          },
+          {
+            "name": "Htbot",
+            "support": 953,
+            "precision": 0.9576968272620446,
+            "recall": 0.8551941238195173,
+            "f1": 0.9035476718403548,
+            "predicted": 851
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 253
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 45
+          },
+          {
+            "name": "Shifu",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 19
+          },
+          {
+            "name": "Tinba",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 2
+          },
+          {
+            "name": "Virut",
+            "support": 931,
+            "precision": 0.9968847352024922,
+            "recall": 0.6874328678839957,
+            "f1": 0.8137317228226318,
+            "predicted": 642
+          },
+          {
+            "name": "Zeus",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 2
+          },
+          {
+            "name": "BitTorrent",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Facetime",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "FTP",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Gmail",
+            "support": 967,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 967
+          },
+          {
+            "name": "MySQL",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Outlook",
+            "support": 1122,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1122
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Weibo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          }
+        ],
+        "n": 4980,
+        "confusion": null,
+        "meta": {
+          "stratum": "6173-7487",
+          "underpowered": false
+        },
+        "concealment_gap": 0.0031008088840475123
+      },
+      "7488-9048": {
+        "accuracy": 0.9871293580971,
+        "macro_f1": 0.9934723327958158,
+        "weighted_f1": 0.9929612329102208,
+        "balanced_accuracy": 0.9881203007518797,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 1229,
+            "precision": 0.9959481361426256,
+            "recall": 1.0,
+            "f1": 0.9979699553390174,
+            "predicted": 1234
+          },
+          {
+            "name": "Geodo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Htbot",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 2
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 1330,
+            "precision": 1.0,
+            "recall": 0.9406015037593985,
+            "f1": 0.969391708640062,
+            "predicted": 1251
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 25
+          },
+          {
+            "name": "Shifu",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Tinba",
+            "support": 1275,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1275
+          },
+          {
+            "name": "Virut",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 47
+          },
+          {
+            "name": "Zeus",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "BitTorrent",
+            "support": 1126,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1126
+          },
+          {
+            "name": "Facetime",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "FTP",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Gmail",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "MySQL",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Outlook",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Weibo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 1178,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1178
+          }
+        ],
+        "n": 6138,
+        "confusion": null,
+        "meta": {
+          "stratum": "7488-9048",
+          "underpowered": false
+        },
+        "concealment_gap": -0.0005110998855950566
+      },
+      "9049-83696": {
+        "accuracy": 0.941554886394744,
+        "macro_f1": 0.9273723366405765,
+        "weighted_f1": 0.943665100907867,
+        "balanced_accuracy": 0.9260380420750376,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Htbot",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Shifu",
+            "support": 1437,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1437
+          },
+          {
+            "name": "Tinba",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 3
+          },
+          {
+            "name": "Virut",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Zeus",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "BitTorrent",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 194
+          },
+          {
+            "name": "Facetime",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 8
+          },
+          {
+            "name": "FTP",
+            "support": 12555,
+            "precision": 0.9992836106025631,
+            "recall": 0.9999203504579849,
+            "f1": 0.999601879130504,
+            "predicted": 12563
+          },
+          {
+            "name": "Gmail",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 114
+          },
+          {
+            "name": "MySQL",
+            "support": 11856,
+            "precision": 0.9782949574977304,
+            "recall": 0.9998313090418354,
+            "f1": 0.9889458974679848,
+            "predicted": 12117
+          },
+          {
+            "name": "Outlook",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 140
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 5769,
+            "precision": 1.0,
+            "recall": 0.6304385508753684,
+            "f1": 0.773336168403147,
+            "predicted": 3637
+          },
+          {
+            "name": "Weibo",
+            "support": 4913,
+            "precision": 0.7777425993351275,
+            "recall": 1.0,
+            "f1": 0.8749777382012467,
+            "predicted": 6317
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          }
+        ],
+        "n": 36530,
+        "confusion": null,
+        "meta": {
+          "stratum": "9049-83696",
+          "underpowered": false
+        },
+        "concealment_gap": 0.016292764267290538
+      }
+    },
+    "encryption": {
+      "unknown": {
+        "accuracy": 0.9777836031194704,
+        "macro_f1": 0.8581219006741445,
+        "weighted_f1": 0.9781747758441748,
+        "balanced_accuracy": 0.8976187981749715,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 104,
+            "precision": 0.3563218390804598,
+            "recall": 0.5961538461538461,
+            "f1": 0.4460431654676259,
+            "predicted": 174
+          },
+          {
+            "name": "Htbot",
+            "support": 337,
+            "precision": 0.8530612244897959,
+            "recall": 0.6201780415430267,
+            "f1": 0.718213058419244,
+            "predicted": 245
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 54,
+            "precision": 1.0,
+            "recall": 0.6296296296296297,
+            "f1": 0.7727272727272727,
+            "predicted": 34
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 159,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 159
+          },
+          {
+            "name": "Shifu",
+            "support": 1343,
+            "precision": 0.9875,
+            "recall": 1.0,
+            "f1": 0.9937106918238994,
+            "predicted": 1360
+          },
+          {
+            "name": "Tinba",
+            "support": 1247,
+            "precision": 0.9960063897763578,
+            "recall": 1.0,
+            "f1": 0.9979991996798719,
+            "predicted": 1252
+          },
+          {
+            "name": "Virut",
+            "support": 6,
+            "precision": 0.2,
+            "recall": 1.0,
+            "f1": 0.33333333333333337,
+            "predicted": 30
+          },
+          {
+            "name": "Zeus",
+            "support": 762,
+            "precision": 0.9986859395532195,
+            "recall": 0.9973753280839895,
+            "f1": 0.9980302035456337,
+            "predicted": 761
+          },
+          {
+            "name": "BitTorrent",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Facetime",
+            "support": 699,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 699
+          },
+          {
+            "name": "FTP",
+            "support": 1016,
+            "precision": 0.9980334316617503,
+            "recall": 0.9990157480314961,
+            "f1": 0.9985243482538122,
+            "predicted": 1017
+          },
+          {
+            "name": "Gmail",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "MySQL",
+            "support": 8647,
+            "precision": 0.9838397632866734,
+            "recall": 0.999768705909564,
+            "f1": 0.9917402776184466,
+            "predicted": 8787
+          },
+          {
+            "name": "Outlook",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 832,
+            "precision": 1.0,
+            "recall": 0.8269230769230769,
+            "f1": 0.9052631578947368,
+            "predicted": 688
+          },
+          {
+            "name": "Weibo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 53,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 53
+          }
+        ],
+        "n": 15259,
+        "confusion": null,
+        "meta": {
+          "stratum": "unknown",
+          "underpowered": false
+        },
+        "concealment_gap": 0.12005287517003027
+      },
+      "plaintext": {
+        "accuracy": 0.9755563857607942,
+        "macro_f1": 0.8868891266613345,
+        "weighted_f1": 0.9730678313262232,
+        "balanced_accuracy": 0.8848615604120592,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 1229,
+            "precision": 0.9959481361426256,
+            "recall": 1.0,
+            "f1": 0.9979699553390174,
+            "predicted": 1234
+          },
+          {
+            "name": "Geodo",
+            "support": 903,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 903
+          },
+          {
+            "name": "Htbot",
+            "support": 545,
+            "precision": 0.9963031423290203,
+            "recall": 0.9889908256880734,
+            "f1": 0.992633517495396,
+            "predicted": 541
+          },
+          {
+            "name": "Miuref",
+            "support": 743,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 743
+          },
+          {
+            "name": "Neris",
+            "support": 1235,
+            "precision": 0.8257839721254355,
+            "recall": 0.9595141700404858,
+            "f1": 0.8876404494382022,
+            "predicted": 1435
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 59
+          },
+          {
+            "name": "Shifu",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Tinba",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Virut",
+            "support": 842,
+            "precision": 0.9690721649484536,
+            "recall": 0.669833729216152,
+            "f1": 0.7921348314606741,
+            "predicted": 582
+          },
+          {
+            "name": "Zeus",
+            "support": 84,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 84
+          },
+          {
+            "name": "BitTorrent",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Facetime",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "FTP",
+            "support": 10689,
+            "precision": 0.9997194163860831,
+            "recall": 1.0,
+            "f1": 0.9998596885084888,
+            "predicted": 10692
+          },
+          {
+            "name": "Gmail",
+            "support": 202,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 202
+          },
+          {
+            "name": "MySQL",
+            "support": 2134,
+            "precision": 0.9463414634146341,
+            "recall": 1.0,
+            "f1": 0.9724310776942355,
+            "predicted": 2255
+          },
+          {
+            "name": "Outlook",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 124,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Weibo",
+            "support": 7,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 7
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          }
+        ],
+        "n": 18737,
+        "confusion": null,
+        "meta": {
+          "stratum": "plaintext",
+          "underpowered": false
+        },
+        "concealment_gap": 0.08617870466488875
+      },
+      "encrypted_tls": {
+        "accuracy": 0.90501968503937,
+        "macro_f1": 0.8176533823002575,
+        "weighted_f1": 0.8990035274854146,
+        "balanced_accuracy": 0.816801770439626,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Htbot",
+            "support": 37,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 37
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 22,
+            "precision": 0.9545454545454546,
+            "recall": 0.9545454545454546,
+            "f1": 0.9545454545454546,
+            "predicted": 22
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Shifu",
+            "support": 77,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 77
+          },
+          {
+            "name": "Tinba",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Virut",
+            "support": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 1
+          },
+          {
+            "name": "Zeus",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "BitTorrent",
+            "support": 1126,
+            "precision": 0.990325417766051,
+            "recall": 1.0,
+            "f1": 0.9951391957578436,
+            "predicted": 1137
+          },
+          {
+            "name": "Facetime",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "FTP",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Gmail",
+            "support": 765,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 765
+          },
+          {
+            "name": "MySQL",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Outlook",
+            "support": 1122,
+            "precision": 0.7505016722408027,
+            "recall": 1.0,
+            "f1": 0.8574703859380971,
+            "predicted": 1495
+          },
+          {
+            "name": "Skype",
+            "support": 914,
+            "precision": 1.0,
+            "recall": 0.5798687089715536,
+            "f1": 0.7340720221606648,
+            "predicted": 530
+          },
+          {
+            "name": "SMB",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Weibo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          }
+        ],
+        "n": 4064,
+        "confusion": null,
+        "meta": {
+          "stratum": "encrypted_tls",
+          "underpowered": false
+        },
+        "concealment_gap": 0.08135014518515704
+      },
+      "unencrypted_binary": {
+        "accuracy": 0.9935799449709569,
+        "macro_f1": 0.8229409173834501,
+        "weighted_f1": 0.9925796838663629,
+        "balanced_accuracy": 0.8617452722715881,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Htbot",
+            "support": 14,
+            "precision": 1.0,
+            "recall": 0.7142857142857143,
+            "f1": 0.8333333333333333,
+            "predicted": 10
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 1,
+            "precision": 0.3333333333333333,
+            "recall": 1.0,
+            "f1": 0.5,
+            "predicted": 3
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 721,
+            "precision": 0.9849726775956285,
+            "recall": 1.0,
+            "f1": 0.9924294562973159,
+            "predicted": 732
+          },
+          {
+            "name": "Shifu",
+            "support": 17,
+            "precision": 0.8947368421052632,
+            "recall": 1.0,
+            "f1": 0.9444444444444444,
+            "predicted": 19
+          },
+          {
+            "name": "Tinba",
+            "support": 28,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 28
+          },
+          {
+            "name": "Virut",
+            "support": 12,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 1
+          },
+          {
+            "name": "Zeus",
+            "support": 5,
+            "precision": 0.8,
+            "recall": 0.8,
+            "f1": 0.8000000000000002,
+            "predicted": 5
+          },
+          {
+            "name": "BitTorrent",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Facetime",
+            "support": 159,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 159
+          },
+          {
+            "name": "FTP",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 4
+          },
+          {
+            "name": "Gmail",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "MySQL",
+            "support": 1075,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1075
+          },
+          {
+            "name": "Outlook",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 114,
+            "precision": 1.0,
+            "recall": 0.9649122807017544,
+            "f1": 0.9821428571428572,
+            "predicted": 110
+          },
+          {
+            "name": "Weibo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 1125,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 1125
+          }
+        ],
+        "n": 3271,
+        "confusion": null,
+        "meta": {
+          "stratum": "unencrypted_binary",
+          "underpowered": false
+        },
+        "concealment_gap": 0.16963876648291276
+      },
+      "opaque_high_entropy": {
+        "accuracy": 0.8243039879608728,
+        "macro_f1": 0.9001683775992328,
+        "weighted_f1": 0.8319995342869975,
+        "balanced_accuracy": 0.8949658319737059,
+        "per_class": [
+          {
+            "name": "Cridex",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Geodo",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Htbot",
+            "support": 20,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 20
+          },
+          {
+            "name": "Miuref",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Neris",
+            "support": 18,
+            "precision": 1.0,
+            "recall": 0.5555555555555556,
+            "f1": 0.7142857142857143,
+            "predicted": 10
+          },
+          {
+            "name": "Nsis-ay",
+            "support": 27,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 27
+          },
+          {
+            "name": "Shifu",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Tinba",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Virut",
+            "support": 70,
+            "precision": 0.8974358974358975,
+            "recall": 1.0,
+            "f1": 0.945945945945946,
+            "predicted": 78
+          },
+          {
+            "name": "Zeus",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "BitTorrent",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 194
+          },
+          {
+            "name": "Facetime",
+            "support": 42,
+            "precision": 0.84,
+            "recall": 1.0,
+            "f1": 0.9130434782608696,
+            "predicted": 50
+          },
+          {
+            "name": "FTP",
+            "support": 850,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "predicted": 850
+          },
+          {
+            "name": "Gmail",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 114
+          },
+          {
+            "name": "MySQL",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "Outlook",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 140
+          },
+          {
+            "name": "Skype",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          },
+          {
+            "name": "SMB",
+            "support": 4699,
+            "precision": 1.0,
+            "recall": 0.6041711002340924,
+            "f1": 0.753250198991775,
+            "predicted": 2839
+          },
+          {
+            "name": "Weibo",
+            "support": 4906,
+            "precision": 0.7774960380348653,
+            "recall": 1.0,
+            "f1": 0.8748216833095579,
+            "predicted": 6310
+          },
+          {
+            "name": "WorldOfWarcraft",
+            "support": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "predicted": 0
+          }
+        ],
+        "n": 10632,
+        "confusion": null,
+        "meta": {
+          "stratum": "opaque_high_entropy",
+          "underpowered": false
+        },
+        "concealment_gap": -0.06816884331223538
+      }
+    }
+  },
+  "failed_classes": [],
+  "support_bin_note": "bins derived from the corpus: USTC-TFC2016's smallest class holds ~5,000 sessions, so the sub-50-session regime the review identified in P2 does not exist here and cannot be tested on this corpus"
+}

@@ -1,0 +1,19 @@
+{
+  "store": "stores/iscx.h5",
+  "model": "wang1d",
+  "pad_mode": "embed",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "seconds": 172.91084551811218,
+  "stages": [
+    "padding"
+  ],
+  "epochs": 15,
+  "max_per_class": 5000,
+  "corpus_name": "iscx",
+  "n_train": 22962,
+  "n_test": 4047
+}

@@ -1,0 +1,59 @@
+{
+  "budget": "784B",
+  "variants": {
+    "bidirectional session": {
+      "accuracy": {
+        "mean": 0.43653735277160033,
+        "std": 0.0647309816698096,
+        "n_seeds": 3,
+        "values": [
+          0.4012849023968372,
+          0.39708425994563873,
+          0.5112428959723252
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.5234286538825929,
+        "std": 0.027525398147017717,
+        "n_seeds": 3,
+        "values": [
+          0.5110419439535949,
+          0.5042729535194667,
+          0.5549710641747168
+        ]
+      },
+      "n_units": 31855,
+      "n_test": 4047,
+      "median_true_length": 274.0
+    },
+    "unidirectional flow": {
+      "accuracy": {
+        "mean": 0.3182924708746305,
+        "std": 0.011279201916057875,
+        "n_seeds": 3,
+        "values": [
+          0.325508607198748,
+          0.32407407407407407,
+          0.3052947313510694
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.42586957462454644,
+        "std": 0.011128240460775903,
+        "n_seeds": 3,
+        "values": [
+          0.4251315482471616,
+          0.4373484583594047,
+          0.41512871726707307
+        ]
+      },
+      "n_units": 50488,
+      "n_test": 7668,
+      "median_true_length": 159.0
+    }
+  },
+  "delta_macro_f1": -0.09755907925804641,
+  "seed_noise": 0.027525398147017717,
+  "verdict": "session better",
+  "caveat": "one session becomes up to two flows, so the two settings differ in sample count as well as in granularity; the comparison is between settings, not between equally-sized datasets"
+}

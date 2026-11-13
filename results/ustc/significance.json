@@ -1,0 +1,48 @@
+{
+  "corpus": "ustc",
+  "seed": 0,
+  "n_test": 51963,
+  "note": "McNemar's exact test on paired per-sample correctness. The seed-noise verdicts reported elsewhere answer a different question \u2014 whether a difference exceeds run-to-run variation \u2014 and both are given because either alone is misleading.",
+  "pairs": {
+    "saturation": {
+      "question": "does 784B beat the saturation point 512B?",
+      "a": {
+        "label": "512B",
+        "accuracy": 0.9894925235263553,
+        "macro_f1": 0.9837509916887941
+      },
+      "b": {
+        "label": "784B",
+        "accuracy": 0.9434212805265285,
+        "macro_f1": 0.9253879458922709
+      },
+      "mcnemar": {
+        "n01": 94,
+        "n10": 2488,
+        "p_value": 0.0,
+        "n_discordant": 2582
+      },
+      "bytes_ratio": 1.53125
+    },
+    "ports": {
+      "question": "does masking the port bytes change the result at 512B?",
+      "a": {
+        "label": "ports retained",
+        "accuracy": 0.9894925235263553,
+        "macro_f1": 0.9837509916887941
+      },
+      "b": {
+        "label": "ports masked",
+        "accuracy": 0.9477320401054596,
+        "macro_f1": 0.9360921141915872
+      },
+      "mcnemar": {
+        "n01": 107,
+        "n10": 2277,
+        "p_value": 0.0,
+        "n_discordant": 2384
+      }
+    }
+  },
+  "seconds": 302.1882629394531
+}

@@ -1,0 +1,29 @@
+Comparison on USTC-TFC2016
+
+method                   year  budget                         acc  macroF1
+--------------------------------------------------------------------------
+P3 OHCE                  2026  5 packets                   0.9438       --
+      not comparable: different session filtering
+      not comparable: reports accuracy but not macro-F1
+      open-set setting; flows under 5 packets discarded entirely
+
+P7 MLETC                 2025  5 packets x 100 bytes       0.9902   0.9926
+      broadly comparable: budget, class scheme and anonymisation align; preprocessing and splits still differ
+
+P8 MFF                   2025  1024 bytes                  0.9999       --
+      not comparable: reports accuracy but not macro-F1
+      about 70% of USTC-TFC sessions are padded at this budget
+
+P10 TransECA-Net         2025  784 bytes                   0.9825       --
+      not comparable: different class scheme (10 against 20)
+      not comparable: reports accuracy but not macro-F1
+      ten benign classes only, used for generalisation
+
+--------------------------------------------------------------------------
+this work (wang1d)       2026  512B                        0.9726   0.9731
+      identifiers removed, and the removal verified by a positive control
+
+Read with care. These figures were produced under different preprocessing, different class schemes and different splits, and
+several of the papers do not say whether identifier fields were removed. P5 measured that removing them costs ET-BERT 0.45
+accuracy, so a retained-identifier number and an anonymised number are not measuring the same task. The budgets, by contrast,
+are directly comparable, and locating them on our own sweep is the point of the exercise.

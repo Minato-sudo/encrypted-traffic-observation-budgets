@@ -1,0 +1,19 @@
+{
+  "store": "stores/iscx.h5",
+  "model": "transformer",
+  "pad_mode": "embed",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "seconds": 7190.283162355423,
+  "stages": [
+    "e2"
+  ],
+  "epochs": 15,
+  "max_per_class": 5000,
+  "corpus_name": "iscx",
+  "n_train": 22962,
+  "n_test": 4047
+}

@@ -1,0 +1,74 @@
+Comparison on iscx
+
+method                   year  budget                         acc  macroF1
+--------------------------------------------------------------------------
+P1 S2F-GNN               2026  20 packets, 10 x 0.1 s wi…  0.9326       --
+      not comparable: does not state whether identifier fields were removed
+      not comparable: reports accuracy but not macro-F1
+      accuracy at 20% labels; the headline claim is few-shot, not full-label
+
+P1 S2F-GNN               2026  20 packets, 5% labels           --   0.8754
+      not comparable: does not state whether identifier fields were removed
+      F1 at 5% labels
+
+P2 CLET                  2026  16 packets, header descri…  0.8861   0.8280
+      not comparable: different class scheme (14 against 11)
+      not comparable: does not state whether identifier fields were removed
+      not comparable: different session filtering
+      DNS and SSDP removed, leaving 4,511 of 13,520 sessions; AIM 0% and SFTP 50% inside this macro-F1
+
+P4 MH-Net                2025  15 packets, flow level      0.9942   0.9941
+      not comparable: different class scheme (6 against 11)
+      flow level; removing the 8-bit view collapses F1 to 0.1702
+
+P4 MH-Net                2025  15 packets, packet level    0.9768   0.9766
+      not comparable: different class scheme (6 against 11)
+      packet level
+
+P5 SoK (ET-BERT)         2025  varies by occlusion         0.9600       --
+      not comparable: identifier fields retained, which P5 shows is worth up to 0.45 accuracy on its own
+      not comparable: different session filtering
+      not comparable: reports accuracy but not macro-F1
+      0.96 with identifier fields present, 0.51 with them removed
+
+P5 SoK (YaTC)            2025  varies by occlusion         0.9000       --
+      not comparable: identifier fields retained, which P5 shows is worth up to 0.45 accuracy on its own
+      not comparable: reports accuracy but not macro-F1
+      0.90 with identifiers, 0.62 without; encrypted payload alone 0.30
+
+P7 MLETC                 2025  5 packets x 100 bytes       0.9875   0.9880
+      not comparable: different class scheme (6 against 11)
+      budget chosen to fit a 512-token ceiling, by the authors' own account
+
+P8 MFF                   2025  1024 bytes                  0.9961       --
+      not comparable: different class scheme (12 against 11)
+      not comparable: reports accuracy but not macro-F1
+      about 87% of ISCX-VPN sessions fall below this budget and are padded
+
+P9 Dual Embedding + GNN  2025  fixed packet count          0.9670   0.9600
+      not comparable: identifier fields retained, which P5 shows is worth up to 0.45 accuracy on its own
+      retains source and destination IP addresses and ports as inputs
+
+P10 TransECA-Net         2025  784 bytes                   0.9765       --
+      not comparable: different class scheme (12 against 11)
+      not comparable: reports accuracy but not macro-F1
+      per-class far weaker than the headline: File 93.56%, VoIP 92.20%
+
+P11 CL-MetaFlow          2025  no payload used                 --   0.6200
+      not comparable: different class scheme (17 against 11)
+      5-way 5-shot; far lower than closed-world figures, by design
+
+P12 Stacked ensembles    2025  88 flow-level features      0.9930       --
+      not comparable: different class scheme (6 against 11)
+      not comparable: does not state whether identifier fields were removed
+      not comparable: reports accuracy but not macro-F1
+      flow statistics, not raw bytes; fitting the scaler on all data inflates accuracy from 0.9949 to 0.9960
+
+--------------------------------------------------------------------------
+this work (wang1d)       2026  784B                        0.4419   0.5245
+      identifiers removed, and the removal verified by a positive control
+
+Read with care. These figures were produced under different preprocessing, different class schemes and different splits, and
+several of the papers do not say whether identifier fields were removed. P5 measured that removing them costs ET-BERT 0.45
+accuracy, so a retained-identifier number and an anonymised number are not measuring the same task. The budgets, by contrast,
+are directly comparable, and locating them on our own sweep is the point of the exercise.

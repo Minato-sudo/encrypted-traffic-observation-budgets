@@ -1,0 +1,58 @@
+{
+  "corpus": "ISCX VPN-nonVPN",
+  "reference": "wang1d",
+  "contender": "transformer",
+  "saturation": {
+    "bytes": {
+      "wang1d": {
+        "at": "256B",
+        "macro_f1": 0.5060922463719367,
+        "best_larger_budget": "784B",
+        "best_larger_macro_f1": 0.5245213025171503,
+        "largest_remaining_gain": 0.018429056145213618,
+        "seed_noise": 0.03259476942201752
+      },
+      "transformer": {
+        "at": "128B",
+        "macro_f1": 0.5019153015631684,
+        "best_larger_budget": "1024B",
+        "best_larger_macro_f1": 0.519484276640264,
+        "largest_remaining_gain": 0.01756897507709554,
+        "seed_noise": 0.03986031986096808
+      },
+      "agree": false
+    },
+    "packets": {
+      "wang1d": {
+        "at": "2P",
+        "macro_f1": 0.5103487476095022,
+        "best_larger_budget": "16P",
+        "best_larger_macro_f1": 0.5251701615112583,
+        "largest_remaining_gain": 0.014821413901756064,
+        "seed_noise": 0.03526515234013091
+      },
+      "transformer": {
+        "at": "2P",
+        "macro_f1": 0.4851701941028785,
+        "best_larger_budget": "3P",
+        "best_larger_macro_f1": 0.5124017331958755,
+        "largest_remaining_gain": 0.02723153909299697,
+        "seed_noise": 0.04117666687442219
+      },
+      "agree": true
+    }
+  },
+  "peak": {
+    "wang1d": {
+      "budget": "784B",
+      "macro_f1": 0.5245213025171503,
+      "std": 0.02078194553650305
+    },
+    "transformer": {
+      "budget": "1024B",
+      "macro_f1": 0.519484276640264,
+      "std": 0.03794430866900316
+    }
+  },
+  "figure": "results/iscx/figures/architecture_budget_profile.png"
+}
