@@ -18,6 +18,9 @@ CXR_Align_Standee_2.5x5in.pdf
 /32959.png
 /35211.png
 
+# The downloaded logo; the copy the build uses is poster/figures/logo_nuces.png
+/Fast-University-Logo.png
+
 # LaTeX build artefacts (*.log is covered below).
 *.aux
 *.bbl

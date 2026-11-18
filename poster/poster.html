@@ -15,6 +15,9 @@
 }
 
 .masthead { padding: 4.5mm 10mm 4mm; flex: none; }
+.mast-flex { display: flex; align-items: center; gap: 8mm; }
+.mast-main { flex: 1; min-width: 0; }
+.masthead .logo { width: 30mm; height: 30mm; flex: none; }
 .title    { font-size: 9.4mm; }
 .subtitle { font-size: 4.1mm; margin-top: 1.6mm; }
 .mast-row { display: flex; align-items: flex-end; justify-content: space-between; margin-top: 2.6mm; gap: 8mm; }
@@ -71,6 +74,9 @@ td { padding: 1.4mm 2mm; }
 <body><div class="sheet">
 
   <header class="masthead">
+   <div class="mast-flex">
+    <img class="logo" src="figures/logo_nuces.png" alt="FAST-NUCES">
+    <div class="mast-main">
     <h1 class="title">How Many Bytes Does Encrypted Traffic Classification Actually Need?</h1>
     <p class="subtitle">Observation Budgets, Padding Effects, and an Adaptive Early-Exit Classifier for Raw-Byte Traffic</p>
     <div class="mast-row">
@@ -83,6 +89,8 @@ td { padding: 1.4mm 2mm; }
         <img class="qr" src="figures/qr_repo.svg" alt="QR code to the project repository">
       </div>
     </div>
+    </div>
+   </div>
   </header>
 
   <main class="body">
