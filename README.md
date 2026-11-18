@@ -3,9 +3,9 @@
 Implementation of *Observation Budgets and Padding Effects in Raw-Byte Network
 Traffic Classification* (Topic 15, FAST-NUCES Islamabad).
 
-Muhammad Talha Arshad (i232548) · Zain Shahid (i232582)
+Muhammad Talha Arshad (i232548), Zain Shahid (i232582)
 
-The literature review in [`papers/`](papers/) found that all twelve reviewed
+The Phase 1 literature review found that all twelve reviewed
 studies fix an observation budget (between 5 and 20 packets, or between 784
 and 1024 bytes) and that **none of those values is derived from
 measurement**. P7 states plainly that its budget was chosen to fit a model's
