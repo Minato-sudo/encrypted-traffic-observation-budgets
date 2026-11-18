@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>ProS Phase 5 standee</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ---- 2.5 ft x 5 ft standee, full size -------------------------------- */
+@page { size: 762mm 1524mm; margin: 0; }
+
+:root { --accent-rule: 7mm; --li-gap: 4.5mm; --kpi-bar: 6mm; }
+
+.sheet {
+  width: 762mm; height: 1524mm;
+  display: flex; flex-direction: column;
+  font-size: 9.4mm; line-height: 1.40;
+}
+
+/* masthead ------------------------------------------------------------- */
+.masthead { padding: 34mm 44mm 26mm; flex: none; text-align: center; }
+.title    { font-size: 31mm; }
+.subtitle { font-size: 12.5mm; margin-top: 8mm; line-height: 1.3; }
+.rule-s   { height: 1px; background: rgba(255,255,255,0.22); margin: 14mm 0 12mm; }
+.authors  { font-size: 13mm; }
+.affil    { font-size: 10mm; margin-top: 5mm; }
+.badge    { font-size: 9.5mm; padding: 5mm 13mm; margin-top: 12mm; letter-spacing: 0.04em; }
+
+/* body ----------------------------------------------------------------- */
+.body { flex: 1; display: flex; flex-direction: column; gap: 9mm; padding: 16mm 40mm 0; min-height: 0; }
+
+.band { font-size: 10.5mm; padding: 6mm 10mm; gap: 9mm; border-radius: 2.5mm; }
+.band .n { width: 4mm; height: 11mm; border-radius: 1.5mm; }
+
+.card { padding: 8.5mm 11mm; border-radius: 2.5mm; }
+li    { padding-left: 13mm; }
+li::before { width: 4.4mm; height: 4.4mm; top: 4.6mm; }
+
+.kpi { padding: 11mm 14mm; gap: 14mm; border-radius: 2.5mm; }
+.kpi .num { font-size: 58mm; }
+.kpi .txt { font-size: 9.4mm; line-height: 1.34; }
+
+.stats { gap: 8mm; }
+.stat  { padding: 8mm 4mm; border-radius: 2.5mm; }
+.stat .v { font-size: 18mm; }
+.stat .k { font-size: 7.0mm; margin-top: 3mm; line-height: 1.25; }
+
+.fig { padding: 7mm 8mm 6mm; border-radius: 2.5mm; }
+.fig .cap { font-size: 7.1mm; margin-top: 5mm; line-height: 1.3; }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; }
+.fig.narrow { width: 58%; margin: 0 auto; }
+
+/* contact -------------------------------------------------------------- */
+.contact { display: flex; align-items: center; gap: 14mm; padding: 11mm 14mm; border-radius: 2.5mm; }
+.contact .qr { width: 58mm; height: 58mm; flex: none; }
+.contact .qr img { width: 100%; height: 100%; display: block; }
+.contact .t  { font-size: 9.0mm; color: var(--ink-2); line-height: 1.35; }
+.contact .t b { display: block; color: var(--navy); font-size: 10mm; margin-bottom: 3mm; }
+
+.footer { padding: 9mm 40mm; font-size: 7mm; justify-content: space-between; flex: none; margin-top: 10mm; }
+</style></head>
+
+<body><div class="sheet">
+
+  <header class="masthead">
+    <h1 class="title">How Many Bytes Does<br>Encrypted Traffic Classification<br>Actually Need?</h1>
+    <p class="subtitle">Observation Budgets, Padding Effects, and an<br>Adaptive Early-Exit Classifier for Raw-Byte Traffic</p>
+    <div class="rule-s"></div>
+    <p class="authors">Muhammad Talha Arshad (i232548), Zain Shahid (i232582)</p>
+    <p class="affil">BS Data Science, FAST-NUCES Islamabad</p>
+    <span class="badge">Computer Networks, Research Project 2026</span>
+  </header>
+
+  <main class="body">
+
+    <div class="band"><span class="n"></span>The Problem</div>
+    <div class="card">
+      <p>Deep models classify encrypted traffic by reading a fixed prefix of each flow.
+      That prefix is the <strong>observation budget</strong>. Across
+      <strong>12 recent studies</strong> it is 5 to 20 packets, or 784 to 1024 bytes, and
+      it is never measured.</p>
+      <p class="lead">Flows are short: the median ISCX session is 274 bytes. A larger budget
+      therefore mostly adds <span class="hl">padding</span>, so accuracy and padding are
+      confounded by construction.</p>
+    </div>
+
+    <div class="band"><span class="n"></span>What We Do</div>
+    <div class="card">
+      <ul>
+        <li><strong>Measure the budget.</strong> One preprocessing pass writes a 2048-byte
+        store that is sliced per budget, so the budget is the only thing that varies.</li>
+        <li><strong>Gate the leakage.</strong> Three probes halt the pipeline unless
+        anonymised identifier bytes are provably unlearnable.</li>
+        <li><strong>Decompose the padding gain</strong> into the learned byte embedding and
+        the explicit PAD symbol, which the literature changes together.</li>
+        <li><strong>Exit early, causally.</strong> Head <em>k</em> provably sees only the
+        first <em>k</em> bytes, so &ldquo;bytes read&rdquo; is a real cost.</li>
+      </ul>
+    </div>
+
+    <div class="fig narrow">
+      <img src="figures/pipeline.svg" alt="Measurement pipeline">
+      <div class="cap"><strong>Fig. 1.</strong> Only the dashed region repeats per budget,
+      so no sweep point differs in sessionization, deduplication or class balance.</div>
+    </div>
+
+    <div class="band"><span class="n"></span>Key Result</div>
+    <div class="kpi">
+      <div class="num">28%</div>
+      <div class="txt">of the byte cost, for the <b>same macro-F1</b>. The adaptive policy
+      matches the best fixed-depth head while reading <b>144 bytes</b> per flow instead of
+      512 on USTC-TFC2016, and 116 bytes (<b>23%</b>) on ISCX VPN-nonVPN.</div>
+    </div>
+
+    <div class="band"><span class="n"></span>Results</div>
+    <div class="two">
+      <div class="fig">
+        <img src="figures/ustc_budget_profile_bytes.svg" alt="Budget response">
+        <div class="cap"><strong>Fig. 2.</strong> Macro-F1 saturates at <strong>512 B</strong>.
+        Every budget used by the reviewed studies lies at or past it.</div>
+      </div>
+      <div class="fig">
+        <img src="figures/iscx_split_strategy.svg" alt="What the split strategy is worth">
+        <div class="cap"><strong>Fig. 3.</strong> Moving only the train/test boundary is worth
+        <strong>+0.3782</strong> macro-F1, which outweighs every architectural effect here.</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="v">512 B</div><div class="k">saturation budget,<br>USTC-TFC2016</div></div>
+      <div class="stat"><div class="v">p &lt; 10&#8315;&#8308;</div><div class="k">reading more<br>is worse, McNemar</div></div>
+      <div class="stat"><div class="v">+0.2408</div><div class="k">padding gain is the<br>representation, not PAD</div></div>
+      <div class="stat"><div class="v">&minus;0.0050</div><div class="k">CNN vs transformer,<br>not separable</div></div>
+    </div>
+
+    <div class="band"><span class="n"></span>Conclusion</div>
+    <div class="card t">
+      <ul>
+        <li>Saturation is a property of <strong>where the discriminative bytes lie</strong>,
+        not of the network reading them.</li>
+        <li>Published budgets are <strong>5 to 7 times larger</strong> than the measurements
+        support, costing latency and memory for accuracy that is not there.</li>
+        <li>Split policy outweighs every architectural effect measured here, so it
+        <strong>must be stated</strong> for any cross-paper comparison to mean anything.</li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <div class="qr"><img src="figures/qr_contact.svg" alt="Contact QR code"></div>
+      <div class="t"><b>Contact</b>
+      Scan to email the authors for the full paper and code, or write to
+      i232548@isb.nu.edu.pk. Two public corpora, 385,351 sessions, 3 seeds, and
+      McNemar&rsquo;s exact test on every headline claim.</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div><b>FAST-NUCES Islamabad</b></div>
+    <div>Computer Networks, Research Project 2026</div>
+  </footer>
+
+</div></body></html>

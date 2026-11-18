@@ -7,8 +7,23 @@ stores/
 # papers are cited in full in the report's reference list instead.
 papers/
 
-# Submission bundle, rebuilt by zipping the tracked files.
-Phase3_i232548_i232582.zip
+# Submission bundles, rebuilt by zipping the tracked files.
+Phase*_i232548_i232582.zip
+
+# Reference material supplied with the coursework: other researchers'
+# conference posters and a sample standee. Not ours to redistribute.
+CXR_Align_Standee_2.5x5in.pdf
+/198813122-*.png
+/30947.png
+/32959.png
+/35211.png
+
+# LaTeX build artefacts (*.log is covered below).
+*.aux
+*.bbl
+*.blg
+*.out
+*.synctex.gz
 
 # Run logs and scratch
 *.log

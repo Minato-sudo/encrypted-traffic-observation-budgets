@@ -1,0 +1,146 @@
+/* ===================================================================
+   Phase 5 shared visual identity.
+   One token set and one component vocabulary, used unchanged by both
+   the A3 poster and the 2.5 x 5 ft standee, so the two read as a set.
+   Colours are taken from src/nettc/plots.py so the artwork and the
+   figures inside it share a palette.
+   =================================================================== */
+
+:root {
+  --navy:        #0e2a4d;   /* band fill, headings                      */
+  --navy-deep:   #091d36;   /* header gradient foot                     */
+  --blue:        #2a78d6;   /* SERIES[0] in plots.py                    */
+  --orange:      #eb6834;   /* SERIES[1] in plots.py, key figures       */
+  --green:       #1baf7a;   /* SERIES[2] in plots.py, positive verdicts */
+  --surface:     #fcfcfb;   /* page                                     */
+  --panel:       #ffffff;   /* card fill                                */
+  --panel-alt:   #f4f6f9;   /* tinted card fill                         */
+  --ink:         #0b0b0b;
+  --ink-2:       #52514e;
+  --ink-muted:   #8a8882;
+  --rule:        #e4e3df;
+  --rule-strong: #cfd6e0;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: "Noto Sans", "Liberation Sans", "DejaVu Sans", sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---------- header ------------------------------------------------ */
+
+.masthead {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::after {           /* thin accent rule along the foot */
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: var(--accent-rule, 3px);
+  background: linear-gradient(90deg, var(--orange) 0%, var(--blue) 55%, var(--green) 100%);
+}
+.title    { font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; margin: 0; }
+.subtitle { font-weight: 400; color: #bcd0e8; margin: 0; }
+.authors  { font-weight: 700; color: #ffffff; margin: 0; }
+.affil    { font-weight: 400; color: #9fb6d4; margin: 0; }
+
+.badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.28);
+  color: #e8f0fb;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+/* ---------- section bands ----------------------------------------- */
+
+.band {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+.band .n {                   /* leading rule inside the band */
+  display: inline-block;
+  background: var(--orange);
+  flex: none;
+}
+
+/* ---------- cards and text ---------------------------------------- */
+
+.card   { background: var(--panel); border: 1px solid var(--rule); }
+.card.t { background: var(--panel-alt); }
+
+p { margin: 0 0 0.55em 0; }
+p:last-child { margin-bottom: 0; }
+.lead { color: var(--ink-2); }
+strong { font-weight: 700; color: var(--ink); }
+.hl  { color: var(--orange); font-weight: 700; }
+.hl2 { color: var(--blue);   font-weight: 700; }
+.hl3 { color: var(--green);  font-weight: 700; }
+.mono { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+li { position: relative; margin: 0 0 var(--li-gap, 0.42em) 0; }
+li:last-child { margin-bottom: 0; }
+li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  background: var(--blue);
+  border-radius: 50%;
+}
+
+/* ---------- key-result callout ------------------------------------ */
+
+.kpi {
+  display: flex;
+  align-items: center;
+  background: var(--panel-alt);
+  border: 1px solid var(--rule-strong);
+  border-left: var(--kpi-bar, 6px) solid var(--orange);
+}
+.kpi .num  { font-weight: 700; color: var(--orange); line-height: 0.95; flex: none; }
+.kpi .txt  { color: var(--ink-2); }
+.kpi .txt b { color: var(--ink); }
+
+/* ---------- small stat row ---------------------------------------- */
+
+.stats { display: flex; }
+.stat  { flex: 1; text-align: center; background: var(--panel); border: 1px solid var(--rule); }
+.stat .v { font-weight: 700; color: var(--navy); line-height: 1; }
+.stat .k { color: var(--ink-muted); }
+
+/* ---------- figures ------------------------------------------------ */
+
+.fig       { background: #fff; border: 1px solid var(--rule); }
+.fig img   { display: block; width: 100%; height: auto; }
+.fig .cap  { color: var(--ink-muted); }
+
+/* ---------- tables -------------------------------------------------- */
+
+table { border-collapse: collapse; width: 100%; }
+th { text-align: left; color: #fff; background: var(--navy); font-weight: 700; }
+td { border-bottom: 1px solid var(--rule); color: var(--ink-2); }
+tr:last-child td { border-bottom: none; }
+td.v { text-align: right; font-weight: 700; color: var(--ink); }
+tr.best td { background: #fdf0ea; }
+tr.best td.v { color: var(--orange); }
+
+/* ---------- footer -------------------------------------------------- */
+
+.footer { background: var(--navy); color: #9fb6d4; display: flex; align-items: center; }
+.footer b { color: #fff; }
