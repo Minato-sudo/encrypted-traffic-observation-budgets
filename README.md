@@ -17,6 +17,20 @@ reported accuracy is partly measuring padding.
 This repository treats the budget and the padding fraction as measured
 variables rather than preprocessing constants.
 
+## Deliverables
+
+| | |
+|---|---|
+| **Paper** | [`paper/Phase4_Research_Paper.pdf`](paper/Phase4_Research_Paper.pdf), with its LaTeX source in [`paper/`](paper/) |
+| **Full report** | [`Phase3_Implementation.pdf`](Phase3_Implementation.pdf), the implementation and evaluation write-up |
+| **Poster** | [`poster/Phase5_Poster_A3.pdf`](poster/Phase5_Poster_A3.pdf), A3 landscape |
+| **Standee** | [`poster/Phase5_Standee_2.5x5ft.pdf`](poster/Phase5_Standee_2.5x5ft.pdf), 2.5 ft by 5 ft |
+| **Code** | [`src/nettc/`](src/nettc/), with the runners in [`scripts/`](scripts/) and checks in [`tests/`](tests/) |
+| **Results** | [`results/`](results/), the JSON and figures behind every number quoted anywhere above |
+
+Every figure and table in the report, the paper, the poster and the standee is
+generated from that result JSON by script. None of them is typed by hand.
+
 ## What it does
 
 Preprocessing runs **once**, at a generous 2048-byte ceiling, into an HDF5
