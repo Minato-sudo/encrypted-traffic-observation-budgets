@@ -31,6 +31,15 @@
 .band .n { width: 1.5mm; height: 3.6mm; border-radius: 0.5mm; }
 
 .card { padding: 3.2mm 3.6mm; border-radius: 1mm; }
+.gaps { gap: 2.4mm; }
+.gap  { padding: 2.4mm 2.8mm; border-radius: 1mm; --gap-bar: 0.8mm; }
+.gap .g { font-size: 2.85mm; margin-bottom: 0.8mm; }
+.gap .d { font-size: 2.7mm; line-height: 1.3; }
+.bars .row { gap: 2.4mm; margin-bottom: 1.8mm; }
+.bars .lab { width: 27mm; font-size: 2.7mm; }
+.bars .track { height: 3.4mm; }
+.bars .val { width: 11mm; font-size: 2.8mm; }
+.bars .note { font-size: 2.6mm; line-height: 1.3; color: var(--ink-muted); margin: 2.2mm 0 0; }
 li    { padding-left: 4.6mm; }
 li::before { width: 1.5mm; height: 1.5mm; top: 1.65mm; }
 
@@ -47,6 +56,9 @@ li::before { width: 1.5mm; height: 1.5mm; top: 1.65mm; }
 /* The results column is the tallest; take the overflow out of its figure
    rather than out of the body text, which is already at 8.4 pt. */
 .col:last-child .fig img { width: 86%; margin: 0 auto; }
+/* The gap chips are taller than the bullet list they replaced, so column
+   one pays for them out of its figure rather than its text. */
+.col:first-child .fig img { width: 82%; margin: 0 auto; }
 .fig .cap { font-size: 2.5mm; margin-top: 1.6mm; line-height: 1.3; }
 
 table { font-size: 2.75mm; }
@@ -96,13 +108,11 @@ td { padding: 1.4mm 2mm; }
       </div>
 
       <div class="band"><span class="n"></span>The Research Gap</div>
-      <div class="card">
-        <ul>
-          <li><strong>Gap 1.</strong> The budget is inherited, never measured against a curve.</li>
-          <li><strong>Gap 2.</strong> Aggregate accuracy conceals per-class failure.</li>
-          <li><strong>Gap 3.</strong> Corpora are called encrypted without measurement.</li>
-          <li><strong>Gap 4.</strong> Shortcut learning from identifier fields is rarely excluded.</li>
-        </ul>
+      <div class="gaps">
+        <div class="gap"><span class="g">Gap 1</span><span class="d">The budget is inherited, never measured against a curve.</span></div>
+        <div class="gap"><span class="g">Gap 2</span><span class="d">Aggregate accuracy conceals per-class failure.</span></div>
+        <div class="gap"><span class="g">Gap 3</span><span class="d">Corpora are called encrypted without measurement.</span></div>
+        <div class="gap"><span class="g">Gap 4</span><span class="d">Shortcut learning from identifier fields is rarely excluded.</span></div>
       </div>
 
       <div class="stats">
@@ -153,6 +163,18 @@ td { padding: 1.4mm 2mm; }
         The adaptive policy matches the best fixed-depth head (0.9716) while reading
         <b>144 bytes</b> per flow instead of 512 on USTC-TFC2016, and 116 bytes
         (<b>23%</b>) on ISCX VPN-nonVPN.</div>
+      </div>
+
+      <div class="card bars">
+        <div class="row"><span class="lab">Best fixed budget</span>
+          <span class="track"><span class="fill" style="width:100%"></span></span>
+          <span class="val">512 B</span></div>
+        <div class="row"><span class="lab">Adaptive early exit</span>
+          <span class="track"><span class="fill a" style="width:28%"></span></span>
+          <span class="val">144 B</span></div>
+        <p class="note">Bytes read per flow on USTC-TFC2016 at equal macro-F1 (0.9716).
+        Because the encoder is causal, head <em>k</em> cannot have seen byte
+        <em>k</em>+1, so the saving is real rather than nominal.</p>
       </div>
     </section>
 

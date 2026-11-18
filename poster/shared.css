@@ -144,3 +144,28 @@ tr.best td.v { color: var(--orange); }
 
 .footer { background: var(--navy); color: #9fb6d4; display: flex; align-items: center; }
 .footer b { color: #fff; }
+
+/* ---------- research-gap chips ------------------------------------- */
+/* The four gaps read better as a grid of labelled chips than as a bullet
+   list: it is more compact and scans faster from a distance. Used by both
+   artifacts so the gap section looks the same in each.                 */
+
+.gaps { display: grid; grid-template-columns: 1fr 1fr; }
+.gap  {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-top: var(--gap-bar, 3px) solid var(--blue);
+}
+.gap .g { color: var(--blue); font-weight: 700; display: block; }
+.gap .d { color: var(--ink-2); display: block; }
+
+/* ---------- byte-cost comparison bars ------------------------------ */
+/* Shows the headline saving as a picture rather than only as a number,
+   in a fraction of the height a full figure would need.               */
+
+.bars .row { display: flex; align-items: center; }
+.bars .lab { color: var(--ink-2); flex: none; }
+.bars .track { flex: 1; display: block; background: var(--rule); border-radius: 999px; overflow: hidden; }
+.bars .fill  { display: block; height: 100%; border-radius: 999px; background: var(--navy); }
+.bars .fill.a { background: var(--orange); }
+.bars .val { font-weight: 700; color: var(--ink); flex: none; text-align: right; }

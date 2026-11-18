@@ -45,8 +45,12 @@ li::before { width: 4.4mm; height: 4.4mm; top: 4.6mm; }
 .fig { padding: 7mm 8mm 6mm; border-radius: 2.5mm; }
 .fig .cap { font-size: 7.1mm; margin-top: 5mm; line-height: 1.3; }
 
-.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; }
-.fig.narrow { width: 58%; margin: 0 auto; }
+.two { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8mm; }
+.gaps { gap: 7mm; }
+.gap  { padding: 6mm 7mm; border-radius: 2.5mm; --gap-bar: 2mm; }
+.gap .g { font-size: 8.4mm; margin-bottom: 2mm; }
+.gap .d { font-size: 7.6mm; line-height: 1.3; }
+.fig.narrow { width: 48%; margin: 0 auto; }
 
 /* contact -------------------------------------------------------------- */
 .contact { display: flex; align-items: center; gap: 14mm; padding: 11mm 14mm; border-radius: 2.5mm; }
@@ -82,7 +86,15 @@ li::before { width: 4.4mm; height: 4.4mm; top: 4.6mm; }
       confounded by construction.</p>
     </div>
 
-    <div class="band"><span class="n"></span>What We Do</div>
+    <div class="band"><span class="n"></span>The Research Gap</div>
+    <div class="gaps">
+      <div class="gap"><span class="g">Gap 1</span><span class="d">The budget is inherited, never measured against a curve.</span></div>
+      <div class="gap"><span class="g">Gap 2</span><span class="d">Aggregate accuracy conceals per-class failure.</span></div>
+      <div class="gap"><span class="g">Gap 3</span><span class="d">Corpora are called encrypted without measurement.</span></div>
+      <div class="gap"><span class="g">Gap 4</span><span class="d">Shortcut learning from identifier fields is rarely excluded.</span></div>
+    </div>
+
+    <div class="band"><span class="n"></span>Proposed Method</div>
     <div class="card">
       <ul>
         <li><strong>Measure the budget.</strong> One preprocessing pass writes a 2048-byte
@@ -118,9 +130,14 @@ li::before { width: 4.4mm; height: 4.4mm; top: 4.6mm; }
         Every budget used by the reviewed studies lies at or past it.</div>
       </div>
       <div class="fig">
+        <img src="figures/ustc_accuracy_per_byte_frontier.svg" alt="Accuracy per byte read">
+        <div class="cap"><strong>Fig. 3.</strong> The adaptive policy reaches the best fixed
+        head&rsquo;s macro-F1 far to the left of it, at <strong>144 B</strong>.</div>
+      </div>
+      <div class="fig">
         <img src="figures/iscx_split_strategy.svg" alt="What the split strategy is worth">
-        <div class="cap"><strong>Fig. 3.</strong> Moving only the train/test boundary is worth
-        <strong>+0.3782</strong> macro-F1, which outweighs every architectural effect here.</div>
+        <div class="cap"><strong>Fig. 4.</strong> Moving only the train/test boundary is worth
+        <strong>+0.3782</strong> macro-F1, outweighing every architectural effect here.</div>
       </div>
     </div>
 
