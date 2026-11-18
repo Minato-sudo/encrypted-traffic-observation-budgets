@@ -47,7 +47,8 @@ All figures are vector SVG, so both pieces stay sharp at any print size.
                   scripts/make_poster_figures.py, on a reduced canvas so that
                   every label, including the ones plots.py sizes explicitly,
                   stays legible once the figure is scaled up for display
-  qr_contact.svg  QR encoding mailto:i232548@isb.nu.edu.pk
+  qr_repo.svg     QR encoding the project repository URL,
+                  https://github.com/Minato-sudo/encrypted-traffic-observation-budgets
 
 Every number shown in either piece comes from the Phase 3 result JSON and
 matches the Phase 4 paper.

@@ -14,17 +14,17 @@
   font-size: 2.95mm; line-height: 1.38;
 }
 
-.masthead { padding: 7mm 10mm 6.4mm; flex: none; }
+.masthead { padding: 4.5mm 10mm 4mm; flex: none; }
 .title    { font-size: 9.4mm; }
 .subtitle { font-size: 4.1mm; margin-top: 1.6mm; }
-.mast-row { display: flex; align-items: flex-end; justify-content: space-between; margin-top: 4.2mm; gap: 8mm; }
+.mast-row { display: flex; align-items: flex-end; justify-content: space-between; margin-top: 2.6mm; gap: 8mm; }
 .authors  { font-size: 4.0mm; }
 .affil    { font-size: 3.3mm; margin-top: 1mm; }
 .badge    { font-size: 3.1mm; padding: 1.5mm 4mm; letter-spacing: 0.05em; white-space: nowrap; }
 .mast-right { display: flex; align-items: center; gap: 4mm; }
-.mast-right .qr { width: 13mm; height: 13mm; background: #fff; padding: 1mm; border-radius: 1mm; }
+.mast-right .qr { width: 26mm; height: 26mm; background: #fff; padding: 1.5mm; border-radius: 1mm; }
 
-.body { flex: 1; display: grid; grid-template-columns: 0.96fr 1.06fr 1.06fr; gap: 4.4mm; padding: 5.5mm 10mm 0; min-height: 0; }
+.body { flex: 1; display: grid; grid-template-columns: 0.96fr 1.06fr 1.06fr; gap: 4.4mm; padding: 4.2mm 10mm 0; min-height: 0; }
 .col  { display: flex; flex-direction: column; gap: 3.4mm; min-height: 0; }
 
 .band { font-size: 3.3mm; padding: 1.9mm 3.5mm; gap: 3mm; border-radius: 1mm; }
@@ -44,6 +44,9 @@ li::before { width: 1.5mm; height: 1.5mm; top: 1.65mm; }
 .stat .k { font-size: 2.5mm; margin-top: 1mm; line-height: 1.25; }
 
 .fig { padding: 2.6mm 2.6mm 2mm; border-radius: 1mm; }
+/* The results column is the tallest; take the overflow out of its figure
+   rather than out of the body text, which is already at 8.4 pt. */
+.col:last-child .fig img { width: 86%; margin: 0 auto; }
 .fig .cap { font-size: 2.5mm; margin-top: 1.6mm; line-height: 1.3; }
 
 table { font-size: 2.75mm; }
@@ -65,7 +68,7 @@ td { padding: 1.4mm 2mm; }
       </div>
       <div class="mast-right">
         <span class="badge">Computer Networks, Research Project 2026</span>
-        <img class="qr" src="figures/qr_contact.svg" alt="Contact QR code">
+        <img class="qr" src="figures/qr_repo.svg" alt="QR code to the project repository">
       </div>
     </div>
   </header>
@@ -175,9 +178,9 @@ td { padding: 1.4mm 2mm; }
       </table>
 
       <div class="card t">
-        <p><strong>Reading more actively hurts.</strong> USTC macro-F1 falls from 0.9731 at
-        512 B to 0.9367 at 1500 B. McNemar finds <span class="hl2">2488</span> sessions correct
-        at 512 B but wrong at 784 B, against <span class="hl2">94</span> the other way.</p>
+        <p><strong>Reading more actively hurts.</strong> USTC macro-F1 falls from 0.9731
+        at 512 B to 0.9367 at 1500 B. McNemar finds <span class="hl2">2488</span> sessions
+        correct at 512 B but wrong at 784 B, against <span class="hl2">94</span>.</p>
         <p><strong>Not an artefact of the architecture.</strong> A byte transformer on the same
         store, split and seeds is <span class="hl3">not separable</span> from a 2017 CNN and
         saturates at the same packet budget.</p>
@@ -189,8 +192,8 @@ td { padding: 1.4mm 2mm; }
           <li>Saturation is a property of <strong>where the discriminative bytes lie</strong>,
           not of the network reading them.</li>
           <li>Published budgets are <strong>5 to 7 times larger</strong> than the measurements support.</li>
-          <li>Split policy outweighs every architectural effect measured here, so it
-          <strong>must be stated</strong> for cross-paper comparison to mean anything.</li>
+          <li>Split policy outweighs every architectural effect here, so it
+          <strong>must be stated</strong> for any cross-paper comparison.</li>
         </ul>
       </div>
     </section>
