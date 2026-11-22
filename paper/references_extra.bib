@@ -1,0 +1,161 @@
+% Phase 7 additions. The twelve entries carrying a DOI were verified against
+% Crossref: title, venue, year and author list are as that record returns them.
+% The eight without a DOI are ICLR, ICML, NeurIPS and arXiv papers for which
+% Crossref holds no record; a DOI is omitted rather than guessed.
+
+% ---- baselines this paper reimplements ----
+@article{deeppacket,
+  author  = {Lotfollahi, M. and Jafari Siavoshani, M. and Shirali Hossein Zade, R. and Saberian, M.},
+  title   = {Deep packet: a novel approach for encrypted traffic classification using deep learning},
+  year    = {2019},
+  journal = {Soft Computing},
+  doi     = {10.1007/s00500-019-04030-2}
+}
+
+@inproceedings{wang1d,
+  author    = {Wang, W. and Zhu, M. and Wang, J. and Zeng, X. and Yang, Z.},
+  title     = {End-to-end encrypted traffic classification with one-dimensional convolution neural networks},
+  year      = {2017},
+  booktitle = {IEEE International Conference on Intelligence and Security Informatics (ISI)},
+  doi       = {10.1109/isi.2017.8004872}
+}
+
+% ---- pre-trained traffic transformers ----
+@inproceedings{etbert,
+  author    = {Lin, X. and Xiong, G. and Gou, G. and Li, Z. and Shi, J. and Yu, J.},
+  title     = {{ET-BERT}: A Contextualized Datagram Representation with Pre-training Transformers for Encrypted Traffic Classification},
+  year      = {2022},
+  booktitle = {Proceedings of the ACM Web Conference},
+  doi       = {10.1145/3485447.3512217}
+}
+
+@inproceedings{yatc,
+  author    = {Zhao, R. and Zhan, M. and Deng, X. and Wang, Y. and Wang, Y. and Gui, G. and Xue, Z.},
+  title     = {Yet Another Traffic Classifier: A Masked Autoencoder Based Traffic Transformer with Multi-Level Flow Representation},
+  year      = {2023},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  doi       = {10.1609/aaai.v37i4.25674}
+}
+
+% ---- budgeted inference and early exit ----
+@inproceedings{branchynet,
+  author    = {Teerapittayanon, S. and McDanel, B. and Kung, H.T.},
+  title     = {{BranchyNet}: Fast inference via early exiting from deep neural networks},
+  year      = {2016},
+  booktitle = {23rd International Conference on Pattern Recognition (ICPR)},
+  doi       = {10.1109/icpr.2016.7900006}
+}
+
+@inproceedings{sdn,
+  author    = {Kaya, Y. and Hong, S. and Dumitras, T.},
+  title     = {Shallow-Deep Networks: Understanding and Mitigating Network Overthinking},
+  year      = {2019},
+  booktitle = {Proceedings of the 36th International Conference on Machine Learning (ICML)}
+}
+
+@inproceedings{msdnet,
+  author    = {Huang, G. and Chen, D. and Li, T. and Wu, F. and van der Maaten, L. and Weinberger, K.Q.},
+  title     = {Multi-Scale Dense Networks for Resource Efficient Image Classification},
+  year      = {2018},
+  booktitle = {International Conference on Learning Representations (ICLR)}
+}
+
+% ---- encrypted traffic analysis, wider context ----
+@inproceedings{appscanner,
+  author    = {Taylor, V.F. and Spolaor, R. and Conti, M. and Martinovic, I.},
+  title     = {{AppScanner}: Automatic Fingerprinting of Smartphone Apps from Encrypted Network Traffic},
+  year      = {2016},
+  booktitle = {IEEE European Symposium on Security and Privacy (EuroS\&P)},
+  doi       = {10.1109/eurosp.2016.40}
+}
+
+@article{rezaei,
+  author  = {Rezaei, S. and Liu, X.},
+  title   = {Deep Learning for Encrypted Traffic Classification: An Overview},
+  year    = {2019},
+  journal = {IEEE Communications Magazine},
+  doi     = {10.1109/mcom.2019.1800819}
+}
+
+@article{survey,
+  author  = {Papadogiannaki, E. and Ioannidis, S.},
+  title   = {A Survey on Encrypted Network Traffic Analysis: Applications, Techniques, and Countermeasures},
+  year    = {2021},
+  journal = {ACM Computing Surveys},
+  doi     = {10.1145/3457904}
+}
+
+@inproceedings{nprint,
+  author    = {Holland, J. and Schmitt, P. and Feamster, N. and Mittal, P.},
+  title     = {New Directions in Automated Traffic Analysis},
+  year      = {2021},
+  booktitle = {Proceedings of the ACM SIGSAC Conference on Computer and Communications Security (CCS)},
+  doi       = {10.1145/3460120.3484758}
+}
+
+@inproceedings{rimmer,
+  author    = {Rimmer, V. and Preuveneers, D. and Juarez, M. and Van Goethem, T. and Joosen, W.},
+  title     = {Automated Website Fingerprinting through Deep Learning},
+  year      = {2018},
+  booktitle = {Network and Distributed System Security Symposium (NDSS)},
+  doi       = {10.14722/ndss.2018.23105}
+}
+
+@inproceedings{deepfinger,
+  author    = {Sirinam, P. and Imani, M. and Juarez, M. and Wright, M.},
+  title     = {Deep Fingerprinting: Undermining Website Fingerprinting Defenses with Deep Learning},
+  year      = {2018},
+  booktitle = {Proceedings of the ACM SIGSAC Conference on Computer and Communications Security (CCS)},
+  doi       = {10.1145/3243734.3243768}
+}
+
+@article{mimetic,
+  author  = {Aceto, G. and Ciuonzo, D. and Montieri, A. and Pescap\`{e}, A.},
+  title   = {{MIMETIC}: Mobile encrypted traffic classification using multimodal deep learning},
+  year    = {2019},
+  journal = {Computer Networks},
+  doi     = {10.1016/j.comnet.2019.106944}
+}
+
+% ---- architecture and optimisation components used here ----
+@inproceedings{transformer,
+  author    = {Vaswani, A. and Shazeer, N. and Parmar, N. and Uszkoreit, J. and Jones, L. and Gomez, A.N. and Kaiser, L. and Polosukhin, I.},
+  title     = {Attention Is All You Need},
+  year      = {2017},
+  booktitle = {Advances in Neural Information Processing Systems 30}
+}
+
+@inproceedings{bert,
+  author    = {Devlin, J. and Chang, M.-W. and Lee, K. and Toutanova, K.},
+  title     = {{BERT}: Pre-training of Deep Bidirectional Transformers for Language Understanding},
+  year      = {2019},
+  booktitle = {Proceedings of NAACL-HLT}
+}
+
+@inproceedings{adam,
+  author    = {Kingma, D.P. and Ba, J.},
+  title     = {Adam: A Method for Stochastic Optimization},
+  year      = {2015},
+  booktitle = {International Conference on Learning Representations (ICLR)}
+}
+
+@article{layernorm,
+  author  = {Ba, J.L. and Kiros, J.R. and Hinton, G.E.},
+  title   = {Layer Normalization},
+  year    = {2016},
+  journal = {arXiv:1607.06450}
+}
+
+@inproceedings{batchnorm,
+  author    = {Ioffe, S. and Szegedy, C.},
+  title     = {Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift},
+  year      = {2015},
+  booktitle = {Proceedings of the 32nd International Conference on Machine Learning (ICML)}
+}
+
+@inproceedings{dilated,
+  author    = {Yu, F. and Koltun, V.},
+  title     = {Multi-Scale Context Aggregation by Dilated Convolutions},
+  year      = {2016},
+  booktitle = {International Conference on Learning Representations (ICLR)}
+}

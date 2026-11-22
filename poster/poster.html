@@ -167,10 +167,10 @@ td { padding: 1.4mm 2mm; }
       <div class="band"><span class="n"></span>Key Result</div>
       <div class="kpi">
         <div class="num">28%</div>
-        <div class="txt">of the byte cost, for the <b>same macro-F1</b>.
-        The adaptive policy matches the best fixed-depth head (0.9716) while reading
-        <b>144 bytes</b> per flow instead of 512 on USTC-TFC2016, and 116 bytes
-        (<b>23%</b>) on ISCX VPN-nonVPN.</div>
+        <div class="txt">of the byte cost, at <b>no measurable loss</b>.
+        The adaptive policy reads <b>144 bytes</b> per flow instead of 512 on
+        USTC-TFC2016 and gives up 0.0058 macro-F1, which is inside the seed
+        spread. On ISCX it reads 116 bytes (<b>23%</b>).</div>
       </div>
 
       <div class="card bars">
@@ -180,7 +180,8 @@ td { padding: 1.4mm 2mm; }
         <div class="row"><span class="lab">Adaptive early exit</span>
           <span class="track"><span class="fill a" style="width:28%"></span></span>
           <span class="val">144 B</span></div>
-        <p class="note">Bytes read per flow on USTC-TFC2016 at equal macro-F1 (0.9716).
+        <p class="note">Bytes read per flow on USTC-TFC2016 for macro-F1 that is
+        statistically indistinguishable (0.9659 against 0.9716, inside seed noise).
         Because the encoder is causal, head <em>k</em> cannot have seen byte
         <em>k</em>+1, so the saving is real rather than nominal.</p>
       </div>
