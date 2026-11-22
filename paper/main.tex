@@ -334,7 +334,7 @@ curve.
   \draw[ar] (\a) -- (\b);
 
 \node[lbl, above=0.5mm of anon] {MAC/IP $\to 0$};
-\node[lbl, above=0.5mm of gt]   {Eq.~(5)};
+\node[lbl, above=0.5mm of gt]   {Eq.~\eqref{eq:gate}};
 \node[lbl, below=0.7mm of store]{$\{0,\dots,255\}^{N\times 2048}$};
 \node[lbl, below=0.7mm of xk0]  {$\{0,\dots,256\}^{N\times k}$};
 
@@ -388,7 +388,7 @@ curve.
 \node[op, fill=orange!24, align=center, right=4mm of h1k] (rule)
   {exit at first $k$ with $\max_c p^{(k)}_c\ge\tau$};
 \draw[ar] (h1k) -- (rule);
-\node[lbl, below=0.6mm of rule] {Eq.~(9); cost Eq.~(10)};
+\node[lbl, below=0.6mm of rule] {Eq.~\eqref{eq:exit}; cost \eqref{eq:cost}};
 \end{tikzpicture}}
 \caption{The method. (a)~Capture parsing, sessionization and anonymisation run
 once and write a fixed 2048-byte store; only the slice and everything right of
@@ -402,11 +402,10 @@ so each exit is charged only the bytes it actually read.}\label{fig:arch}
 
 \subsection{Anonymisation, the leakage gate and padding modes}
 
-The gate is a formal precondition on the whole study rather than a reported
-metric. Let $\pi_c$ be the prior of class $c$ in the training split, let
-$g_{\textsc{id}}$ be a classifier trained on the identifier byte positions read
-from the anonymised store, and let $A(\cdot)$ denote test accuracy. No result
-in this paper is reported unless
+The gate is a formal precondition rather than a reported metric. Let $\pi_c$
+be the prior of class $c$ in the training split, $g_{\textsc{id}}$ a classifier
+trained on the identifier byte positions read from the anonymised store, and
+$A(\cdot)$ test accuracy. No result is reported unless
 \begin{equation}
 A(g_{\textsc{id}}) \;\le\; \max_{c} \pi_c + \delta,
 \qquad \delta = 0.1,
@@ -560,34 +559,29 @@ would confound the exit policy with differences in ceiling and representation.
 
 \subsection{Changes from the original design}\label{sec:changes}
 
-The methodology above departs from this project's original Phase~2 design in
-five respects, each forced by something found while implementing or running
-it rather than by preference, and each recorded here because it affects how
-the results should be read.
+The methodology departs from this project's original Phase~2 design in five
+respects, each forced by something found while implementing it, and each
+affecting how the results should be read.
 
 \begin{enumerate}
 \item \emph{The input representation became a swept variable.} The original
-design fixed bytes to a scalar in $[0,1]$. That encoding cannot separate
-adjacent byte values, which differ by $0.004$ after scaling, and on synthetic
-data with a cue past byte 780 it plateaus at $0.492$ macro-F1 where a learned
-embedding reaches $1.000$. Because the budget curve is the study's instrument
-and its shape depends on this choice, both encodings are swept
-(Table~\ref{tab:padding}).
+design fixed bytes to a scalar in $[0,1]$, which cannot separate adjacent byte
+values: they differ by $0.004$ after scaling. On synthetic data with a cue past
+byte 780 that encoding plateaus at $0.492$ macro-F1 where a learned embedding
+reaches $1.000$, so both are swept (Table~\ref{tab:padding}).
 \item \emph{The padding control gained an attribution arm.} Comparing zero
 padding against a masked embedding changes two things at once, so the
 \textsc{embed} mode was added to separate them by
 Eqs.~\eqref{eq:drepr}--\eqref{eq:dpad}.
-\item \emph{The leakage control became three probes.} ``Train on the fields
-that were anonymised'' is ambiguous, so it was split into the gate, the
-context probe and the retained-field probe of
-Section~\ref{sec:method}.
-\item \emph{The encoder was made causal.} The original design specified
-early-exit heads at byte depths but not how to guarantee that a head sees only
-the bytes it is charged for. Without that guarantee the accuracy-per-byte
-frontier is meaningless, hence Eq.~\eqref{eq:cnorm}.
-\item \emph{The split strategy became an experiment.} The original design
-treated the group-wise/temporal fallback as a caveat. Because it is the
-study's largest confound, it was measured instead
+\item \emph{The leakage control became three probes}, since ``train on the
+fields that were anonymised'' is ambiguous: the gate, the context probe and
+the retained-field probe of Section~\ref{sec:method}.
+\item \emph{The encoder was made causal.} The original design placed
+early-exit heads at byte depths without guaranteeing that a head sees only the
+bytes it is charged for. Without that the frontier is meaningless, hence
+Eq.~\eqref{eq:cnorm} and Proposition~\ref{prop:causal}.
+\item \emph{The split strategy became an experiment} rather than the caveat
+the original design treated it as, because it is the study's largest confound
 (Section~\ref{subsec:fairness}).
 \end{enumerate}
 
@@ -659,6 +653,15 @@ USTC and 15 on ISCX, which is capped at 5000 sessions per class. The causal
 encoder follows the dilated-convolution design of WaveNet~\cite{wavenet}. All
 code, configuration and result JSON are available
 (Section~\ref{sec:declarations}).
+
+Before either corpus was touched the pipeline was validated against data
+with a known answer. a weak cue at byte 78 and a strong cue past byte
+780. The sweep recovers the planted structure exactly, tracing chance at 64
+bytes, 0.837 macro-F1 at 128 bytes and 1.000 at 1500 bytes, and the leakage
+gate separates 1.000 before anonymisation from 0.125 after. The scalar
+\textsc{zero} encoding plateaus at 0.492 and never finds the late cue, because
+after scaling two adjacent byte values differ by 0.004. This is a positive
+control for the instrument, not a result about real traffic.
 
 %%=========================================================================
 \section{Results and analysis}\label{sec:results}
@@ -750,7 +753,7 @@ Class & Support & Prec. & Recall & F1 \\
 
 Table~\ref{tab:budget} and Figure~\ref{fig:budget} give the central result.
 Macro-F1 saturates at 512 bytes on USTC and 256 bytes on ISCX by
-Eq.~\eqref{eq:sat}. On the packet axis, saturation falls at 5 packets on USTC
+Definition~\ref{def:sat}. On the packet axis, saturation falls at 5 packets on USTC
 and 2 packets on ISCX.
 
 \begin{table}[tbp]
@@ -779,8 +782,8 @@ $\sigma_{\text{seed}}$ & \multicolumn{2}{c}{0.0142} & \multicolumn{2}{c}{0.0326}
 
 \begin{figure}[tbp]
 \centering
-\includegraphics[width=0.49\textwidth]{figures/ustc_budget_profile_bytes.pdf}
-\includegraphics[width=0.49\textwidth]{figures/iscx_budget_profile_bytes.pdf}
+\includegraphics[width=0.43\textwidth]{figures/ustc_budget_profile_bytes.pdf}
+\includegraphics[width=0.43\textwidth]{figures/iscx_budget_profile_bytes.pdf}
 \caption{Byte-budget response on USTC-TFC2016 (left) and ISCX VPN-nonVPN
 (right). Shaded bands are seed spread; vertical marks are budgets used by the
 reviewed studies. Every marked budget lies at or past the saturation
@@ -883,13 +886,14 @@ reaches $0.5134 \pm 0.0400$ at 116 bytes against $0.5474 \pm 0.0495$ at 512,
 again inside seed noise, for a 77\% reduction. Because the
 encoder is causal by Eq.~\eqref{eq:cnorm}, these byte counts are real: head $k$
 cannot have seen byte $k+1$. The positive control for the whole instrument,
-run on generated traffic with a planted cue, is in Appendix~\ref{app:synth}.
+run on generated traffic with a planted cue, is described in
+Section~\ref{sec:setup}.
 
 
 \begin{figure}[tbp]
 \centering
-\includegraphics[width=0.49\textwidth]{figures/ustc_accuracy_per_byte_frontier.pdf}
-\includegraphics[width=0.49\textwidth]{figures/iscx_accuracy_per_byte_frontier.pdf}
+\includegraphics[width=0.43\textwidth]{figures/ustc_accuracy_per_byte_frontier.pdf}
+\includegraphics[width=0.43\textwidth]{figures/iscx_accuracy_per_byte_frontier.pdf}
 \caption{Accuracy-per-byte frontier on USTC (left) and ISCX (right). Fixed
 budgets against the adaptive early-exit policy; the policy reaches the best
 fixed head's macro-F1 at a fraction of the byte cost.}\label{fig:frontier}
@@ -1195,25 +1199,20 @@ of classes, so the direction is reported and the magnitude declined.
 
 \subsection{Why the budget behaves this way, and what it means in practice}
 
-Three measurements point to one mechanism. The layer-scope ablation locates the
-discriminative bytes in the header region; the budget curve saturates early;
-and the padding fraction at those budgets is already 0.24 on both corpora.
-Past saturation the marginal byte is therefore increasingly \textsc{pad} rather
-than content, and on USTC accuracy then \emph{falls} significantly, consistent
-with padding acting as noise the model must learn to ignore with no
-compensating signal.
+Three measurements point to one mechanism. The layer-scope ablation locates
+the discriminative bytes in the header region, the budget curve saturates
+early, and the padding fraction at those budgets is already 0.24 on both
+corpora. Past saturation the marginal byte is therefore increasingly
+\textsc{pad} rather than content, and on USTC accuracy then \emph{falls}
+significantly, consistent with padding acting as noise with no compensating
+signal.
 
-The result is directly actionable: a system reading 1024 bytes per flow to
-replicate P8's budget pays 7.1$\times$ the byte cost of the adaptive policy for
-accuracy the budget curve says is not there. Reading less also shortens
-detection latency and reduces per-flow memory, both of which matter on a
-middlebox.
-
-The study's strength is control: every budget is a slice of one store, so no
-sweep point differs in sessionization, deduplication or class balance;
-causality is proved rather than assumed, so ``bytes read'' is a real cost; and
-every claim carries seed variance, with an exact test on the two paired
-comparisons.
+This is directly actionable: a system reading 1024 bytes to replicate P8's
+budget pays 7.1$\times$ the byte cost of the adaptive policy for accuracy the
+curve says is not there, and reading less also shortens detection latency and
+per-flow memory. The study's strength is control: every budget is a slice of
+one store, causality is proved rather than assumed, and every claim carries
+seed variance.
 
 \subsection{Limitations, failure cases and threats to validity}\label{subsec:limits}
 
@@ -1243,8 +1242,8 @@ in Table~\ref{tab:perclass}, at 0.042 recall on 686 test sessions, with
 \texttt{vpn\_file} absorbing the misplaced traffic at 0.241 precision.
 \end{enumerate}
 
-\emph{Internal:} three seeds is a small variance sample, which is why the split
-study uses eight, and single-seed significance can disagree with the seed rule.
+\emph{Internal:} three seeds is a small variance sample, which is why the
+split study uses eight.
 \emph{External:} both corpora are 2016 laboratory captures, so the cipher mix
 is dated and the saturation budget may differ on modern traffic.
 \emph{Construct:} macro-F1 on 11 or 20 classes is not the construct that
@@ -1312,13 +1311,11 @@ single repository, which will be released publicly on publication and is
 available from the corresponding author in the interim. Figures and tables are
 generated from that JSON by script; none is transcribed by hand.
 
-\emph{Reproducibility.} Random seeds are $\{0,1,2\}$ for all experiments and
-$\{0,\dots,7\}$ for the split-strategy study. Hyperparameters, hardware and
-software versions are given in Section~\ref{sec:setup}. The preprocessing
-ceiling is 2048 bytes; ISCX runs are capped at 5000 sessions per class. Five
-verification scripts run on generated captures and require no corpus, including
-one that plants a cue at a known byte depth and requires the sweep to recover
-it.
+\emph{Reproducibility.} Seeds are $\{0,1,2\}$, and $\{0,\dots,7\}$ for the
+split-strategy study; hyperparameters, hardware and software versions are in
+Section~\ref{sec:setup}. The preprocessing ceiling is 2048 bytes and ISCX runs
+are capped at 5000 sessions per class. Five verification scripts run on
+generated captures and need no corpus.
 
 \emph{Competing interests.} The authors declare no competing interests.
 
@@ -1338,23 +1335,11 @@ for its content.
 
 \section*{Acknowledgements}
 
-The authors thank the course instructor for guidance across the four phases of
-this project.
+The authors thank the course instructor for guidance throughout this project.
 
 %%=========================================================================
 
 \begin{appendices}
-
-\section{Validation on synthetic ground truth}\label{app:synth}
-
-Before either corpus was touched, the pipeline was validated on generated
-traffic with a known answer: a weak cue at byte 78 and a strong cue past byte
-780. The sweep recovers the planted structure exactly, tracing chance at 64
-bytes, 0.837 macro-F1 at 128 bytes and 1.000 at 1500 bytes, and the leakage
-gate separates 1.000 before anonymisation from 0.125 after. The scalar
-\textsc{zero} encoding plateaus at 0.492 and never finds the late cue, because
-after scaling two adjacent byte values differ by 0.004. This is a positive
-control for the instrument, not a result about real traffic.
 
 \section{Supporting tables and figures}\label{app:extra}
 
@@ -1382,8 +1367,8 @@ Fraction of best fixed cost & \textbf{28\%} & & \textbf{23\%} & \\
 
 \begin{figure}[tbp]
 \centering
-\includegraphics[width=0.49\textwidth]{figures/ustc_padding_attribution.pdf}
-\includegraphics[width=0.49\textwidth]{figures/iscx_padding_attribution.pdf}
+\includegraphics[width=0.38\textwidth]{figures/ustc_padding_attribution.pdf}
+\includegraphics[width=0.38\textwidth]{figures/iscx_padding_attribution.pdf}
 \caption{Padding attribution on USTC (left) and ISCX (right), against the
 seed-noise band. On ISCX the representation term clears the band and the
 padding-symbol term does not; on USTC neither does.}\label{fig:padding}
@@ -1391,7 +1376,7 @@ padding-symbol term does not; on USTC neither does.}\label{fig:padding}
 
 \begin{figure}[tbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/iscx_split_strategy.pdf}
+\includegraphics[width=0.66\textwidth]{figures/iscx_split_strategy.pdf}
 \caption{Macro-F1 against where the train/test boundary falls, with classes,
 budget, model, epochs, seeds and per-class split sizes held fixed. Error bars
 are seed spread; the dashed line is the chance rate.}\label{fig:split}
