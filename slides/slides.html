@@ -1,14 +1,31 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <title>Phase 6 presentation deck</title>
-<!-- One design system with the Phase 5 poster and standee, so the three
-     pieces read as a set. Tokens and components live in poster/shared.css. -->
+<!-- Components and accent colours come from the Phase 5 design system in
+     poster/shared.css, so the deck, the poster and the standee share one
+     component vocabulary. The deck overrides only the dark chrome, navy to
+     dark grey, in the :root block below; shared.css itself is untouched, so
+     the printed poster and standee keep their navy. -->
 <link rel="stylesheet" href="../poster/shared.css">
 <style>
 /* ---- 16:9 slide, 13.333 x 7.5 in ----------------------------------- */
 @page { size: 338.667mm 190.5mm; margin: 0; }
 
-:root { --accent-rule: 1.6mm; --li-gap: 2.4mm; --kpi-bar: 2.4mm; }
+:root {
+  --accent-rule: 1.6mm; --li-gap: 2.4mm; --kpi-bar: 2.4mm;
+
+  /* Dark grey chrome in place of the poster's navy. The accent trio stays
+     exactly as plots.py defines it, so the artwork still matches the colours
+     inside the figures it frames. */
+  --navy:        #363b40;   /* band fill, table headers, footers, headings */
+  --navy-deep:   #22262a;   /* header gradient foot                        */
+  --panel-alt:   #f5f5f4;   /* tinted card fill, neutral rather than blue   */
+  --rule-strong: #d3d3d0;
+}
+
+/* The light text on that chrome was tinted blue to sit on navy; neutralise it. */
+.subtitle { color: #c9ced3; }
+.affil    { color: #a9b0b6; }
 
 .slide {
   width: 338.667mm; height: 190.5mm;
@@ -34,12 +51,12 @@
 }
 .shead h2  { margin: 0; font-size: 7.4mm; font-weight: 700; letter-spacing: -0.01em; flex: 1; line-height: 1.1; }
 .shead .sect { font-size: 3.2mm; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-               color: #8fb4e4; flex: none; width: 46mm; }
-.shead .num  { font-size: 3.4mm; color: #7f9cc4; flex: none; }
+               color: #a9b0b6; flex: none; width: 46mm; }
+.shead .num  { font-size: 3.4mm; color: #8d949a; flex: none; }
 
 .scontent { flex: 1; padding: 7mm 14mm; min-height: 0; display: flex; flex-direction: column; gap: 5mm; }
 .sfoot {
-  flex: none; background: var(--navy); color: #9fb6d4;
+  flex: none; background: var(--navy); color: #b0b6bb;
   padding: 2.6mm 14mm; font-size: 3.2mm;
   display: flex; justify-content: space-between; align-items: center;
 }
@@ -103,10 +120,10 @@ table.tight th, table.tight td { padding: 1.5mm 2.4mm; }
 .term { font-size: 3.6mm; color: var(--ink-muted); text-align: center; }
 
 code, .mono { font-size: 0.94em; }
-.sh { background: #0d1b2a; color: #d8e4f2; border-radius: 1.2mm; padding: 5mm 6mm;
+.sh { background: #1f2327; color: #dcdedf; border-radius: 1.2mm; padding: 5mm 6mm;
       font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 3.5mm; line-height: 1.72;
       white-space: pre; overflow: hidden; }
-.sh .p { color: #6f8aa8; }
+.sh .p { color: #8a9196; }
 .sh .c { color: #8ec07c; }
 .sh b  { color: #ffb48a; font-weight: 400; }
 

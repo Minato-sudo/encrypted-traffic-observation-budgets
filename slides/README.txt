@@ -20,9 +20,15 @@ it unlisted to YouTube, and submit the link.
 
 Source
 ------
-  slides.html               the deck. Links ../poster/shared.css, which is the
-                            same design system the Phase 5 poster and standee
-                            use, so the three pieces cannot drift apart.
+  slides.html               the deck. Links ../poster/shared.css for the
+                            component vocabulary and the accent colours, so the
+                            deck, the poster and the standee stay one family.
+                            The deck overrides the dark chrome only, navy to
+                            dark grey (#363b40), in its own :root block;
+                            shared.css is untouched, so the printed poster and
+                            standee keep their navy. To bring all three to grey,
+                            change --navy and --navy-deep in shared.css instead
+                            and delete the override here.
   figures/*.svg             vector figures, regenerated from the Phase 3
                             result JSON by scripts/make_slide_figures.py on a
                             reduced canvas so that the labels stay legible
