@@ -1,568 +1,374 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <title>Phase 6 presentation deck</title>
-<!-- Components and accent colours come from the Phase 5 design system in
-     poster/shared.css, so the deck, the poster and the standee share one
-     component vocabulary. The deck overrides only the dark chrome, navy to
-     dark grey, in the :root block below; shared.css itself is untouched, so
-     the printed poster and standee keep their navy. -->
-<link rel="stylesheet" href="../poster/shared.css">
 <style>
-/* ---- 16:9 slide, 13.333 x 7.5 in ----------------------------------- */
+/* ===================================================================
+   Phase 6 deck. Layout system follows the reference proposal deck:
+   an accent eyebrow, a large headline, white cards floating on a
+   tinted page, big coloured figures, a muted takeaway line and a
+   small source line. No header band and no footer bar.
+
+   The dark chrome is DARK GREY rather than navy. The accent trio is
+   unchanged from src/nettc/plots.py, so the artwork still matches the
+   colours inside the figures it frames.
+   =================================================================== */
 @page { size: 338.667mm 190.5mm; margin: 0; }
 
 :root {
-  --accent-rule: 1.6mm; --li-gap: 2.4mm; --kpi-bar: 2.4mm;
-
-  /* Dark grey chrome in place of the poster's navy. The accent trio stays
-     exactly as plots.py defines it, so the artwork still matches the colours
-     inside the figures it frames. */
-  --navy:        #363b40;   /* band fill, table headers, footers, headings */
-  --navy-deep:   #22262a;   /* header gradient foot                        */
-  --panel-alt:   #f5f5f4;   /* tinted card fill, neutral rather than blue   */
-  --rule-strong: #d3d3d0;
+  --bg:        #eef0f2;   /* tinted page                                 */
+  --card:      #ffffff;
+  --dark:      #33383d;   /* table headers, filled cards, title slide    */
+  --dark-deep: #22262a;
+  --ink:       #26292d;   /* headlines                                   */
+  --ink-2:     #53585e;   /* body                                        */
+  --ink-3:     #8b9097;   /* captions, sources                           */
+  --rule:      #e1e3e5;
+  --tint:      #e7e9eb;   /* highlighted table row                       */
+  --blue:      #2a78d6;   /* SERIES[0] in plots.py                       */
+  --orange:    #eb6834;   /* SERIES[1]                                   */
+  --green:     #1baf7a;   /* SERIES[2]                                   */
+  --tint-o:    #fdf0ea;
 }
 
-/* The light text on that chrome was tinted blue to sit on navy; neutralise it. */
-.subtitle { color: #c9ced3; }
-.affil    { color: #a9b0b6; }
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg); color: var(--ink-2);
+  font-family: "Noto Sans", "Liberation Sans", "DejaVu Sans", sans-serif;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
 
+/* ---- slide shell --------------------------------------------------- */
 .slide {
   width: 338.667mm; height: 190.5mm;
+  background: var(--bg);
+  padding: 13mm 17mm 11mm;
   display: flex; flex-direction: column;
   page-break-after: always; break-after: page;
   overflow: hidden;
-  font-size: 5mm; line-height: 1.42;
-  background: var(--surface);
+  font-size: 4.1mm; line-height: 1.45;
 }
 .slide:last-child { page-break-after: auto; break-after: auto; }
 
-/* ---- slide chrome -------------------------------------------------- */
-.shead {
-  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
-  color: #fff; position: relative; flex: none;
-  padding: 6mm 14mm 5.4mm;
-  display: flex; align-items: baseline; gap: 6mm;
+.eyebrow {
+  font-size: 3.3mm; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--blue); margin: 0;
 }
-.shead::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0;
-  height: var(--accent-rule);
-  background: linear-gradient(90deg, var(--orange) 0%, var(--blue) 55%, var(--green) 100%);
+.eyebrow.o { color: var(--orange); }
+h2.head {
+  font-size: 9.2mm; font-weight: 700; color: var(--ink);
+  letter-spacing: -0.018em; line-height: 1.1; margin: 3.4mm 0 7mm;
 }
-.shead h2  { margin: 0; font-size: 7.4mm; font-weight: 700; letter-spacing: -0.01em; flex: 1; line-height: 1.1; }
-.shead .sect { font-size: 3.2mm; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-               color: #a9b0b6; flex: none; width: 46mm; }
-.shead .num  { font-size: 3.4mm; color: #8d949a; flex: none; }
+.body { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 5mm; }
+.takeaway { font-size: 4.1mm; color: var(--ink-2); margin: 5.5mm 0 0; }
+.takeaway b { color: var(--ink); font-weight: 700; }
+.src { font-size: 3.2mm; color: var(--ink-3); margin: 4mm 0 0; }
 
-.scontent { flex: 1; padding: 7mm 14mm; min-height: 0; display: flex; flex-direction: column; gap: 5mm; }
-.sfoot {
-  flex: none; background: var(--navy); color: #b0b6bb;
-  padding: 2.6mm 14mm; font-size: 3.2mm;
-  display: flex; justify-content: space-between; align-items: center;
+/* ---- cards --------------------------------------------------------- */
+.card {
+  background: var(--card); border-radius: 2.2mm; padding: 5mm 5.5mm;
+  box-shadow: 0 0.3mm 0.8mm rgba(0,0,0,0.05), 0 1mm 3mm rgba(0,0,0,0.04);
 }
-.sfoot b { color: #fff; }
+.card.fill { background: var(--dark); color: #d6d9dc; }
+.card.fill .lbl { color: #a7acb2; }
+.card.fill .big, .card.fill h3, .card.fill strong { color: #fff; }
+.card .lbl {
+  font-size: 3.1mm; font-weight: 700; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--orange); display: block; margin-bottom: 2.4mm;
+}
+.card .lbl.b { color: var(--blue); }
+.card h3 { font-size: 4.6mm; font-weight: 700; color: var(--ink); margin: 0 0 2.4mm; line-height: 1.25; }
+.card p { margin: 0 0 2.6mm; }
+.card p:last-child { margin-bottom: 0; }
+.big { font-size: 14mm; font-weight: 700; color: var(--blue); line-height: 1; letter-spacing: -0.02em;
+       display: block; margin-bottom: 3mm; white-space: nowrap; }
+.big.o { color: var(--orange); }
+.big.g { color: var(--green); }
+.big.sm { font-size: 10.5mm; }
 
-/* ---- layout helpers ------------------------------------------------ */
-.card.cols { font-size: 4.9mm; }
-.card.cols ul { column-count: 2; column-gap: 11mm; }
-.card.cols li { break-inside: avoid; margin-bottom: 4.4mm; }
+/* ---- grids --------------------------------------------------------- */
+.row    { display: grid; gap: 5mm; }
+.row.c2 { grid-template-columns: 1fr 1fr; }
+.row.c3 { grid-template-columns: 1fr 1fr 1fr; }
+.row.c4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+.row.wl { grid-template-columns: 1.4fr 1fr; }
+.row.wr { grid-template-columns: 1fr 1.4fr; }
+.row.grow { flex: 1; min-height: 0; }
+.col { display: flex; flex-direction: column; gap: 5mm; min-height: 0; }
+.col .grow { flex: 1; min-height: 0; overflow: hidden; }
+.row.grow { overflow: hidden; }
 
-.two   { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; flex: 1; min-height: 0; }
-.two.wide-l { grid-template-columns: 1.35fr 1fr; }
-.two.wide-r { grid-template-columns: 1fr 1.35fr; }
-.three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; }
-.stack { display: flex; flex-direction: column; gap: 5mm; min-height: 0; }
-.grow  { flex: 1; min-height: 0; }
+/* ---- lists --------------------------------------------------------- */
+ul { margin: 0; padding: 0; list-style: none; }
+li { position: relative; padding-left: 5.6mm; margin: 0 0 3.2mm; }
+li:last-child { margin-bottom: 0; }
+li::before { content: ""; position: absolute; left: 0; top: 2.1mm;
+             width: 1.9mm; height: 1.9mm; border-radius: 50%; background: var(--blue); }
+strong { font-weight: 700; color: var(--ink); }
+.hl { color: var(--orange); font-weight: 700; }
+.hl2 { color: var(--blue); font-weight: 700; }
+.hl3 { color: var(--green); font-weight: 700; }
+.mono { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 0.93em; }
+.muted { color: var(--ink-3); }
 
-/* ---- components, sized for the slide ------------------------------- */
-.card { padding: 5mm 5.5mm; border-radius: 1.2mm; }
-.band { font-size: 3.6mm; padding: 2.4mm 4mm; gap: 3.5mm; border-radius: 1.2mm; }
-.band .n { width: 1.8mm; height: 4.2mm; border-radius: 0.6mm; }
+/* ---- tables -------------------------------------------------------- */
+table { border-collapse: collapse; width: 100%; font-size: 3.7mm;
+        background: var(--card); border-radius: 2.2mm; overflow: hidden;
+        box-shadow: 0 0.3mm 0.8mm rgba(0,0,0,0.05), 0 1mm 3mm rgba(0,0,0,0.04); }
+th { text-align: left; background: var(--dark); color: #fff; font-weight: 700;
+     padding: 2.6mm 3.2mm; }
+td { padding: 2.2mm 3.2mm; border-bottom: 1px solid var(--rule); color: var(--ink-2); }
+tr:last-child td { border-bottom: none; }
+td.v { text-align: right; font-weight: 700; color: var(--ink); }
+tr.best td { background: var(--tint-o); }
+tr.best td.v { color: var(--orange); }
 
-li { padding-left: 6.2mm; }
-li::before { width: 2.1mm; height: 2.1mm; top: 2.6mm; }
-
-.kpi { padding: 5mm 6mm; gap: 6mm; border-radius: 1.2mm; }
-.kpi .num { font-size: 15mm; white-space: nowrap; }
-.kpi .txt { font-size: 4.6mm; line-height: 1.34; }
-
-.stats { gap: 4mm; }
-.stat  { padding: 4mm 2mm; border-radius: 1.2mm; }
-.stat .v { font-size: 9.5mm; }
-.stat .k { font-size: 3.3mm; margin-top: 1.6mm; line-height: 1.3; }
-
-.gaps { gap: 4mm; }
-.gap  { padding: 4mm 4.4mm; border-radius: 1.2mm; --gap-bar: 1.1mm; }
-.gap .g { font-size: 4.4mm; margin-bottom: 1.6mm; }
-.gap .d { font-size: 4.3mm; line-height: 1.36; }
-
-.fig { padding: 3.5mm 3.5mm 3mm; border-radius: 1.2mm;
+/* ---- figures ------------------------------------------------------- */
+.fig { background: var(--card); border-radius: 2.2mm; padding: 4mm 4mm 3.4mm;
+       box-shadow: 0 0.3mm 0.8mm rgba(0,0,0,0.05), 0 1mm 3mm rgba(0,0,0,0.04);
        display: flex; flex-direction: column; justify-content: center; min-height: 0; }
-.fig img { max-height: 100%; object-fit: contain; }
-.fig .cap { font-size: 3.6mm; margin-top: 2.4mm; line-height: 1.32; }
+.fig img { display: block; width: 100%; height: auto; max-height: 100%; object-fit: contain; }
+.fig .cap { font-size: 3.3mm; color: var(--ink-3); margin-top: 2.6mm; line-height: 1.34; }
+.fig .cap strong { color: var(--ink-2); }
 
-table { font-size: 4.1mm; }
-th { padding: 2.2mm 3mm; }
-td { padding: 2mm 3mm; }
-table.tight { font-size: 3.8mm; }
-table.tight th, table.tight td { padding: 1.5mm 2.4mm; }
-
-.bars .row { gap: 4mm; margin-bottom: 3mm; }
-.bars .lab { width: 46mm; font-size: 4.2mm; }
-.bars .track { height: 5mm; }
-.bars .val { width: 18mm; font-size: 4.1mm; }
-.bars .note { font-size: 3.8mm; line-height: 1.34; color: var(--ink-muted); margin: 3.5mm 0 0; }
-
-.card ul + p { margin-top: 3.6mm; }
-
+/* ---- maths and terminal -------------------------------------------- */
 .eq { font-family: "DejaVu Serif", "Liberation Serif", serif; font-style: italic;
-      font-size: 5.2mm; text-align: center; color: var(--navy); margin: 1mm 0 2mm; }
-.term { font-size: 3.6mm; color: var(--ink-muted); text-align: center; }
-
-code, .mono { font-size: 0.94em; }
-.sh { background: #1f2327; color: #dcdedf; border-radius: 1.2mm; padding: 5mm 6mm;
-      font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 3.5mm; line-height: 1.72;
-      white-space: pre; overflow: hidden; }
+      font-size: 4.8mm; text-align: center; color: var(--ink); margin: 2mm 0 1.6mm; }
+.term { font-size: 3.2mm; color: var(--ink-3); text-align: center; }
+.sh { background: var(--dark-deep); color: #dcdedf; border-radius: 2.2mm; padding: 4.5mm 5mm;
+      font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+      font-size: 3.1mm; line-height: 1.68; white-space: pre; overflow: hidden; }
 .sh .p { color: #8a9196; }
 .sh .c { color: #8ec07c; }
 .sh b  { color: #ffb48a; font-weight: 400; }
 
-/* ---- title slide --------------------------------------------------- */
-.title-slide { justify-content: center; align-items: center; text-align: center;
-               background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
-               color: #fff; position: relative; padding: 0 24mm; display: flex; }
-.title-slide::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2.6mm;
-  background: linear-gradient(90deg, var(--orange) 0%, var(--blue) 55%, var(--green) 100%);
+/* ---- title and closing --------------------------------------------- */
+.title-slide {
+  background: linear-gradient(145deg, #3a4046 0%, var(--dark-deep) 60%, #1a1d20 100%);
+  color: #fff; align-items: flex-start; justify-content: center;
+  padding: 0 24mm; position: relative;
 }
-.title-slide .logo { width: 26mm; margin-bottom: 7mm; }
-.title-slide .title { font-size: 12.5mm; max-width: 280mm; }
-.title-slide .subtitle { font-size: 5.2mm; margin-top: 5mm; max-width: 250mm; }
-.title-slide .rule { width: 60mm; height: 0.8mm; background: var(--orange); margin: 9mm 0 8mm; }
-.title-slide .authors { font-size: 5.6mm; }
-.title-slide .affil { font-size: 4.2mm; margin-top: 2.5mm; }
-.title-slide .badge { font-size: 3.6mm; padding: 2mm 5mm; margin-top: 8mm; letter-spacing: 0.05em; }
-
-/* ---- closing slide -------------------------------------------------- */
-.close .qr { width: 44mm; height: 44mm; background: #fff; padding: 2.5mm; border-radius: 1.5mm; }
+.title-slide::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2.2mm;
+  background: linear-gradient(90deg, var(--orange) 0%, var(--blue) 55%, var(--green) 100%); }
+.title-slide .logo { width: 22mm; margin-bottom: 9mm; }
+.title-slide .eyebrow { color: #9aa3ab; margin-bottom: 4mm; }
+.title-slide h1 { font-size: 13mm; font-weight: 700; letter-spacing: -0.022em; line-height: 1.08;
+                  margin: 0; max-width: 250mm; color: #fff; }
+.title-slide .sub { font-size: 5mm; color: #b4bbc2; margin: 6mm 0 0; max-width: 220mm; }
+.title-slide .who { font-size: 4.6mm; color: #fff; font-weight: 700; margin: 11mm 0 0; }
+.title-slide .aff { font-size: 3.9mm; color: #9aa3ab; margin: 2mm 0 0; }
 </style></head>
 <body>
 
-<!-- ======================================================= 1. title -->
+<!-- ===================================================== 1. title -->
 <section class="slide title-slide">
   <img class="logo" src="figures/logo_nuces.png" alt="FAST-NUCES">
-  <h1 class="title">How Many Bytes Does Encrypted Traffic Classification Actually Need?</h1>
-  <p class="subtitle">Observation Budgets, Padding Effects, and an Adaptive Early-Exit Classifier
-     for Raw-Byte Traffic</p>
-  <div class="rule"></div>
-  <p class="authors">Muhammad Talha Arshad (i232548) &nbsp;&middot;&nbsp; Zain Shahid (i232582)</p>
-  <p class="affil">BS Data Science, FAST-NUCES Islamabad</p>
-  <span class="badge">Computer Networks &middot; Research Project &middot; Fall 2026</span>
+  <p class="eyebrow">Computer Networks &middot; Research Project &middot; Fall 2026</p>
+  <h1>How many bytes does encrypted traffic classification actually need?</h1>
+  <p class="sub">Observation budgets, padding effects, and an adaptive early-exit
+     classifier for raw-byte traffic</p>
+  <p class="who">Muhammad Talha Arshad (i232548) &nbsp;&middot;&nbsp; Zain Shahid (i232582)</p>
+  <p class="aff">BS Data Science, FAST-NUCES Islamabad</p>
 </section>
 
-<!-- ======================================================= 2. problem -->
+<!-- ===================================================== 2. the problem -->
 <section class="slide">
-  <header class="shead"><span class="sect">The problem</span>
-    <h2>Every deep traffic classifier reads a prefix. Nobody measures it.</h2>
-    <span class="num">2</span></header>
-  <div class="scontent">
-    <div class="two wide-l">
-      <div class="stack">
-        <div class="card">
-          <p>A raw-byte classifier does not see a flow. It sees the <strong>first
-          <em>B</em> bytes</strong> of it, zero-padded to a fixed length. That prefix
-          is the <strong>observation budget</strong>.</p>
-          <p>The budget is not a tuning knob on the side. It <em>is</em> the
-          operating point of the system:</p>
+  <p class="eyebrow">The problem</p>
+  <h2 class="head">Every classifier reads a prefix. Nobody measures it.</h2>
+  <div class="body">
+    <div class="row c3">
+      <div class="card"><span class="big">B</span>
+        <p>bytes is all a raw-byte classifier ever sees of a flow, zero-padded to a
+        fixed length. That prefix is the <strong>observation budget</strong>.</p></div>
+      <div class="card"><span class="lbl b">It sets</span>
+        <h3>Latency, memory, and how early you can act</h3>
+        <p>A 1024-byte budget cannot decide before 1024 bytes arrive, and a middlebox
+        holds <em>B</em> bytes for every concurrent flow.</p></div>
+      <div class="card"><span class="big o">0 / 12</span>
+        <p>studies from 2025 and 2026 report accuracy as a function of the budget.
+        Budgets run from 5 to 20 packets, or 784 to 1024 bytes.</p></div>
+    </div>
+    <div class="row c4 grow">
+      <div class="card"><span class="lbl">Gap 1</span>
+        <h3>Inherited, not measured</h3>
+        <p>No study reports accuracy against budget with corpus, split, model and
+        seeds held fixed.</p></div>
+      <div class="card"><span class="lbl">Gap 2</span>
+        <h3>The aggregate conceals</h3>
+        <p>P10 reports 97.65% overall but 92.20% on VoIP. P2 reports 88.61% with AIM
+        at 0%.</p></div>
+      <div class="card"><span class="lbl">Gap 3</span>
+        <h3>&ldquo;Encrypted&rdquo; is asserted</h3>
+        <p>P5 finds much of these benchmarks is not encrypted, and downstream work
+        never quantifies it.</p></div>
+      <div class="card fill"><span class="lbl">Gap 4</span>
+        <h3>Shortcuts not excluded</h3>
+        <p>P5 shows that retaining identifier fields is worth up to
+        <strong>0.45 accuracy</strong>.</p></div>
+    </div>
+    <p class="takeaway">Where a budget is justified at all the reason is architectural,
+    such as a byte count that reshapes into a square image, <b>never empirical</b>.</p>
+  </div>
+  <p class="src">Twelve studies reviewed, published 2025 to 2026. Full list in the Phase 1 literature review.</p>
+</section>
+
+<!-- ===================================================== 3. the confound -->
+<section class="slide">
+  <p class="eyebrow">The problem</p>
+  <h2 class="head">Budget and padding cannot be separated by construction</h2>
+  <div class="body">
+    <div class="row wl grow">
+      <div class="col">
+        <div class="row c2">
+          <div class="card"><span class="big sm">274 B</span>
+            <p>median ISCX session. USTC is 474 B. A larger budget does not read more
+            traffic, it reads <span class="hl">more padding</span>.</p></div>
+          <div class="card"><span class="big sm o">70%</span>
+            <p>of an average ISCX session is padding at a 1500-byte budget. At 512 B
+            it is already 48%.</p></div>
         </div>
-        <div class="card t grow">
+        <table>
+          <tr><th>Budget</th><th style="text-align:right">USTC E[&rho;]</th><th style="text-align:right">ISCX E[&rho;]</th></tr>
+          <tr><td>128 B</td><td class="v">0.006</td><td class="v">0.021</td></tr>
+          <tr class="best"><td>256 B</td><td class="v">0.105</td><td class="v">0.244</td></tr>
+          <tr class="best"><td>512 B</td><td class="v">0.242</td><td class="v">0.478</td></tr>
+          <tr><td>1024 B</td><td class="v">0.347</td><td class="v">0.639</td></tr>
+          <tr><td>1500 B</td><td class="v">0.398</td><td class="v">0.701</td></tr>
+        </table>
+      </div>
+      <div class="col">
+        <div class="card">
+          <span class="lbl">Why it matters</span>
+          <p>Any gain from a larger budget <strong>mixes two effects</strong>: more
+          real bytes, and more padding the model can exploit as a length cue. A paper
+          concluding &ldquo;1024 bytes works best&rdquo; may have measured
+          <span class="hl2">a length classifier</span>.</p>
+        </div>
+        <div class="card grow">
+          <span class="lbl b">Five objectives</span>
           <ul>
-            <li><strong>Detection latency.</strong> A 1024-byte budget cannot
-            decide before 1024 bytes have arrived.</li>
-            <li><strong>Memory per flow.</strong> A middlebox holding
-            <em>B</em> bytes for every concurrent flow scales linearly in
-            <em>B</em>.</li>
-            <li><strong>How early you can act.</strong> Blocking, shaping or
-            alerting all wait on the same prefix.</li>
+            <li><strong>Measure the budget response</strong>, and the saturation point.</li>
+            <li><strong>Test whether it is the model</strong>, not the traffic.</li>
+            <li><strong>Decompose padding</strong> into representation and PAD symbol.</li>
+            <li><strong>Read only what is needed</strong>, with a causality guarantee.</li>
+            <li><strong>Report honestly:</strong> per-class results, and the split effect.</li>
           </ul>
         </div>
       </div>
-      <div class="stack">
-        <div class="band"><span class="n"></span>What the field does instead</div>
-        <div class="card">
-          <p>We reviewed <strong>12 studies published in 2025 and 2026</strong>.
-          The budget ranges from <span class="hl">5 to 20 packets</span>, or
-          <span class="hl">784 to 1024 bytes</span>.</p>
-          <p><strong>In not one of them is it measured.</strong> Where a reason is
-          given at all it is architectural, such as a byte count that reshapes
-          into a square image, not empirical.</p>
-        </div>
-        <div class="kpi">
-          <div class="num">0</div>
-          <div class="txt">of the 12 reviewed studies report
-          <b>accuracy as a function of the budget</b> with everything else held
-          fixed. That curve is the object of this work.</div>
-        </div>
-      </div>
     </div>
+    <p class="takeaway">Two public corpora, <b>385 thousand sessions</b>, 31 traffic
+    classes, and three to eight seeds behind every number reported.</p>
   </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
+  <p class="src">E[&rho;] is the mean padding fraction of Eq. (2): max(0, k &minus; L) / k, averaged over sessions.</p>
 </section>
 
-<!-- ======================================================= 3. confound -->
+<!-- ===================================================== 4. pipeline + gate -->
 <section class="slide">
-  <header class="shead"><span class="sect">The problem</span>
-    <h2>Worse: budget and padding cannot be separated by construction</h2>
-    <span class="num">3</span></header>
-  <div class="scontent">
-    <div class="card">
-      <p>Network flows are short and heavy-tailed. The median ISCX VPN-nonVPN
-      session is <strong>274 bytes</strong>; the median USTC-TFC2016 session is
-      <strong>474 bytes</strong>. A budget larger than that does not read more
-      traffic. It reads <span class="hl">more padding</span>.</p>
-    </div>
-    <div class="band"><span class="n"></span>Mean padding fraction of a session, at each budget</div>
-    <div class="two">
-      <table>
-        <tr><th>Budget</th><th style="text-align:right">USTC</th><th style="text-align:right">ISCX</th></tr>
-        <tr><td>128 B</td><td class="v">0.006</td><td class="v">0.021</td></tr>
-        <tr class="best"><td>256 B</td><td class="v">0.105</td><td class="v">0.244</td></tr>
-        <tr class="best"><td>512 B</td><td class="v">0.242</td><td class="v">0.478</td></tr>
-        <tr><td>1024 B</td><td class="v">0.347</td><td class="v">0.639</td></tr>
-        <tr><td>1500 B</td><td class="v">0.398</td><td class="v">0.701</td></tr>
-      </table>
-      <div class="card t">
-        <p><strong>So raising the budget raises the padding fraction, always.</strong>
-        Any reported accuracy gain from a larger budget is a mixture of two
-        effects: more real bytes, and more padding for the model to exploit as a
-        length cue.</p>
-        <p>No published result separates them. A study that reports
-        &ldquo;1024 bytes works best&rdquo; may have measured
-        <span class="hl2">a length classifier</span> and called it a payload
-        classifier.</p>
-        <p class="lead">This is the second thing we set out to decompose.</p>
-      </div>
-    </div>
-  </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
-</section>
-
-<!-- ======================================================= 4. gaps -->
-<section class="slide">
-  <header class="shead"><span class="sect">Research gap</span>
-    <h2>Four gaps in the literature, addressed in order</h2>
-    <span class="num">4</span></header>
-  <div class="scontent">
-    <div class="gaps grow">
-      <div class="gap"><span class="g">Gap 1 &middot; the budget is inherited, not measured</span>
-        <span class="d">No study reports accuracy as a function of the budget with the
-        corpus, split, model and seeds held fixed. The budget is copied from an
-        earlier paper, which copied it from an earlier one.</span></div>
-      <div class="gap"><span class="g">Gap 2 &middot; aggregate accuracy conceals per-class failure</span>
-        <span class="d">P10 reports 97.65% overall but 92.20% on VoIP. P2 reports
-        88.61% overall with AIM at 0%. A single headline number cannot show which
-        classes the model has given up on.</span></div>
-      <div class="gap"><span class="g">Gap 3 &middot; &ldquo;encrypted&rdquo; is asserted, not measured</span>
-        <span class="d">P5 finds much of these benchmarks is not encrypted at all.
-        Downstream work inherits the label without quantifying it, so the task
-        being measured is not the task being claimed.</span></div>
-      <div class="gap"><span class="g">Gap 4 &middot; shortcut learning is rarely excluded</span>
-        <span class="d">P5 shows that retaining identifier fields such as IP
-        addresses and ports is worth up to 0.45 accuracy. Several studies do not
-        state whether those bytes were removed.</span></div>
-    </div>
-    <div class="card t">
-      <p><strong>Read together, these four gaps mean published budgets cannot be
-      compared and cannot be trusted as evidence</strong> about how much of a flow
-      a classifier needs. The contribution of this work is to measure, on two
-      public corpora, what the field has assumed.</p>
-    </div>
-  </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
-</section>
-
-<!-- ======================================================= 5. objectives -->
-<section class="slide">
-  <header class="shead"><span class="sect">Objectives</span>
-    <h2>Five questions, each with a measurable answer</h2>
-    <span class="num">5</span></header>
-  <div class="scontent">
-    <div class="card cols grow">
-      <ul>
-        <li><strong>O1. Measure the budget response.</strong> Accuracy as a
-        function of byte and packet budget on two corpora, with everything else
-        fixed, and locate the <em>saturation budget</em>: the smallest budget
-        beyond which no larger budget is reliably better.</li>
-        <li><strong>O2. Test whether the answer is a property of the model.</strong>
-        Repeat the sweep with a second, structurally different architecture on the
-        same store, split and seeds.</li>
-        <li><strong>O3. Decompose the padding effect.</strong> Separate the gain
-        from the <em>input representation</em> from the gain from the explicit
-        <em>PAD symbol</em>, which the literature changes together.</li>
-        <li><strong>O4. Build a classifier that reads only what it needs.</strong>
-        An early-exit model whose per-flow byte cost is adaptive, with a
-        <em>causality guarantee</em> so that &ldquo;bytes read&rdquo; is a real
-        cost rather than a claim.</li>
-        <li><strong>O5. Report honestly.</strong> Exclude shortcut learning with a
-        gate that halts the pipeline, report per-class behaviour, and quantify how
-        much of a published number is explained by the train/test split alone.</li>
-      </ul>
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="v">2</div><div class="k">public corpora,<br>end to end</div></div>
-      <div class="stat"><div class="v">385k</div><div class="k">sessions<br>processed</div></div>
-      <div class="stat"><div class="v">31</div><div class="k">traffic classes<br>in total</div></div>
-      <div class="stat"><div class="v">3&ndash;8</div><div class="k">seeds behind every<br>reported number</div></div>
-    </div>
-  </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
-</section>
-
-<!-- ======================================================= 6. pipeline -->
-<section class="slide">
-  <header class="shead"><span class="sect">Methodology</span>
-    <h2>One preprocessing pass, many budgets</h2>
-    <span class="num">6</span></header>
-  <div class="scontent">
-    <div class="two wide-l">
+  <p class="eyebrow">Methodology</p>
+  <h2 class="head">One preprocessing pass, many budgets, and a gate that halts</h2>
+  <div class="body">
+    <div class="row wl grow">
       <div class="fig">
         <img src="figures/pipeline.svg" alt="The measurement pipeline">
-        <div class="cap"><strong>Capture parsing, sessionization and anonymisation run
-        once.</strong> Only the dashed region repeats per budget.</div>
+        <div class="cap"><strong>Parsing, sessionization and anonymisation run once.</strong>
+        Only the dashed region repeats per budget, so the budget is the sole variable.</div>
       </div>
-      <div class="stack">
+      <div class="col">
         <div class="card">
-          <p><strong>The design requirement.</strong> If the budget is to be a
-          measured variable, it must be the <em>only</em> thing that changes
-          between two points on the curve.</p>
+          <span class="lbl b">One store, many budgets</span>
+          <p>A single pass writes a fixed <strong>2048-byte HDF5 session store</strong>
+          that is sliced per budget, so sessionization, deduplication and class balance
+          cannot drift between points on a curve. Splits are <strong>group-wise by
+          capture file</strong>, and every point is three seeds.</p>
         </div>
-        <div class="card t grow">
-          <ul>
-            <li>A single pass writes a fixed <strong>2048-byte HDF5 session
-            store</strong>, which is then sliced per budget.</li>
-            <li>Sessionization, deduplication, anonymisation and class balance
-            are therefore <span class="hl">identical</span> at every budget. They
-            cannot drift.</li>
-            <li>Splits are <strong>group-wise by capture file</strong> where the
-            corpus allows it, so no capture appears on both sides of the
-            boundary.</li>
-            <li>Every point is three seeds, reported as mean and standard
-            deviation, never a single run.</li>
-          </ul>
+        <div class="card grow">
+          <span class="lbl">The leakage gate</span>
+          <h3>A halt condition, not a caveat</h3>
+          <p class="eq">A(g<sub>ID</sub>) &nbsp;&le;&nbsp; max<sub>c</sub> &pi;<sub>c</sub> + &delta;, &nbsp; &delta; = 0.1</p>
+          <p class="term">probe accuracy on anonymised identifier bytes &le; majority-class rate + margin</p>
+          <p style="margin-top:3.4mm">Three probes train on byte positions alone, and
+          the run <span class="hl">stops</span> unless identifier bytes are provably
+          unlearnable. It does not warn.</p>
         </div>
       </div>
     </div>
+    <p class="takeaway">Gap 4 is usually a sentence promising identifiers were removed.
+    Here it is <b>a precondition the pipeline enforces</b>.</p>
   </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
 </section>
 
-<!-- ======================================================= 7. gate -->
+<!-- ===================================================== 5. padding + classifier -->
 <section class="slide">
-  <header class="shead"><span class="sect">Methodology</span>
-    <h2>The leakage gate: a halt condition, not a caveat</h2>
-    <span class="num">7</span></header>
-  <div class="scontent">
-    <div class="card">
-      <p>Gap 4 is usually handled with a sentence promising identifiers were
-      removed. We made it a <strong>precondition the pipeline enforces</strong>.
-      Three probes are trained on byte positions alone, and the run stops unless
-      the identifier probe is no better than guessing:</p>
-      <p class="eq">A(g<sub>ID</sub>) &nbsp;&le;&nbsp; max<sub>c</sub> &pi;<sub>c</sub> + &delta;,
-         &nbsp;&nbsp; &delta; = 0.1</p>
-      <p class="term">probe accuracy on anonymised identifier bytes &nbsp;&le;&nbsp;
-         majority-class rate + margin</p>
-    </div>
-    <div class="band"><span class="n"></span>What the three probes do</div>
-    <div class="three grow">
-      <div class="card t"><p><strong>id_positions</strong>, the gate. Trains only on the
-      byte positions that held IP addresses and ports. If it learns anything, the
-      anonymisation failed and the run <span class="hl">halts</span>.</p></div>
-      <div class="card t"><p><strong>ident</strong>, shortcut strength. Trains on the
-      identifier fields <em>before</em> anonymisation, to measure what the shortcut
-      would have been worth if left in.</p></div>
-      <div class="card t"><p><strong>ports</strong>, a named control. Measures how much
-      of the result survives masking the port bytes specifically, separating port
-      memorisation from payload structure.</p></div>
-    </div>
-  </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
-</section>
-
-<!-- ======================================================= 8. padding modes -->
-<section class="slide">
-  <header class="shead"><span class="sect">Methodology</span>
-    <h2>Padding decomposed into five input modes</h2>
-    <span class="num">8</span></header>
-  <div class="scontent">
-    <div class="two wide-l">
-      <div class="stack">
+  <p class="eyebrow">Methodology</p>
+  <h2 class="head">Padding decomposed, and a causal early-exit classifier</h2>
+  <div class="body">
+    <div class="row c2 grow">
+      <div class="col">
         <table>
-          <tr><th>Mode</th><th>What the model receives</th></tr>
-          <tr><td class="mono">zero</td><td>byte/255 as a scalar, padding is the value 0</td></tr>
-          <tr class="best"><td class="mono">embed</td><td>a learned embedding per byte value, padding still 0</td></tr>
-          <tr class="best"><td class="mono">mask</td><td>learned embedding <em>plus</em> a distinct PAD symbol</td></tr>
-          <tr><td class="mono">convmask</td><td>PAD symbol, and the convolution ignores padded positions</td></tr>
-          <tr><td class="mono">length_balanced</td><td>classes resampled to equal length distributions</td></tr>
+          <tr><th>Input mode</th><th>What the model receives</th></tr>
+          <tr><td class="mono">zero</td><td>byte/255 as a scalar, padding is 0</td></tr>
+          <tr class="best"><td class="mono">embed</td><td>learned embedding per byte, padding still 0</td></tr>
+          <tr class="best"><td class="mono">mask</td><td>learned embedding <em>plus</em> a PAD symbol</td></tr>
+          <tr><td class="mono">convmask</td><td>PAD symbol, convolution skips padding</td></tr>
+          <tr><td class="mono">length_balanced</td><td>classes resampled to equal lengths</td></tr>
         </table>
-        <div class="card">
-          <p class="lead">The literature changes the representation and the padding
-          symbol <em>together</em>, then credits the gain to
-          &ldquo;padding-aware input&rdquo;. Comparing
-          <span class="mono">zero</span> &rarr; <span class="mono">embed</span>
-          &rarr; <span class="mono">mask</span> separates the two.</p>
+        <div class="card grow">
+          <p>The literature changes representation and padding symbol
+          <em>together</em>, then credits the gain to padding-aware input.
+          <span class="mono">zero</span>&rarr;<span class="mono">embed</span> gives the
+          <strong>representation term</strong>,
+          <span class="mono">embed</span>&rarr;<span class="mono">mask</span> the
+          <strong>PAD-symbol term</strong>. Each is checked against the seed spread.</p>
         </div>
       </div>
-      <div class="stack">
-        <div class="band"><span class="n"></span>The attribution this buys</div>
-        <div class="card t grow">
-          <ul>
-            <li><strong>Representation term.</strong> <span class="mono">embed</span>
-            minus <span class="mono">zero</span>. What a learned byte embedding is
-            worth, with the padding symbol unchanged.</li>
-            <li><strong>PAD-symbol term.</strong> <span class="mono">mask</span>
-            minus <span class="mono">embed</span>. What telling the model
-            <em>which bytes are padding</em> is worth, with the representation
-            unchanged.</li>
-            <li><strong>The control.</strong> <span class="mono">length_balanced</span>
-            removes length as a cue altogether, which tests whether the model was
-            classifying content or length.</li>
-          </ul>
-          <p style="margin-top:4mm"><strong>Every term is compared against the
-          seed spread</strong>, so a difference smaller than seed noise is
-          reported as inconclusive rather than as a finding.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
-</section>
-
-<!-- ======================================================= 9. early exit -->
-<section class="slide">
-  <header class="shead"><span class="sect">Methodology</span>
-    <h2>A causal early-exit classifier, so that &ldquo;bytes read&rdquo; is real</h2>
-    <span class="num">9</span></header>
-  <div class="scontent">
-    <div class="two">
-      <div class="stack">
+      <div class="col">
         <div class="card">
-          <p><strong>The idea.</strong> Attach classification heads at 64, 128,
-          256, 512 and 1024 bytes. At inference, stop at the first head whose
-          confidence clears a threshold &tau;, and charge the flow only the bytes
-          that head consumed.</p>
+          <span class="lbl b">The exit rule</span>
+          <p>Heads at 64, 128, 256, 512 and 1024 bytes. Stop at the first head whose
+          confidence clears &tau;, and charge the flow only the bytes it consumed.</p>
           <p class="eq">exit at k = min{ k : max<sub>c</sub> p<sub>k</sub>(c | x) &ge; &tau; }</p>
         </div>
-        <div class="card t grow">
-          <p><strong>Why this is not trivial.</strong> The claim only holds if head
-          <em>k</em> is <span class="hl">incapable</span> of having seen byte
-          <em>k</em>+1. Otherwise the saving is nominal and the frontier is a
-          fiction.</p>
-          <p>Six <strong>causal dilated convolution</strong> blocks, dilations 1 to
-          32, kernel 5, 96 channels, receptive field 505 bytes, with
-          left-padding only. Normalisation is
-          <strong>per-position</strong>: <span class="mono">ChannelNorm1d</span>,
-          never BatchNorm or GroupNorm, both of which average over the length axis
-          and would let byte 900 shift the activation at byte 10.</p>
-        </div>
-      </div>
-      <div class="stack">
-        <div class="band"><span class="n"></span>The guarantee, and how it is held</div>
-        <div class="card">
-          <p><strong>Proposition (exit honesty).</strong> For every head
-          <em>k</em>, the output depends only on bytes 1 &hellip; <em>k</em>.
-          Proved by induction over the layer index, since each block is causal and
-          the normalisation is position-local.</p>
-        </div>
-        <div class="card t grow">
-          <p><strong>And tested, not just argued.</strong>
-          <span class="mono">tests/test_models_causality.py</span> perturbs a byte
-          and measures how far forward the change can reach. Measured forward
-          reach: <span class="hl3">505 bytes</span>, matching the analysis
-          exactly, and zero reach backwards.</p>
-          <p class="lead">This test is in the regression set precisely because a
-          one-line change of normalisation layer would silently destroy the
-          property while every accuracy number stayed plausible.</p>
+        <div class="card fill grow">
+          <span class="lbl">This holds only if head k cannot see byte k+1</span>
+          <p>Six <strong>causal dilated convolution</strong> blocks, dilations 1 to 32,
+          kernel 5, left-padding only, receptive field <strong>505 bytes</strong>.
+          Normalisation is per-position, <span class="mono">ChannelNorm1d</span>, never
+          BatchNorm or GroupNorm, which average over the length axis and would let byte
+          900 shift the activation at byte 10.</p>
+          <p><strong>Proved by induction, and tested:</strong> perturbing one byte
+          reaches 505 bytes forward and 0 backward, matching the analysis exactly.</p>
         </div>
       </div>
     </div>
+    <p class="takeaway">Without that guarantee the byte saving is nominal and the
+    frontier on slide 10 is <b>a fiction</b>.</p>
   </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
 </section>
 
-<!-- ======================================================= 10. implementation -->
+<!-- ===================================================== 6. implementation + demo -->
 <section class="slide">
-  <header class="shead"><span class="sect">Implementation</span>
-    <h2>What was actually built</h2>
-    <span class="num">10</span></header>
-  <div class="scontent">
-    <div class="two wide-l">
-      <div class="stack">
-        <table class="tight">
-          <tr><th>Module</th><th>Responsibility</th></tr>
-          <tr><td class="mono">pcapio, dissect</td><td>streaming pcap/pcapng, five-tuple keying, field offsets</td></tr>
-          <tr><td class="mono">sessionize, store</td><td>two-pass assembly, dedupe, 2048-byte HDF5 store</td></tr>
-          <tr><td class="mono">split, slicer</td><td>group-wise splits; byte/packet budgets and padding modes</td></tr>
-          <tr class="best"><td class="mono">models</td><td>Wang 2D/1D, Deep Packet, byte transformer, early-exit</td></tr>
-          <tr><td class="mono">train, metrics</td><td>one loop for every model; per-class, McNemar, frontier</td></tr>
-          <tr class="best"><td class="mono">experiments</td><td>E1&ndash;E4, padding controls, four ablations</td></tr>
-          <tr><td class="mono">encryption</td><td>TLS cipher tagging and encryption strata</td></tr>
-          <tr><td class="mono">make_report</td><td>result JSON &rarr; the report, nothing hand-typed</td></tr>
-        </table>
-      </div>
-      <div class="stack">
-        <div class="stats">
-          <div class="stat"><div class="v">385k</div><div class="k">sessions<br>processed</div></div>
-          <div class="stat"><div class="v">55 GB</div><div class="k">captures<br>parsed</div></div>
-          <div class="stat"><div class="v">483 MB</div><div class="k">session<br>stores</div></div>
+  <p class="eyebrow">Implementation</p>
+  <h2 class="head">What was built, and a live demonstration</h2>
+  <div class="body">
+    <div class="row c2 grow">
+      <div class="col">
+        <div class="row c3">
+          <div class="card"><span class="big sm">15</span><p>modules, from a streaming
+          pcap reader to the experiment layer</p></div>
+          <div class="card"><span class="big sm">55 GB</span><p>of captures parsed into
+          483 MB of session stores</p></div>
+          <div class="card"><span class="big sm o">0</span><p>numbers typed by hand in
+          the paper, poster or deck</p></div>
         </div>
-        <div class="card t grow">
-          <p><strong>Reproducibility is mechanical, not aspirational.</strong></p>
+        <div class="card grow">
+          <span class="lbl b">Reproducibility is mechanical</span>
           <ul>
             <li>Every table and figure is generated from the result JSON by
-            <span class="mono">make_report.py</span>. No number is typed by hand
-            anywhere in the paper, the poster or this deck.</li>
+            <span class="mono">make_report.py</span>.</li>
             <li><span class="mono">study.sh</span> is stage-resumable, so a run that
             dies at epoch 30 resumes rather than restarts.</li>
             <li>Five regression tests, including one that <strong>plants a cue at a
-            known byte depth</strong> and requires the sweep to find it, and one
-            that guards the causality property.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
-</section>
-
-<!-- ======================================================= 11. demo -->
-<section class="slide">
-  <header class="shead"><span class="sect">Demonstration</span>
-    <h2>Live walkthrough: code, experiments, results</h2>
-    <span class="num">11</span></header>
-  <div class="scontent">
-    <div class="two wide-r">
-      <div class="stack">
-        <div class="band"><span class="n"></span>What you are about to see</div>
-        <div class="card t grow">
-          <ul>
-            <li>The receptive-field probe, measuring the <strong>505-byte</strong>
-            forward reach and <strong>zero</strong> backward reach.</li>
-            <li>The causality test: head <em>k</em> on a truncated input gives
-            bit-identical logits to head <em>k</em> on the full input.</li>
-            <li>The encoder itself, and the one line the guarantee rests on.</li>
-            <li>The budget sweep and the McNemar test, read straight out of
-            their JSON.</li>
-            <li>The generated report, so you can see the numbers in this deck
-            are the numbers on disk.</li>
+            known byte depth</strong> and requires the sweep to find it.</li>
           </ul>
         </div>
       </div>
@@ -582,315 +388,206 @@ code, .mono { font-size: 0.94em; }
 <span class="c"> 1500B  0.9367464205538943</span>
 
 <span class="p">$</span> <b>jq -c '.pairs.saturation.mcnemar' results/ustc/significance.json</b>
-<span class="c">  {"n01":94,"n10":2488,"p_value":0.0,"n_discordant":2582}</span>
+<span class="c">  {"n01":94,"n10":2488,"p_value":0.0}</span>
       </div>
     </div>
   </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
 </section>
 
-<!-- ======================================================= 12. gate result -->
+<!-- ===================================================== 7. gate result + budget -->
 <section class="slide">
-  <header class="shead"><span class="sect">Results</span>
-    <h2>The gate passes on both corpora, and the shortcut was real</h2>
-    <span class="num">12</span></header>
-  <div class="scontent">
-    <div class="two">
-      <div class="stack">
-        <div class="band"><span class="n"></span>Gate probe against chance</div>
-        <table>
-          <tr><th>Corpus</th><th style="text-align:right">Probe acc.</th><th style="text-align:right">Majority rate</th><th style="text-align:right">Excess</th></tr>
-          <tr class="best"><td>USTC-TFC2016</td><td class="v">0.1351</td><td class="v">0.1359</td><td class="v">&minus;0.0008</td></tr>
-          <tr class="best"><td>ISCX VPN-nonVPN</td><td class="v">0.1095</td><td class="v">0.2258</td><td class="v">&minus;0.1164</td></tr>
-        </table>
-        <div class="card">
-          <p>A probe trained on the anonymised identifier positions alone does
-          <strong>no better than predicting the majority class</strong>. The
-          identifier bytes are provably unlearnable, so the gate opens and the
-          sweep is allowed to run.</p>
-        </div>
-      </div>
-      <div class="stack">
-        <div class="band"><span class="n"></span>What the shortcut was worth</div>
-        <div class="kpi">
-          <div class="num">0.53</div>
-          <div class="txt">accuracy on ISCX from the <b>identifier fields alone</b>,
-          before anonymisation. 0.39 on USTC. A study that leaves these bytes in
-          is reporting a result that is partly <b>address memorisation</b>.</div>
-        </div>
-        <div class="card t grow">
-          <p><strong>This is Gap 4, measured.</strong> The shortcut is not
-          hypothetical. On ISCX, more than half the label can be recovered from
-          addresses and ports with no payload at all. Our gate is the reason the
-          rest of this talk is about payload bytes rather than about which host
-          talked to which.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
-</section>
-
-<!-- ======================================================= 13. budget response -->
-<section class="slide">
-  <header class="shead"><span class="sect">Results &middot; Gap 1</span>
-    <h2>Macro-F1 saturates at 512 bytes, and reading further is worse</h2>
-    <span class="num">13</span></header>
-  <div class="scontent">
-    <div class="two wide-l">
+  <p class="eyebrow">Results &middot; Gaps 1 and 4</p>
+  <h2 class="head">Saturation at 512 bytes, and reading further is worse</h2>
+  <div class="body">
+    <div class="row wl grow">
       <div class="fig">
         <img src="figures/ustc_budget_profile_bytes.svg" alt="Budget response on USTC-TFC2016">
         <div class="cap"><strong>USTC-TFC2016.</strong> Macro-F1 against byte budget,
-        three seeds. The shaded band is the seed spread; the vertical markers are
-        the budgets used by the twelve reviewed studies.</div>
+        three seeds. The band is the seed spread, the vertical markers the twelve
+        reviewed studies. On ISCX saturation falls at <strong>256 B</strong>.</div>
       </div>
-      <div class="stack">
-        <div class="kpi">
-          <div class="num">512 B</div>
-          <div class="txt">is the saturation budget on USTC. On ISCX it is
-          <b>256 B</b>. <b>Every</b> budget used by the twelve reviewed studies
-          lies at or past that point.</div>
+      <div class="col">
+        <div class="row c2">
+          <div class="card"><span class="big">512 B</span>
+            <p>saturation on USTC. Every reviewed budget sits <strong>at or past</strong> it.</p></div>
+          <div class="card"><span class="big o">0.53</span>
+            <p>accuracy from identifier bytes alone on ISCX, before anonymisation.
+            That is Gap 4, measured.</p></div>
         </div>
-        <div class="card t grow">
-          <p><strong>And past it, accuracy falls.</strong> USTC macro-F1 goes
-          0.9731 at 512 B, 0.9564 at 784 B, 0.9540 at 1024 B,
-          <span class="hl">0.9367</span> at 1500 B.</p>
-          <p><strong>Not seed noise.</strong> McNemar's exact test on the paired
-          512 B against 784 B comparison finds <span class="hl2">2488</span>
-          sessions correct at 512 B but wrong at 784 B, against
-          <span class="hl2">94</span> the other way,
+        <table>
+          <tr><th>Gate probe</th><th style="text-align:right">Probe</th><th style="text-align:right">Chance</th><th style="text-align:right">Excess</th></tr>
+          <tr class="best"><td>USTC-TFC2016</td><td class="v">0.1351</td><td class="v">0.1359</td><td class="v">&minus;0.0008</td></tr>
+          <tr class="best"><td>ISCX VPN-nonVPN</td><td class="v">0.1095</td><td class="v">0.2258</td><td class="v">&minus;0.1164</td></tr>
+        </table>
+        <div class="card grow">
+          <p><strong>Past saturation, accuracy falls:</strong> 0.9731 at 512 B, 0.9564
+          at 784 B, <span class="hl">0.9367</span> at 1500 B. McNemar's exact test
+          finds <span class="hl2">2488</span> sessions correct at 512 B and wrong at
+          784 B, against <span class="hl2">94</span> the other way,
           <strong>p &lt; 10<sup>&minus;4</sup></strong>.</p>
-          <p class="lead">Reading more of the flow is not a conservative choice.
-          On this corpus it is a measurably worse one.</p>
         </div>
       </div>
     </div>
+    <p class="takeaway">Reading more of the flow is not the conservative choice.
+    Past saturation it is <b>measurably worse</b>, because the extra bytes are mostly padding.</p>
   </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
 </section>
 
-<!-- ======================================================= 14. architecture control -->
+<!-- ===================================================== 8. architecture + per-class -->
 <section class="slide">
-  <header class="shead"><span class="sect">Results &middot; Gap 1</span>
-    <h2>Not an artefact of the architecture</h2>
-    <span class="num">14</span></header>
-  <div class="scontent">
-    <div class="two wide-l">
+  <p class="eyebrow">Results &middot; Gaps 1 and 2</p>
+  <h2 class="head">Not the architecture, and the aggregate hides the failures</h2>
+  <div class="body">
+    <div class="row wl grow">
       <div class="fig">
         <img src="figures/architecture_budget_profile.svg" alt="CNN against byte transformer on ISCX">
-        <div class="cap"><strong>ISCX VPN-nonVPN, two architecture families</strong> on the
-        same store, the same split and the same seeds. Only the model changes.</div>
+        <div class="cap"><strong>ISCX, two architecture families</strong> on the same
+        store, split and seeds. Only the model changes.</div>
       </div>
-      <div class="stack">
-        <div class="card">
-          <p>An obvious objection: perhaps a 2017 convolutional network simply
-          cannot use bytes past 512, and a modern architecture would.</p>
-          <p><strong>We tested it.</strong> A byte transformer, self-attention over
-          byte embeddings, replaced the convolutional stack. Everything else was
-          held fixed.</p>
+      <div class="col">
+        <div class="row c2">
+          <div class="card"><span class="big sm g">0.0050</span>
+            <p>macro-F1 between a byte transformer and a 2017 CNN at peak, against a
+            seed spread of 0.0379. <strong>Not separable</strong>, and both saturate at
+            2 packets.</p></div>
+          <div class="card"><span class="big sm o">0.042</span>
+            <p>recall on <span class="mono">vpn_chat</span>, the second-largest ISCX
+            test class, inside an aggregate of <strong>0.4013</strong> accuracy,
+            <strong>0.5110</strong> macro-F1 and <strong>0.3798</strong> weighted-F1.</p></div>
         </div>
-        <div class="stats">
-          <div class="stat"><div class="v">&minus;0.0050</div><div class="k">peak macro-F1,<br>transformer minus CNN</div></div>
-          <div class="stat"><div class="v">2P</div><div class="k">packet saturation,<br>both families</div></div>
-        </div>
-        <div class="card t grow">
-          <p><strong>The two families are not separable.</strong> The difference at
-          peak is 0.0050 macro-F1 against a seed spread of 0.0379, and they
-          saturate at the same packet budget.</p>
-          <p class="lead">Saturation is therefore a property of
-          <strong>where the discriminative bytes lie in the flow</strong>, not of
-          the network reading them. That is the finding that generalises.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
-</section>
-
-<!-- ======================================================= 15. per class -->
-<section class="slide">
-  <header class="shead"><span class="sect">Results &middot; Gap 2</span>
-    <h2>The aggregate hides the failures, in both directions</h2>
-    <span class="num">15</span></header>
-  <div class="scontent">
-    <div class="two wide-r">
-      <div class="stack">
-        <div class="card">
-          <p><strong>ISCX at 784 bytes, uncapped.</strong> Accuracy 0.4013,
-          macro-F1 0.5110, weighted-F1 0.3798.</p>
-        </div>
-        <table class="tight">
-          <tr><th>Class</th><th style="text-align:right">Supp.</th><th style="text-align:right">Prec.</th><th style="text-align:right">Rec.</th></tr>
+        <table>
+          <tr><th>ISCX at 784 B, uncapped</th><th style="text-align:right">Supp.</th><th style="text-align:right">Prec.</th><th style="text-align:right">Rec.</th></tr>
           <tr><td class="mono">chat</td><td class="v">914</td><td class="v">0.474</td><td class="v">0.580</td></tr>
           <tr class="best"><td class="mono">vpn_chat</td><td class="v">686</td><td class="v">0.744</td><td class="v">0.042</td></tr>
-          <tr><td class="mono">voip</td><td class="v">593</td><td class="v">0.398</td><td class="v">0.290</td></tr>
           <tr class="best"><td class="mono">vpn_file</td><td class="v">149</td><td class="v">0.241</td><td class="v">1.000</td></tr>
+          <tr><td class="mono">vpn_email</td><td class="v">44</td><td class="v">0.913</td><td class="v">0.955</td></tr>
         </table>
-        <div class="card t grow">
-          <p><strong>And the failures are not the thin classes.</strong>
-          <span class="mono">vpn_chat</span> has 686 test sessions and
-          <span class="mono">vpn_file</span> 149, yet the 44-session
-          <span class="mono">vpn_email</span> reaches 0.955 recall. A
-          support-weighted summary would predict the opposite ordering.</p>
-        </div>
-      </div>
-      <div class="stack">
-        <div class="card t">
-          <p><strong>Two failure modes no aggregate reports.</strong>
-          <span class="mono">vpn_chat</span> is the second-largest class in the
-          test set and the model gives it <span class="hl">0.042 recall</span>: it
-          almost never predicts the class, though when it does it is usually
-          right. Its mirror image is <span class="mono">vpn_file</span>, at recall
-          1.000 and precision 0.241, acting as a <strong>sink</strong> for
-          sessions the model cannot place.</p>
-        </div>
-        <div class="card">
-          <p><strong>And the concealment reverses sign between corpora.</strong>
-          On ISCX the macro average <em>flatters</em> the model by 13 points
-          (0.5110 against 0.3798 weighted). On USTC it <em>understates</em> by
-          1 point (0.9245 against 0.9378).</p>
-          <p class="lead">A reader who assumes a fixed relationship between macro
-          and weighted summaries is wrong about the sign on one of the two
-          corpora. That is the concrete form Gap 2 takes.</p>
-        </div>
       </div>
     </div>
+    <p class="takeaway">Neither failure is a thin class, and the concealment even
+    <b>reverses sign between corpora</b>: macro flatters by 13 points on ISCX and
+    understates by 1 on USTC. Saturation, meanwhile, is a property of <b>where the
+    discriminative bytes lie</b>, not of the network reading them.</p>
   </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
 </section>
 
-<!-- ======================================================= 16. padding -->
+<!-- ===================================================== 9. padding attribution -->
 <section class="slide">
-  <header class="shead"><span class="sect">Results &middot; Gap 1</span>
-    <h2>The padding gain is the embedding, not the padding symbol</h2>
-    <span class="num">16</span></header>
-  <div class="scontent">
-    <div class="two">
+  <p class="eyebrow">Results &middot; Gap 1</p>
+  <h2 class="head">The padding gain is the embedding, not the padding symbol</h2>
+  <div class="body">
+    <div class="row c2 grow">
       <div class="fig">
         <img src="figures/iscx_padding_attribution.svg" alt="Padding attribution on ISCX">
         <div class="cap"><strong>ISCX at 1024 bytes.</strong> The gain decomposed into
         the representation term and the PAD-symbol term, against the seed spread.</div>
       </div>
-      <div class="stack">
-        <div class="card">
-          <p>Padding-aware input is routinely credited with a large gain. The
-          decomposition shows where the gain actually comes from.</p>
+      <div class="col">
+        <div class="row c2">
+          <div class="card"><span class="big sm">+0.2408</span>
+            <p>from the <strong>representation</strong>: scalar byte to learned
+            embedding, on ISCX.</p></div>
+          <div class="card"><span class="big sm o">+0.0086</span>
+            <p>from the <strong>PAD symbol</strong>, well inside the seed spread of
+            0.0373.</p></div>
         </div>
         <table>
           <tr><th>Term</th><th style="text-align:right">ISCX</th><th style="text-align:right">USTC</th></tr>
-          <tr class="best"><td>Representation (<span class="mono">embed</span>&minus;<span class="mono">zero</span>)</td><td class="v">+0.2408</td><td class="v">+0.0138</td></tr>
-          <tr><td>PAD symbol (<span class="mono">mask</span>&minus;<span class="mono">embed</span>)</td><td class="v">+0.0086</td><td class="v">+0.0065</td></tr>
+          <tr class="best"><td>Representation</td><td class="v">+0.2408</td><td class="v">+0.0138</td></tr>
+          <tr><td>PAD symbol</td><td class="v">+0.0086</td><td class="v">+0.0065</td></tr>
           <tr><td>Seed spread</td><td class="v">0.0373</td><td class="v">0.0176</td></tr>
         </table>
-        <div class="card t grow">
-          <p><strong>On ISCX the representation term is 28 times the PAD-symbol
-          term</strong>, and the PAD-symbol term is well inside the seed spread,
-          so it is reported as <span class="hl2">inconclusive</span> rather than
-          as a small positive effect. On USTC both terms are inside seed noise.</p>
-          <p class="lead">The practical reading: use a learned byte embedding. The
-          explicit padding symbol, which costs extra machinery, buys nothing we
-          can measure.</p>
+        <div class="card grow">
+          <p>A factor of <strong>28</strong> between them, and the smaller term is
+          reported as <span class="hl2">inconclusive</span> rather than as a small
+          positive effect. On USTC both terms are inside seed noise.</p>
         </div>
       </div>
     </div>
+    <p class="takeaway">Use a learned byte embedding. The explicit padding symbol,
+    which costs extra machinery in the input pipeline, <b>buys nothing we can measure</b>.</p>
   </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
 </section>
 
-<!-- ======================================================= 17. frontier -->
+<!-- ===================================================== 10. accuracy per byte -->
 <section class="slide">
-  <header class="shead"><span class="sect">Results &middot; classifier</span>
-    <h2>Same accuracy for 28% of the bytes</h2>
-    <span class="num">17</span></header>
-  <div class="scontent">
-    <div class="two wide-l">
+  <p class="eyebrow">Results &middot; the classifier</p>
+  <h2 class="head">Same accuracy for 28% of the bytes</h2>
+  <div class="body">
+    <div class="row wl grow">
       <div class="fig">
         <img src="figures/ustc_accuracy_per_byte_frontier.svg" alt="Accuracy per byte read on USTC">
         <div class="cap"><strong>USTC-TFC2016.</strong> Fixed-depth heads against the
         adaptive policy, both from the <em>same</em> trained weights. The only
         difference is whether the exit rule runs.</div>
       </div>
-      <div class="stack">
-        <div class="card bars">
-          <div class="row"><span class="lab">Best fixed head</span>
-            <span class="track"><span class="fill" style="width:100%"></span></span>
-            <span class="val">512 B</span></div>
-          <div class="row"><span class="lab">Adaptive early exit</span>
-            <span class="track"><span class="fill a" style="width:28%"></span></span>
-            <span class="val">144 B</span></div>
-          <p class="note">Mean bytes read per flow at &tau;&nbsp;=&nbsp;0.99:
-          <strong>0.9659 &plusmn; 0.0113</strong> macro-F1 against
-          <strong>0.9716 &plusmn; 0.0124</strong> for the 512-byte head. The gap,
-          0.0058, is well inside the seed spread of either.</p>
+      <div class="col">
+        <div class="row c2">
+          <div class="card"><span class="big">144 B</span>
+            <p>read per flow by the adaptive policy, for
+            <strong>0.9659 &plusmn; 0.0113</strong> macro-F1.</p></div>
+          <div class="card"><span class="big o">512 B</span>
+            <p>read by the best fixed head, for
+            <strong>0.9716 &plusmn; 0.0124</strong>.</p></div>
         </div>
-        <div class="card t grow">
-          <p><strong>On ISCX the policy reads 116 bytes, 23% of 512</strong>, for
-          0.5134 against 0.5474, again inside the seed spread.</p>
-          <p><strong>The comparison is honest in two ways.</strong> It is against
-          the model's <em>own</em> heads, so no architectural advantage is being
-          smuggled in; and the encoder is causal, so head <em>k</em> cannot have
-          seen byte <em>k</em>+1. The saving is bytes genuinely not read, not a
-          bookkeeping claim.</p>
+        <div class="card">
+          <p>The gap of <strong>0.0058</strong> is well inside the seed spread of
+          either, so the two are indistinguishable. On ISCX the policy reads
+          <strong>116 bytes</strong>, 23% of 512.</p>
+        </div>
+        <div class="card fill grow">
+          <span class="lbl">Honest in two ways</span>
+          <p>It is against the model's <em>own</em> heads, so no architectural
+          advantage is smuggled in. And the encoder is causal and tested, so head
+          <em>k</em> cannot have seen byte <em>k</em>+1.</p>
+          <p>The saving is bytes genuinely never read, not a bookkeeping claim.</p>
         </div>
       </div>
     </div>
   </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
 </section>
 
-<!-- ======================================================= 18. split -->
+<!-- ===================================================== 11. the split confound -->
 <section class="slide">
-  <header class="shead"><span class="sect">Results &middot; splits</span>
-    <h2>The split policy outweighs every architectural effect we measured</h2>
-    <span class="num">18</span></header>
-  <div class="scontent">
-    <div class="two wide-l">
+  <p class="eyebrow">Results &middot; comparability</p>
+  <h2 class="head">The split policy outweighs every architectural effect</h2>
+  <div class="body">
+    <div class="row wl grow">
       <div class="fig">
         <img src="figures/iscx_split_strategy.svg" alt="What the split strategy is worth">
         <div class="cap"><strong>ISCX, six group-splittable classes, eight seeds.</strong>
-        Classes, budget, model, seeds <em>and split sizes</em> are all held fixed.
-        Only where the train/test boundary falls changes.</div>
+        Classes, budget, model, seeds <em>and split sizes</em> all held fixed. Only
+        where the train/test boundary falls changes.</div>
       </div>
-      <div class="stack">
-        <div class="kpi">
-          <div class="num">+0.38</div>
-          <div class="txt">macro-F1 from moving the train/test boundary alone.
-          A random within-capture split scores <b>+0.3782</b> over a group-wise
-          split on otherwise identical data.</div>
+      <div class="col">
+        <div class="card"><span class="big">+0.3782</span>
+          <p>macro-F1 from moving the train/test boundary alone: a random
+          within-capture split against a group-wise split, on otherwise identical
+          data.</p></div>
+        <div class="row c3">
+          <div class="card"><span class="lbl b">Model family</span><h3>0.0050</h3></div>
+          <div class="card"><span class="lbl b">Padding symbol</span><h3>0.0086</h3></div>
+          <div class="card fill"><span class="lbl">Split policy</span><h3>0.3782</h3></div>
         </div>
-        <div class="card t grow">
-          <p><strong>Put that next to the other effects in this talk.</strong>
-          Changing the entire model family was worth 0.0050. Changing the padding
-          symbol was worth 0.0086. Changing <em>only</em> where the split falls is
-          worth 0.3782, seventy-five times the architecture effect.</p>
-          <p><strong>Why it happens.</strong> A random split lets sessions from the
-          same capture file appear in training and test, so the model can memorise
-          capture-specific artefacts instead of learning the traffic class.</p>
-          <p class="lead">None of the twelve reviewed studies states its split
-          policy.</p>
+        <div class="card grow">
+          <p><strong>Seventy-five times</strong> the architecture effect. A random
+          split lets sessions from the same capture file appear in training and test,
+          so the model memorises capture artefacts instead of the traffic class.</p>
         </div>
       </div>
     </div>
+    <p class="takeaway">None of the twelve reviewed studies states its split policy, so
+    any ranking across them is dominated by <b>a variable none of them report</b>.</p>
   </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
 </section>
 
-<!-- ======================================================= 19. comparison -->
+<!-- ===================================================== 12. comparison -->
 <section class="slide">
-  <header class="shead"><span class="sect">Comparison</span>
-    <h2>Against the base papers, and why ranking them is unsafe</h2>
-    <span class="num">19</span></header>
-  <div class="scontent">
-    <div class="two wide-l">
-      <table class="tight">
+  <p class="eyebrow">Comparison</p>
+  <h2 class="head">Against the base papers, and why ranking them is unsafe</h2>
+  <div class="body">
+    <div class="row wl grow">
+      <table>
         <tr><th>Method</th><th>Yr</th><th>Corpus</th><th style="text-align:right">Cls</th><th>Budget</th><th style="text-align:right">Acc</th><th>Split stated</th></tr>
         <tr><td>Wang et al.</td><td>2017</td><td>USTC</td><td class="v">20</td><td>784 B</td><td class="v">0.998*</td><td>No</td></tr>
         <tr><td>P7 MLETC</td><td>2025</td><td>USTC</td><td class="v">20</td><td>500 B</td><td class="v">0.990*</td><td>No</td></tr>
@@ -903,273 +600,179 @@ code, .mono { font-size: 0.94em; }
         <tr class="best"><td><strong>This work, adaptive</strong></td><td>2026</td><td>USTC</td><td class="v">20</td><td><strong>144 B</strong></td><td class="v">0.9659&dagger;</td><td><strong>Yes</strong></td></tr>
         <tr class="best"><td><strong>This work, adaptive</strong></td><td>2026</td><td>ISCX</td><td class="v">11</td><td><strong>116 B</strong></td><td class="v">0.5134&dagger;</td><td><strong>Yes</strong></td></tr>
       </table>
-      <div class="stack">
+      <div class="col">
         <div class="card">
-          <p class="lead">* quoted from the original publication under its own
-          protocol. &dagger; macro-F1 from our runs, group-wise split.</p>
+          <span class="lbl">We do not claim to beat these</span>
+          <p>Our ISCX figure is far below the published ones, and the table is laid out
+          to make that clear rather than to hide it.</p>
         </div>
-        <div class="card t grow">
-          <p><strong>We are not claiming to beat these numbers, and we say so.</strong>
-          Our ISCX figure is far below the published ones. Three reasons, all
-          measured rather than asserted:</p>
-          <ul>
-            <li><strong>Class count differs.</strong> We report 11 ISCX classes;
-            P4 reports 6, P12 reports 6.</li>
-            <li><strong>Split policy differs.</strong> Worth up to +0.3782, and
-            none of them states it.</li>
-            <li><strong>Identifiers.</strong> P5's own audit shows ET-BERT falling
-            0.960 &rarr; 0.510 and YaTC 0.900 &rarr; 0.620 once identifier bytes
-            are removed. Our gate removes them <em>before</em> the first run.</li>
-          </ul>
-          <p>What we do claim is the <strong>budget</strong>: comparable work reads
-          784 to 1024 bytes where we read 144.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
-</section>
-
-<!-- ======================================================= 20. key findings -->
-<section class="slide">
-  <header class="shead"><span class="sect">Key findings</span>
-    <h2>Five things we can now state with evidence</h2>
-    <span class="num">20</span></header>
-  <div class="scontent">
-    <div class="card cols grow">
-      <ul>
-        <li><strong>1. The field reads 5 to 7 times more of each flow than the
-        measurements support.</strong> Saturation is at 512 bytes on USTC and 256
-        on ISCX; reviewed budgets are 784 to 1024 bytes or 5 to 20 packets.</li>
-        <li><strong>2. Past saturation, reading more is measurably worse.</strong>
-        USTC macro-F1 falls 0.9731 &rarr; 0.9367 from 512 to 1500 bytes, with
-        McNemar at p &lt; 10<sup>&minus;4</sup>, because the extra bytes are
-        mostly padding.</li>
-        <li><strong>3. Saturation is a property of the traffic, not the model.</strong>
-        A byte transformer and a 2017 CNN are not separable on the same data, and
-        saturate at the same packet budget.</li>
-        <li><strong>4. The padding gain is the byte embedding.</strong> The
-        representation term is +0.2408 on ISCX; the explicit PAD symbol is +0.0086,
-        inside seed noise.</li>
-        <li><strong>5. An adaptive reader needs 144 bytes, not 512.</strong>
-        Macro-F1 indistinguishable from the best fixed head at 28% of the byte
-        cost on USTC and 23% on ISCX, with a tested causality guarantee behind the
-        number.</li>
-      </ul>
-    </div>
-    <div class="kpi">
-      <div class="num">+0.38</div>
-      <div class="txt">And the finding that should change practice first:
-      <b>the train/test split alone is worth +0.3782 macro-F1</b>, seventy-five
-      times the architecture effect, and none of the twelve reviewed studies
-      states its split policy.</div>
-    </div>
-  </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
-</section>
-
-<!-- ======================================================= 21. limitations -->
-<section class="slide">
-  <header class="shead"><span class="sect">Limitations</span>
-    <h2>What we cannot conclude from this, and what could break it</h2>
-    <span class="num">21</span></header>
-  <div class="scontent">
-    <div class="two">
-      <div class="stack">
-        <div class="band"><span class="n"></span>Threats to validity</div>
-        <div class="card t grow">
-          <ul>
-            <li><strong>The receptive field is 505 bytes.</strong> It is close
-            enough to the 512-byte saturation point that the two could be
-            confounded on the early-exit model. The transformer control, which has
-            no such limit and saturates at the same packet budget, is what excludes
-            it.</li>
-            <li><strong>Gap 3 is only partly answered.</strong> We report a lower
-            bound on how much of each corpus is genuinely encrypted, not a
-            measurement.</li>
-            <li><strong>Both corpora are from 2016.</strong> A 512-byte saturation
-            point may be a property of that cipher mix rather than of encrypted
-            traffic generally.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="stack">
-        <div class="band"><span class="n"></span>Known failure cases</div>
-        <div class="card t grow">
-          <ul>
-            <li><strong>ISCX accuracy is low in absolute terms,</strong> 0.4013
-            uncapped. We report it rather than selecting a kinder protocol.</li>
-            <li><strong><span class="mono">vpn_chat</span> at 0.042 recall</strong>
-            on 686 test sessions is a genuine failure, not a thin class.</li>
-            <li><strong>The split study uses six classes,</strong> the only ones
-            ISCX can split group-wise, so the +0.3782 carries a class-selection
-            bias we state alongside it.</li>
-            <li><strong>USTC cannot host the split study at all,</strong> because
-            most of its classes come from a single capture file.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
-</section>
-
-<!-- ======================================================= 22. conclusion -->
-<section class="slide">
-  <header class="shead"><span class="sect">Conclusion</span>
-    <h2>Treat the budget as a measurement, not an inheritance</h2>
-    <span class="num">22</span></header>
-  <div class="scontent">
-    <div class="card">
-      <p>This project took one number that the literature copies between papers
-      and made it a <strong>measured variable</strong>. Macro-F1 saturates at 512
-      bytes on USTC-TFC2016 and 256 on ISCX VPN-nonVPN; every budget used by
-      twelve recent studies lies at or past that point; on USTC reading further is
-      significantly worse. A causal early-exit classifier comes within seed noise
-      of the best fixed head while reading <strong>28%</strong> and
-      <strong>23%</strong> of the bytes. And a random within-capture split is
-      worth <strong>+0.3782</strong> macro-F1, exceeding every architectural
-      effect measured here.</p>
-    </div>
-    <div class="band"><span class="n"></span>Future work, following from the limitations</div>
-    <div class="two grow">
-      <div class="card t">
-        <ul>
-          <li>A corpus in which <strong>more classes can be split group-wise</strong>,
-          to remove the class-selection bias from the split result.</li>
-          <li>A larger <strong>length-balanced</strong> subset, to turn the
-          directional padding finding into a magnitude.</li>
-        </ul>
-      </div>
-      <div class="card t">
-        <ul>
-          <li><strong>Pre-train the byte transformer</strong> on unlabelled
-          captures, to test whether saturation moves once the representation is
-          learned rather than fitted.</li>
-          <li>Repeat the sweep on <strong>contemporary traffic</strong> with a
-          modern cipher mix, to see whether 512 bytes is a property of these 2016
-          captures or of encrypted traffic.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <footer class="sfoot"><span><b>Observation budgets in raw-byte traffic classification</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
-</section>
-
-<!-- ======================================================= 23. closing -->
-<section class="slide">
-  <header class="shead"><span class="sect">Thank you</span>
-    <h2>Code, data pipeline and every result are public</h2>
-    <span class="num">23</span></header>
-  <div class="scontent close">
-    <div class="two wide-l">
-      <div class="stack">
         <div class="card grow">
-          <p><strong>Repository.</strong> The full pipeline, the result JSON behind
-          every number in this talk, the regression tests, and the sources of the
-          paper, poster and this deck.</p>
-          <p class="mono" style="font-size:3.8mm; color:var(--blue)">github.com/Minato-sudo/<br>encrypted-traffic-observation-budgets</p>
-          <p style="margin-top:4mm"><strong>Corpora.</strong> USTC-TFC2016 and
-          ISCX VPN-nonVPN, both public.</p>
-          <p><strong>Contact.</strong> i232548@isb.nu.edu.pk &middot;
-          i232582@isb.nu.edu.pk</p>
-        </div>
-        <div class="stats">
-          <div class="stat"><div class="v">512&rarr;144</div><div class="k">bytes needed<br>per flow</div></div>
-          <div class="stat"><div class="v">39</div><div class="k">references in<br>the paper</div></div>
-          <div class="stat"><div class="v">100%</div><div class="k">of numbers generated<br>from result JSON</div></div>
+          <span class="lbl b">Three measured reasons</span>
+          <ul>
+            <li><strong>Class count.</strong> We report 11 ISCX classes where MH-Net
+            reports 6.</li>
+            <li><strong>Split policy.</strong> Worth up to +0.3782, and none of them
+            states it.</li>
+            <li><strong>Identifiers.</strong> P5's own audit shows ET-BERT falling
+            0.960 to 0.510 and YaTC 0.900 to 0.620 once identifier bytes are removed.
+            Our gate removes them before the first run.</li>
+          </ul>
         </div>
       </div>
-      <div class="fig" style="align-items:center">
-        <img class="qr" src="figures/qr_repo.svg" alt="QR code to the project repository"
-             style="width:62mm; height:62mm">
-        <div class="cap" style="text-align:center"><strong>Scan for the repository.</strong><br>
-        Muhammad Talha Arshad (i232548) &middot; Zain Shahid (i232582)<br>
-        BS Data Science, FAST-NUCES Islamabad</div>
+    </div>
+    <p class="takeaway">What we <b>do</b> claim is the budget: comparable work reads
+    784 to 1024 bytes where we read <b>144</b>.</p>
+  </div>
+  <p class="src">* quoted from the original publication under its own protocol. &dagger; macro-F1 from our runs, group-wise split.</p>
+</section>
+
+<!-- ===================================================== 13. findings + limitations -->
+<section class="slide">
+  <p class="eyebrow">Key findings</p>
+  <h2 class="head">Five things we can now state with evidence</h2>
+  <div class="body">
+    <div class="row wl grow">
+      <div class="card">
+        <ul>
+          <li><strong>The field reads five to seven times more of each flow than the
+          measurements support.</strong> Saturation at 512 bytes and 256, against
+          reviewed budgets of 784 to 1024.</li>
+          <li><strong>Past saturation, reading more is measurably worse</strong>, not
+          merely unhelpful: 0.9731 down to 0.9367, at p &lt; 10<sup>&minus;4</sup>.</li>
+          <li><strong>Saturation is a property of the traffic, not the model.</strong>
+          A byte transformer and a 2017 CNN are not separable.</li>
+          <li><strong>The padding gain is the byte embedding</strong>, not the padding
+          symbol: +0.2408 against +0.0086.</li>
+          <li><strong>An adaptive reader needs 144 bytes, not 512</strong>, with a
+          tested causality guarantee behind the number.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="card fill">
+          <span class="lbl">The one that should change practice first</span>
+          <p>The train/test split alone is worth <strong>+0.3782</strong> macro-F1, and
+          none of the twelve reviewed studies states its policy.</p>
+        </div>
+        <div class="card grow">
+          <span class="lbl">What this does not establish</span>
+          <ul>
+            <li>Our <strong>receptive field is 505 bytes</strong>, close enough to the
+            512-byte saturation point to be confounded on the early-exit model. The
+            transformer control, which has no such limit, is what excludes it.</li>
+            <li>Gap 3 is answered as <strong>a lower bound</strong>, not a measurement.</li>
+            <li>Both corpora are <strong>from 2016</strong>, so 512 bytes may be a
+            property of that cipher mix.</li>
+            <li>The split study uses six classes, so +0.3782 carries a
+            <strong>class-selection bias</strong> we state alongside it.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-  <footer class="sfoot"><span><b>Questions?</b></span>
-    <span>Computer Networks &middot; Research Project &middot; Fall 2026</span></footer>
+</section>
+
+<!-- ===================================================== 14. conclusion + close -->
+<section class="slide">
+  <p class="eyebrow">Conclusion</p>
+  <h2 class="head">Treat the budget as a measurement, not an inheritance</h2>
+  <div class="body">
+    <div class="row wl grow">
+      <div class="col">
+        <div class="card">
+          <p>This project took one number the literature copies from paper to paper and
+          made it <strong>a measured variable</strong>, on two public corpora, with a
+          classifier that reads <strong>28 percent</strong> of the bytes for the same
+          accuracy and a causality guarantee behind that claim.</p>
+        </div>
+        <div class="card grow">
+          <span class="lbl b">Future work, from the limitations</span>
+          <ul>
+            <li>A corpus with <strong>more group-splittable classes</strong>, to remove
+            the class-selection bias.</li>
+            <li>A larger <strong>length-balanced</strong> subset, to turn the
+            directional padding finding into a magnitude.</li>
+            <li><strong>Pre-training the byte transformer</strong>, to test whether
+            saturation moves once the representation is learned.</li>
+            <li>The same sweep on <strong>contemporary traffic</strong>, to find out
+            whether 512 bytes is a property of these 2016 captures.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="fig grow">
+          <img src="figures/qr_repo.svg" alt="QR code to the project repository"
+               style="width:52mm; height:52mm; margin:0 auto">
+          <div class="cap" style="text-align:center"><strong>Code, result JSON and the paper.</strong><br>
+          github.com/Minato-sudo/encrypted-traffic-observation-budgets</div>
+        </div>
+        <div class="card">
+          <h3>Thank you</h3>
+          <p>Muhammad Talha Arshad (i232548) &middot; Zain Shahid (i232582)<br>
+          BS Data Science, FAST-NUCES Islamabad<br>
+          <span class="muted">i232548@isb.nu.edu.pk</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============================ backup slides, for questions ========= -->
 <section class="slide">
-  <header class="shead"><span class="sect">Backup</span>
-    <h2>The budget response on ISCX VPN-nonVPN</h2>
-    <span class="num">B1</span></header>
-  <div class="scontent">
-    <div class="two wide-l">
+  <p class="eyebrow o">Backup &middot; B1</p>
+  <h2 class="head">The budget response on ISCX VPN-nonVPN</h2>
+  <div class="body">
+    <div class="row wl grow">
       <div class="fig">
         <img src="figures/iscx_budget_profile_bytes.svg" alt="Budget response on ISCX VPN-nonVPN">
         <div class="cap"><strong>ISCX VPN-nonVPN.</strong> Macro-F1 against byte budget,
         three seeds, with the reviewed studies' budgets marked.</div>
       </div>
-      <div class="stack">
-        <div class="kpi">
-          <div class="num">256 B</div>
-          <div class="txt">is the saturation budget here, half of USTC's. No larger
-          budget improves on it by more than the seed spread of <b>0.0326</b>.</div>
-        </div>
-        <div class="card t grow">
+      <div class="col">
+        <div class="card"><span class="big">256 B</span>
+          <p>saturation here, half of USTC's. No larger budget improves on it by more
+          than the seed spread of <strong>0.0326</strong>.</p></div>
+        <div class="card grow">
           <p><strong>The curve is flat, not falling.</strong> Macro-F1 runs 0.5061 at
           256 B, 0.5078 at 512 B, 0.5245 at 784 B and 0.5083 at 1500 B. Every
           difference past 256 bytes is inside seed noise, so unlike USTC we do not
-          claim that reading further is worse here. We claim only that it does not
-          help.</p>
-          <p><strong>Why the absolute level is low.</strong> Eleven classes, a
-          group-wise split where the corpus allows it, and identifier bytes removed
-          before the first run. Published ISCX figures use fewer classes and do not
-          state their split.</p>
+          claim reading further is worse here. Only that it does not help.</p>
+          <p><strong>Why the level is low.</strong> Eleven classes, a group-wise split,
+          and identifier bytes removed before the first run.</p>
         </div>
       </div>
     </div>
   </div>
-  <footer class="sfoot"><span><b>Backup slide, not part of the talk</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
 </section>
 
 <section class="slide">
-  <header class="shead"><span class="sect">Backup</span>
-    <h2>Accuracy per byte read on ISCX VPN-nonVPN</h2>
-    <span class="num">B2</span></header>
-  <div class="scontent">
-    <div class="two wide-l">
+  <p class="eyebrow o">Backup &middot; B2</p>
+  <h2 class="head">Accuracy per byte read on ISCX VPN-nonVPN</h2>
+  <div class="body">
+    <div class="row wl grow">
       <div class="fig">
         <img src="figures/iscx_accuracy_per_byte_frontier.svg" alt="Accuracy per byte read on ISCX">
         <div class="cap"><strong>ISCX VPN-nonVPN.</strong> Fixed-depth heads against the
         adaptive policy, both from the same trained weights.</div>
       </div>
-      <div class="stack">
-        <div class="card bars">
-          <div class="row"><span class="lab">Best fixed head</span>
-            <span class="track"><span class="fill" style="width:100%"></span></span>
-            <span class="val">512 B</span></div>
-          <div class="row"><span class="lab">Adaptive early exit</span>
-            <span class="track"><span class="fill a" style="width:23%"></span></span>
-            <span class="val">116 B</span></div>
-          <p class="note">At &tau;&nbsp;=&nbsp;0.70 the policy reads 116 bytes for
-          <strong>0.5134 &plusmn; 0.0400</strong> macro-F1, against
-          <strong>0.5474 &plusmn; 0.0495</strong> for the 512-byte head.</p>
+      <div class="col">
+        <div class="row c2">
+          <div class="card"><span class="big sm">116 B</span>
+            <p>at &tau; = 0.70, for <strong>0.5134 &plusmn; 0.0400</strong>.</p></div>
+          <div class="card"><span class="big sm o">512 B</span>
+            <p>best fixed head, for <strong>0.5474 &plusmn; 0.0495</strong>.</p></div>
         </div>
-        <div class="card t grow">
-          <p><strong>The saving is larger here and the margin is tighter.</strong>
-          23% of the byte cost against 28% on USTC, but the 0.0340 gap is a larger
-          share of the seed spread than USTC's 0.0058 was, so this is the weaker of
-          the two frontier results and we report it as such.</p>
-          <p><strong>Raising &tau; recovers it.</strong> At &tau;&nbsp;=&nbsp;0.99
-          the policy reads 277 bytes for 0.5446, within 0.003 of the best head, still
-          at 54% of 512 bytes.</p>
+        <div class="card grow">
+          <p><strong>Larger saving, tighter margin.</strong> 23% of the byte cost
+          against 28% on USTC, but the 0.0340 gap is a larger share of the seed spread
+          than USTC's 0.0058 was. This is the weaker of the two frontier results and we
+          report it as such.</p>
+          <p><strong>Raising &tau; recovers it.</strong> At &tau; = 0.99 the policy
+          reads 277 bytes for 0.5446, within 0.003 of the best head, still at 54% of
+          512 bytes.</p>
         </div>
       </div>
     </div>
   </div>
-  <footer class="sfoot"><span><b>Backup slide, not part of the talk</b></span>
-    <span>Talha Arshad &middot; Zain Shahid</span></footer>
 </section>
 
 </body></html>

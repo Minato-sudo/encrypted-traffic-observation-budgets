@@ -1,4 +1,4 @@
-# Talha's prep notes: slides 1 to 11
+# Talha's prep notes: slides 1 to 6
 
 Yeh file sirf tumhare liye hai, recording ke liye nahi. `SCRIPT.md` mein woh hai
 jo bolna hai; yahan woh hai jo **samajhna** hai, taake agar sir beech mein rok
@@ -27,6 +27,8 @@ Agar sirf yeh yaad rahe, to bhi tum 70% sawalon ka jawab de sakte ho.
 
 ---
 
+---
+
 ## Slide 1, title
 
 **Kya karna hai:** Apna taaruf, project ka sawal, aur yeh batana ke kaunsa hissa
@@ -40,15 +42,19 @@ presentation nahi mani jayegi, is liye yeh line skip nahi karni.
 
 ---
 
-## Slide 2, the problem: what an observation budget is
+---
 
-### Slide keh kya rahi hai
+## Slide 2, the problem, and the four gaps
+
+### The problem: what an observation budget is
+
+#### Slide keh kya rahi hai
 
 Jab koi deep learning model network traffic classify karta hai, woh poori
 conversation nahi dekhta. Woh sirf **shuru ke B bytes** dekhta hai. Us B ko hum
 **observation budget** kehte hain.
 
-### Asaan misaal
+#### Asaan misaal
 
 **Roman Urdu:** Socho tumhe kisi ki awaaz se pehchanna hai ke phone pe kon bol
 raha hai. Sawal yeh hai: **kitni second sunna zaroori hai?** Ek second? Paanch?
@@ -59,7 +65,7 @@ chahiye.
 **English, if asked:** It is like identifying a book from its opening pages. The
 question is how many pages you need before you can tell what kind of book it is.
 
-### Why this is not a small detail
+#### Why this is not a small detail
 
 Teen cheezein seedha budget se tay hoti hain:
 
@@ -71,14 +77,14 @@ Teen cheezein seedha budget se tay hoti hain:
 
 Is liye budget koi side setting nahi, yeh **system ka operating point** hai.
 
-### The number that makes the point
+#### The number that makes the point
 
 **Zero out of twelve.** Baarah recent papers (2025 aur 2026) dekhe. Budget 5 se
 20 packets, ya 784 se 1024 bytes. **Kisi ek ne bhi measure nahi kiya.** Jahan
 wajah di bhi hai, woh technical convenience hai, jaise "784 bytes ka square
 image ban jata hai", na ke koi experiment.
 
-### Agar sir pooche
+#### Agar sir pooche
 
 > **"To kya sab galat kar rahe hain?"**
 > Galat nahi, **unexamined**. Unhone number inherit kiya hai. Hum keh rahe hain
@@ -91,18 +97,52 @@ image ban jata hai", na ke koi experiment.
 
 ---
 
-## Slide 3, budget and padding are confounded
+### The research gap
+
+#### Slide keh kya rahi hai
+
+Literature mein chaar cheezein missing hain. Hum chaaron ko order mein address
+karte hain.
+
+| Gap | Roman Urdu mein, ek line |
+|---|---|
+| **Gap 1** | Budget measure nahi kiya gaya, bas pichle paper se copy hua. |
+| **Gap 2** | Sirf overall accuracy report hoti hai, is se pata nahi chalta ke kaunsi class bilkul fail ho rahi hai. |
+| **Gap 3** | Dataset ko "encrypted" keh dete hain, magar kisi ne naapa nahi ke waqai kitna hissa encrypted hai. |
+| **Gap 4** | IP address aur port jaise identifier bytes nikale gaye ya nahi, yeh batate hi nahi. |
+
+#### The number worth saying
+
+Gap 4 pe: humare apne base papers mein se ek (P5) ne dikhaya ke agar yeh
+identifier bytes **andar chhor do**, to accuracy **0.45 tak** zyada aa jati hai.
+Yaani model traffic nahi, **addresses yaad kar raha hota hai**.
+
+#### Agar sir pooche
+
+> **"Gap 2 ka matlab kya hai, example do."**
+> ISCX pe humara overall accuracy 0.4013 hai, lekin ek class `vpn_chat` ka recall
+> sirf **0.042** hai. Yaani us class ko model taqreeban kabhi predict hi nahi
+> karta. Overall number dekh kar yeh bilkul nazar nahi aata. Zain yeh slide 8 pe
+> dikhayega.
+
+---
+
+---
+
+## Slide 3, the padding confound, and the objectives
+
+### Budget and padding are confounded
 
 Yeh slide sabse important hai is half mein. Isay achhe se samajh lo.
 
-### Slide keh kya rahi hai
+#### Slide keh kya rahi hai
 
 Network flows **chhote** hote hain. ISCX dataset ka **median** session **274
 bytes** ka hai, USTC ka **474 bytes**. Median ka matlab: aadhe sessions is se
 chhote hain. Ab agar budget 1024 hai, to baqi jagah **padding** se bhar di jati
 hai, yaani khali zeroes.
 
-### Asaan misaal, yeh zaroor yaad rakho
+#### Asaan misaal, yeh zaroor yaad rakho
 
 **Roman Urdu:** Socho ek form hai jisme jawab ke liye 1000 character ka box hai,
 lekin tumhara jawab sirf 274 character ka hai. Baqi 726 khali reh gaye.
@@ -113,7 +153,7 @@ jagah barh gayi.
 Yehi network pe ho raha hai. Budget barhane se zyada traffic nahi milta, **zyada
 padding milti hai.**
 
-### The trap
+#### The trap
 
 Aur yahan asli masla aata hai. Model us khali jagah ko dekh kar hi andaza laga
 sakta hai. Yaani:
@@ -125,7 +165,7 @@ baghair** jawab dena hua. Yeh **length** se guess kar raha hai, payload se nahi.
 **English, the key sentence:** A paper that concludes "1024 bytes works best" may
 have measured a length classifier and called it a payload classifier.
 
-### Numbers on this slide
+#### Numbers on this slide
 
 Yeh **mean padding fraction** hai, yaani aik average session ka kitna hissa
 padding hai:
@@ -138,13 +178,13 @@ padding hai:
 
 ISCX pe 512 bytes pe aadha session padding hai. 1500 pe **70 percent**.
 
-### Agar sir pooche
+#### Agar sir pooche
 
 > **"Padding to normal cheez hai, har model karta hai."**
 > Bilkul. Masla padding nahi, masla yeh hai ke **budget aur padding ek saath
 > barhte hain**, is liye jab koi kehta hai "bara budget behtar hai" to pata nahi
 > chalta woh extra payload ki wajah se behtar hai ya extra padding ki. Dono
-> effects mix hain. Hum inhe alag karte hain, slide 8 aur 16 pe.
+> effects mix hain. Hum inhe alag karte hain, slide 5 aur 9 pe.
 
 > **"Yeh padding fraction kaise nikala?"**
 > Formula paper mein Equation 2 hai: `max(0, k - L) / k`, jahan k budget hai aur
@@ -152,39 +192,9 @@ ISCX pe 512 bytes pe aadha session padding hai. 1500 pe **70 percent**.
 
 ---
 
-## Slide 4, the research gap
+### Objectives
 
-### Slide keh kya rahi hai
-
-Literature mein chaar cheezein missing hain. Hum chaaron ko order mein address
-karte hain.
-
-| Gap | Roman Urdu mein, ek line |
-|---|---|
-| **Gap 1** | Budget measure nahi kiya gaya, bas pichle paper se copy hua. |
-| **Gap 2** | Sirf overall accuracy report hoti hai, is se pata nahi chalta ke kaunsi class bilkul fail ho rahi hai. |
-| **Gap 3** | Dataset ko "encrypted" keh dete hain, magar kisi ne naapa nahi ke waqai kitna hissa encrypted hai. |
-| **Gap 4** | IP address aur port jaise identifier bytes nikale gaye ya nahi, yeh batate hi nahi. |
-
-### The number worth saying
-
-Gap 4 pe: humare apne base papers mein se ek (P5) ne dikhaya ke agar yeh
-identifier bytes **andar chhor do**, to accuracy **0.45 tak** zyada aa jati hai.
-Yaani model traffic nahi, **addresses yaad kar raha hota hai**.
-
-### Agar sir pooche
-
-> **"Gap 2 ka matlab kya hai, example do."**
-> ISCX pe humara overall accuracy 0.4013 hai, lekin ek class `vpn_chat` ka recall
-> sirf **0.042** hai. Yaani us class ko model taqreeban kabhi predict hi nahi
-> karta. Overall number dekh kar yeh bilkul nazar nahi aata. Zain yeh slide 15 pe
-> dikhayega.
-
----
-
-## Slide 5, objectives
-
-### Slide keh kya rahi hai
+#### Slide keh kya rahi hai
 
 Paanch objectives, har ek ka jawab measurable hai. Rattna nahi hai, **samajhna**
 hai:
@@ -201,13 +211,13 @@ hai:
 5. **Imaandari se report karo:** shortcut learning band karo, per-class results
    do, aur batao ke train/test split akela kitna farq daal raha hai.
 
-### Saturation, asaan lafzon mein
+#### Saturation, asaan lafzon mein
 
 **Roman Urdu:** Jaise phone charge karte waqt ek point ke baad battery percent
 barhna band ho jata hai. Saturation point wohi hai: us ke baad bytes parhne se
 accuracy nahi barhti.
 
-### Scale numbers
+#### Scale numbers
 
 Do public corpora, **385 hazaar sessions**, **31 classes**, har number ke peeche
 3 se 8 seeds.
@@ -218,14 +228,18 @@ na kaha ja sake.
 
 ---
 
-## Slide 6, the measurement pipeline
+---
 
-### Slide keh kya rahi hai
+## Slide 4, the pipeline and the leakage gate
+
+### The measurement pipeline
+
+#### Slide keh kya rahi hai
 
 Agar budget ko **measure** karna hai, to budget hi **ek waahid cheez** honi
 chahiye jo badal rahi ho. Baqi sab same rehna chahiye.
 
-### Asaan misaal, yeh bohat achhi hai
+#### Asaan misaal, yeh bohat achhi hai
 
 **Roman Urdu:** Socho tumhe test karna hai ke plate ka size khane ke taste pe
 asar daalta hai ya nahi. To tum **ek dafa** degh pakao ge, phir usi degh se alag
@@ -237,7 +251,7 @@ jayega, aur phir pata nahi chalega ke farq plate ki wajah se hai ya pakane ki.
 Hum bilkul yehi karte hain: **ek dafa** 2048-byte ka HDF5 store banate hain, aur
 har budget us ka slice hai.
 
-### Technical version
+#### Technical version
 
 Parsing, sessionization, deduplication aur anonymisation sab **ek dafa** hote
 hain, budget banne se **pehle**. Is liye class balance aur session boundaries 256
@@ -245,19 +259,19 @@ aur 512 bytes ke beech drift kar hi nahi sakte. Diagram mein sirf dashed wala
 hissa har budget pe repeat hota hai.
 
 **Group-wise split:** ek capture file poori ki poori ya training mein hai ya test
-mein, dono mein nahi. Yeh Zain slide 18 pe explain karega ke yeh itna important
+mein, dono mein nahi. Yeh Zain slide 11 pe explain karega ke yeh itna important
 kyun hai.
 
 ---
 
-## Slide 7, the leakage gate
+### The leakage gate
 
-### Slide keh kya rahi hai
+#### Slide keh kya rahi hai
 
 Gap 4 ko log aam tor pe ek line likh kar handle karte hain: "identifiers were
 removed". Humne isay aisi **shart** bana diya jo pipeline khud check karti hai.
 
-### Asaan misaal, yeh sabse achhi hai
+#### Asaan misaal, yeh sabse achhi hai
 
 **Roman Urdu:** Jaise exam se pehle invigilator check karta hai ke kisi ke paas
 parchi to nahi. Agar parchi mil jaye to **paper cancel**, sirf report mein note
@@ -266,7 +280,7 @@ nahi karte.
 Humara gate bilkul yeh hai. Agar identifier bytes se kuch bhi seekha ja sakta
 hai, to pipeline **ruk jati hai**. Warning nahi deti, **band ho jati hai**.
 
-### The condition itself
+#### The condition itself
 
 Ek probe sirf anonymised identifier bytes pe train hota hai. Us ka score
 **majority-class rate plus 0.1** se zyada nahi hona chahiye.
@@ -276,7 +290,7 @@ class ka naam le do, to jitne percent sahi honge. Yaani **guessing ka score**.
 Agar probe guessing se behtar hai, matlab usay kuch seekhne ko mila, matlab
 anonymisation fail hui.
 
-### Teen probes
+#### Teen probes
 
 | Probe | Kaam |
 |---|---|
@@ -284,21 +298,25 @@ anonymisation fail hui.
 | `ident` | Yeh naapta hai ke agar identifiers **chhor dete** to kitna faida hota. Yaani parchi ki qeemat. |
 | `ports` | Sirf port bytes chupa kar dekhta hai, taake port memorisation aur asli payload structure alag ho sakein. |
 
-### Agar sir pooche
+#### Agar sir pooche
 
 > **"Anonymise ka matlab kya kiya?"**
 > MAC aur IP addresses zero kar diye. Ports retain kiye, lekin un ka asar `ports`
 > probe se alag se naapa.
 
 > **"Gate pass hua?"**
-> Dono corpora pe pass hua. Zain exact numbers slide 12 pe dega: USTC pe probe
+> Dono corpora pe pass hua. Zain exact numbers slide 7 pe dega: USTC pe probe
 > 0.1351 aur chance 0.1359, yaani chance se bhi **neeche**.
 
 ---
 
-## Slide 8, padding decomposed into five input modes
+---
 
-### Slide keh kya rahi hai
+## Slide 5, padding decomposed, and the classifier
+
+### Padding decomposed into five input modes
+
+#### Slide keh kya rahi hai
 
 Paanch tareeqe se model ko input diya, taake pata chale faida kis cheez se aa
 raha hai.
@@ -311,7 +329,7 @@ raha hai.
 | `convmask` | PAD symbol, aur convolution padded positions ko ignore karti hai. |
 | `length_balanced` | Classes ko aisa resample kiya ke length ka cue khatam ho jaye. |
 
-### Asaan misaal
+#### Asaan misaal
 
 **Roman Urdu:** Agar tum cake banate waqt **recipe aur oven dono** ek saath badal
 do aur cake behtar aaye, to tumhe pata nahi chalega ke faida recipe ne diya ya
@@ -326,14 +344,14 @@ Hum ek ek kar ke badalte hain:
 
 Is tarah dono ka hissa alag alag nazar aata hai.
 
-### Embedding, asaan lafzon mein
+#### Embedding, asaan lafzon mein
 
 **Roman Urdu:** `zero` mode mein byte 200 aur byte 201 model ke liye taqreeban
 same hain, kyunki dono 0.78 aur 0.79 ban jate hain. Embedding mein har byte
 value ko apna alag "matlab" milta hai, jaise dictionary mein har lafz ka alag
 meaning hota hai. Is liye model exact byte values pehchan sakta hai.
 
-### Seed spread ka usool
+#### Seed spread ka usool
 
 Har farq ko **seed spread** ke against check kiya jata hai. Agar farq seed noise
 se chhota hai, to hum usay finding nahi, **inconclusive** likhte hain. Yeh
@@ -341,11 +359,11 @@ imaandari wali baat hai aur sir ko achhi lagti hai.
 
 ---
 
-## Slide 9, the causal early-exit classifier
+### The causal early-exit classifier
 
 Yeh slide technically sabse bhaari hai. Lekin idea simple hai.
 
-### The idea
+#### The idea
 
 Model mein **paanch jagah** classification heads lagaye: 64, 128, 256, 512 aur
 1024 bytes pe. Chalate waqt, **pehle head pe ruk jao** jiska confidence threshold
@@ -355,7 +373,7 @@ cross kar le, aur us flow ko sirf utne bytes charge karo.
 aa gaya, to poora passage parhne ki zaroorat nahi. Lekin agar confusion hai, to
 aage parho.
 
-### The catch, yeh samajhna zaroori hai
+#### The catch, yeh samajhna zaroori hai
 
 Yeh claim tabhi sach hai jab head number k **dekh hi na sake** byte k+1 ko.
 
@@ -363,7 +381,7 @@ Yeh claim tabhi sach hai jab head number k **dekh hi na sake** byte k+1 ko.
 to yaqeeni banana parega ke baqi page waqai **dhaka hua** tha. Agar woh jhaank
 sakta tha, to claim jhoota hai aur saving sirf kaghazi hai.
 
-### Isay kaise guarantee kiya
+#### Isay kaise guarantee kiya
 
 - **Causal convolutions:** padding sirf **left** taraf se hoti hai, is liye koi
   position apne se aage nahi dekh sakti.
@@ -376,7 +394,7 @@ sakta hai. Bas ek line badalne se poori causality tooth jati, aur accuracy ke
 numbers **bilkul theek lagte rehte**. Isi liye is pe regression test lagaya hua
 hai.
 
-### Proof aur test, dono
+#### Proof aur test, dono
 
 - **Proof:** paper mein induction se prove kiya hai, layer by layer.
 - **Test:** ek byte ko position 100 pe badla, aur naapa ke woh change kitni door
@@ -385,7 +403,7 @@ hai.
 
 Yeh demo pe tum khud chala kar dikhao ge.
 
-### Agar sir pooche
+#### Agar sir pooche
 
 > **"505 kahan se aaya?"**
 > Formula: `1 + 2 x (kernel_size - 1) x sum(dilations)`. Yahan
@@ -396,19 +414,23 @@ Yeh demo pe tum khud chala kar dikhao ge.
 > **Yeh sabse achha sawal hai aur hum ne khud isay limitation mein likha hai.**
 > Jawab: transformer control. Transformer pe aisi koi receptive field limit nahi
 > hai, aur woh bhi **usi packet budget** pe saturate hota hai. Is liye 505 wajah
-> nahi ho sakti. Zain yeh slide 21 pe cover karega.
+> nahi ho sakti. Zain yeh slide 13 pe cover karega.
 
 ---
 
-## Slide 10, implementation
+---
 
-### Slide keh kya rahi hai
+## Slide 6, implementation, and the live demonstration
+
+### Implementation
+
+#### Slide keh kya rahi hai
 
 Pandrah modules banaye: pcap reader se le kar sessionization, store, slicer,
 chaar model families, aur experiment layer tak. **385 hazaar sessions**, taqreeban
 **55 GB** captures se.
 
-### The line worth landing
+#### The line worth landing
 
 **Reproducibility yahan mechanical hai, aspirational nahi.**
 
@@ -417,7 +439,7 @@ banta hai result JSON se. Matlab paper, poster ya is deck mein **koi number haat
 se type nahi kiya gaya**. Yeh keh dena strong impression deta hai, aur demo mein
 tum yeh dikhao ge bhi.
 
-### Teen cheezein jo keh deni hain
+#### Teen cheezein jo keh deni hain
 
 1. `make_report.py` har table generate karta hai, hand typing zero.
 2. `study.sh` stage-resumable hai, yaani epoch 30 pe crash ho to wahin se chalta
@@ -432,7 +454,7 @@ hai. Yeh **positive control** hai.
 
 ---
 
-## Slide 11, the live demonstration
+### The live demonstration
 
 Yahan tum terminal chalao ge. Commands `DEMO_RUNSHEET.md` mein hain. Yahan sirf
 **har command kya sabit karti hai**, taake tum confidence se bol sako.
@@ -446,7 +468,7 @@ Yahan tum terminal chalao ge. Commands `DEMO_RUNSHEET.md` mein hain. Yahan sirf
 | `jq` on `significance.json` | 2488 sessions 512 pe sahi aur 784 pe ghalat, against sirf 94 ulta. Matlab yeh luck nahi. |
 | `sed` on `REPORT.md` | Yeh table usi JSON se bana hai. Is liye deck ka koi number haath se type nahi hua. |
 
-### Ek cheez jo pooch sakte hain
+#### Ek cheez jo pooch sakte hain
 
 > **"Pehle block mein head@512B ka difference zero kyun nahi?"**
 > Kyunki woh **hona hi chahiye**. Test bytes 256 ke baad perturb karta hai, aur
@@ -454,7 +476,7 @@ Yahan tum terminal chalao ge. Commands `DEMO_RUNSHEET.md` mein hain. Yahan sirf
 > zero demand karta hai jinka budget perturbation se pehle khatam ho jata hai.
 > Yeh galti nahi, design hai.
 
-### Demo rules
+#### Demo rules
 
 - **Training kabhi mat chalana.** USTC study 40 epochs hai, video mein khatam
   nahi hogi.
@@ -496,7 +518,7 @@ seven". Precision hi is project ka asal point hai, is liye numbers poore bolo.
 > Teen measured wajahat: hum **11 classes** report karte hain jahan doosre 6
 > karte hain; humara split **group-wise** hai jo zyada mushkil hai, aur woh akela
 > **0.3782** ka farq daalta hai; aur humne identifier bytes **pehli run se
-> pehle** nikal diye. Hum yeh number chhupate nahi, slide 19 pe table mein saaf
+> pehle** nikal diye. Hum yeh number chhupate nahi, slide 12 pe table mein saaf
 > likha hai.
 
 > **"Yeh practically kis kaam ka hai?"**
@@ -509,7 +531,7 @@ seven". Precision hi is project ka asal point hai, is liye numbers poore bolo.
 ## Night before
 
 1. `SCRIPT.md` do dafa parho, apne lafzon mein.
-2. Slide 3 ka form wala misaal aur slide 7 ka parchi wala misaal rattna, yeh dono
+2. Slide 3 ka form wala misaal aur slide 4 ka parchi wala misaal rattna, yeh dono
    har sawal mein kaam aayenge.
 3. Demo ki saari commands ek dafa chala lo.
 4. Slide 1 Zain ke saath ek dafa rehearse karo, kyunki us mein dono bolte hain.

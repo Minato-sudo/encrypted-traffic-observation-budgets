@@ -5,10 +5,10 @@ What the brief requires, and how to produce it on this machine.
 | Requirement | How it is met |
 |---|---|
 | Screen recording with voice-over | OBS Studio, already installed at `/usr/bin/obs` |
-| Both members actively participate | One contiguous half each, slides 1&ndash;11 and 12&ndash;23, with both voices on slide 1 and slide 23 and the handoff spoken aloud at slide 11 |
+| Both members actively participate | One contiguous half each, slides 1&ndash;6 and 7&ndash;14, with both voices on slide 1 and slide 14 and the handoff spoken aloud at slide 6 |
 | Different parts explained by each | Talha: the problem, the gap, the objectives, the methodology, the implementation and the live demo. Zain: every result, the comparison with published work, the findings, the limitations and the conclusion |
-| Problem, objectives, methodology, implementation, results, key findings, conclusion | Slides 2&ndash;4, 5, 6&ndash;9, 10&ndash;11, 12&ndash;19, 20, 22 |
-| Demonstrate implementation, code, experiments, results | Slide 11, per `DEMO_RUNSHEET.md`, live terminal, driven by Talha |
+| Problem, objectives, methodology, implementation, results, key findings, conclusion | Slides 2&ndash;3, 4&ndash;5, 6, 7&ndash;12, 13, 14 |
+| Demonstrate implementation, code, experiments, results | Slide 6, per `DEMO_RUNSHEET.md`, live terminal, driven by Talha |
 | Clear audio, readable recording, professional quality | Settings below |
 | Upload to YouTube or Vimeo and share the link | Steps at the end |
 
@@ -70,7 +70,8 @@ okular slides/Phase6_Presentation.pdf
 
 The deck is authored at exactly 13.333 by 7.5 inches, which is 16:9, so it
 fills a 1920 by 1080 capture with no letterboxing. Advance with the right arrow
-or space.
+or space, and **stop at slide 14**: pages 15 and 16 are backup slides held for
+questions.
 
 Set the display resolution to **1920 by 1080** before recording, even if the
 monitor is larger. Recording a 2560-wide screen and letting YouTube downscale it
@@ -124,16 +125,16 @@ record six files:
 
 | File | Speaker | Slides | Length |
 |---|---|---|---|
-| `part1_talha.mkv` | Talha, with Zain's one line on slide 1 | 1&ndash;10 | 6:08 |
-| `part2_talha_demo.mkv` | Talha, at the terminal | 11 | 1:20 |
-| `part3_zain.mkv` | Zain | 12&ndash;19 | 5:40 |
-| `part4_zain_close.mkv` | Zain, with Talha on slide 23 | 20&ndash;23 | 2:24 |
+| `part1_talha.mkv` | Talha, with Zain's one line on slide 1 | 1&ndash;5 | 5:30 |
+| `part2_talha_demo.mkv` | Talha, at the terminal | 6 | 1:57 |
+| `part3_zain.mkv` | Zain | 7&ndash;12 | 5:39 |
+| `part4_zain_close.mkv` | Zain, with Talha on slide 14 | 13&ndash;14 | 2:25 |
 
-Four files rather than one long take each, because a 6-minute unbroken read is
-hard to get clean and a fluffed sentence 5 minutes in costs the whole take.
+Four files rather than one long take each, because a 5-minute unbroken read is
+hard to get clean and a fluffed sentence 4 minutes in costs the whole take.
 
 Two of them need both members at the microphone: `part1` for Zain's
-self-introduction on slide 1, and `part4` for Talha's closing line on slide 23.
+self-introduction on slide 1, and `part4` for Talha's closing line on slide 14.
 Everything else is one voice.
 
 The demonstration is its own file because it is the only segment that leaves
@@ -185,7 +186,7 @@ ffmpeg -i part3_zain.mkv -ss 00:00:03 -c copy part3_trimmed.mkv
       and again in the last. With a single handoff this is what proves the
       two-member requirement to anyone who samples the video rather than
       watching it through.
-- [ ] The handoff at the end of slide 11 is spoken, not a silent cut.
+- [ ] The handoff at the end of slide 6 is spoken, not a silent cut.
 - [ ] The terminal text is readable when the video is played at 1080p in a
       window, not only full screen.
 - [ ] No notification, message preview or personal file name appears anywhere.
@@ -224,28 +225,19 @@ YouTube is the simpler of the two options the brief allows.
    https://github.com/Minato-sudo/encrypted-traffic-observation-budgets
 
    00:00 Introduction
-   00:26 The problem: what an observation budget is
-   01:08 Budget and padding are confounded
-   01:42 Research gap
-   02:09 Objectives
-   02:50 Methodology: the measurement pipeline
-   03:21 The leakage gate
-   03:56 Padding decomposed
-   04:30 The causal early-exit classifier
-   05:30 Implementation
-   06:08 Live demonstration
-   07:28 Results: the leakage gate
-   08:06 Results: the budget response
-   08:58 Results: the architecture control
-   09:36 Results: per-class behaviour
+   00:26 The problem, and the four gaps
+   01:36 Padding is confounded with budget; objectives
+   02:50 Methodology: the pipeline and the leakage gate
+   03:56 Padding decomposed, and the causal classifier
+   05:30 Implementation and live demonstration
+   07:28 Results: the gate, and the budget response
+   08:58 Results: the architecture control and per-class failure
    10:12 Results: padding attribution
    10:46 Results: accuracy per byte read
    11:34 Results: the train/test split confound
    12:17 Comparison with the base papers
-   13:07 Key findings
-   13:51 Limitations
-   14:36 Conclusion
-   15:12 Thank you
+   13:07 Key findings and limitations
+   14:36 Conclusion and thank you
    ```
 
    **Fix those timestamps against the finished video before posting.** The ones
