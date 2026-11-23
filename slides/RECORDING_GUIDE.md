@@ -197,28 +197,28 @@ YouTube is the simpler of the two options the brief allows.
    https://github.com/Minato-sudo/encrypted-traffic-observation-budgets
 
    00:00 Introduction
-   00:29 The problem: what an observation budget is
-   01:33 Budget and padding are confounded
-   02:23 Research gap
-   03:05 Objectives
-   03:58 Methodology: the measurement pipeline
-   04:49 The leakage gate
-   05:35 Padding decomposed
-   06:22 The causal early-exit classifier
-   07:40 Implementation
-   08:35 Live demonstration
-   10:35 Results: the leakage gate
-   11:25 Results: the budget response
-   12:23 Results: the architecture control
-   13:04 Results: per-class behaviour
-   13:57 Results: padding attribution
-   14:42 Results: accuracy per byte read
-   15:49 Results: the train/test split confound
-   16:48 Comparison with the base papers
-   17:56 Key findings
-   18:56 Limitations
-   20:03 Conclusion
-   21:09 Thank you
+   00:20 The problem: what an observation budget is
+   01:02 Budget and padding are confounded
+   01:36 Research gap
+   02:03 Objectives
+   02:44 Methodology: the measurement pipeline
+   03:18 The leakage gate
+   03:53 Padding decomposed
+   04:27 The causal early-exit classifier
+   05:27 Implementation
+   06:04 Live demonstration
+   07:24 Results: the leakage gate
+   07:58 Results: the budget response
+   08:50 Results: the architecture control
+   09:28 Results: per-class behaviour
+   10:04 Results: padding attribution
+   10:40 Results: accuracy per byte read
+   11:28 Results: the train/test split confound
+   12:11 Comparison with the base papers
+   13:01 Key findings
+   13:45 Limitations
+   14:30 Conclusion
+   15:06 Thank you
    ```
 
    **Fix those timestamps against the finished video before posting.** The ones
@@ -239,8 +239,8 @@ YouTube is the simpler of the two options the brief allows.
 
 ## Vimeo, if you prefer it
 
-Free Vimeo accounts cap uploads at 500 MB per week, which a 20-minute 1080p
-recording at 12 Mbps will exceed. Either re-encode smaller first:
+Free Vimeo accounts cap uploads at 500 MB per week, which a 15-minute 1080p
+recording at 12 Mbps will exceed, at roughly 1.3 GB. Either re-encode smaller first:
 
 ```bash
 ffmpeg -i Phase6_Presentation_i232548_i232582.mp4 -c:v libx264 -crf 26 \

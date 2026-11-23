@@ -6,8 +6,9 @@ Deliverables
   Phase6_Presentation.pdf   25 pages, 16:9 (13.333 x 7.5 in), for screen:
                             23 slides for the talk, plus two backup slides
                             (B1, B2) held for questions about ISCX
-  SCRIPT.md                 the full voice-over script, split between both
-                            members, with handoffs and delivery notes
+  SCRIPT.md                 the voice-over script, about 15 and a half minutes,
+                            split evenly between both members, with the handoffs
+                            written in as spoken lines
   DEMO_RUNSHEET.md          the live terminal walkthrough for slide 11, with
                             the real commands and the output they actually
                             print

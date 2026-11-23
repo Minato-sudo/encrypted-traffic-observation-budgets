@@ -2,7 +2,8 @@
 
 Everything on this sheet has been run on this machine and the outputs below are
 what it actually printed. Nothing here trains a model, so nothing can stall in
-front of the camera: **the whole sequence takes under 20 seconds of compute.**
+front of the camera: **the whole sequence takes under 20 seconds of compute, and
+about 1 minute 20 seconds to present.**
 
 Presented by **Zain Shahid (i232582)** on slide 11, between the implementation
 slide and the results.
@@ -153,7 +154,10 @@ hand.
 
 ---
 
-## Optional extras, if time allows
+## Optional extras, only if you are recording the longer version
+
+These are **outside** the 15-minute timing. Skip both unless you have decided to
+run long.
 
 ### The ground-truth test (about 10 s, CPU)
 
