@@ -5,9 +5,9 @@ What the brief requires, and how to produce it on this machine.
 | Requirement | How it is met |
 |---|---|
 | Screen recording with voice-over | OBS Studio, already installed at `/usr/bin/obs` |
-| Both members actively participate | `SCRIPT.md` assigns contiguous slide ranges to each member, with the handoffs spoken aloud |
-| Different parts explained by each | Talha: problem, gap, objectives, the live demo, four results, findings, conclusion. Zain: methodology, implementation, four results, limitations |
-| Problem, objectives, methodology, implementation, results, key findings, conclusion | Slides 2&ndash;5, 6&ndash;10, 10&ndash;11, 12&ndash;19, 20, 22 |
+| Both members actively participate | One contiguous half each, slides 1&ndash;11 and 12&ndash;23, with both voices on slide 1 and slide 23 and the handoff spoken aloud at slide 11 |
+| Different parts explained by each | Talha: the problem, the gap, the objectives, the methodology, the implementation and the live demo. Zain: every result, the comparison with published work, the findings, the limitations and the conclusion |
+| Problem, objectives, methodology, implementation, results, key findings, conclusion | Slides 2&ndash;4, 5, 6&ndash;9, 10&ndash;11, 12&ndash;19, 20, 22 |
 | Demonstrate implementation, code, experiments, results | Slide 11, per `DEMO_RUNSHEET.md`, live terminal, driven by Talha |
 | Clear audio, readable recording, professional quality | Settings below |
 | Upload to YouTube or Vimeo and share the link | Steps at the end |
@@ -122,21 +122,22 @@ wrong source.
 Do not attempt one unbroken take. Each member's slide ranges are contiguous, so
 record six files:
 
-| File | Speaker | Slides |
-|---|---|---|
-| `part1_talha.mkv` | Talha | 1&ndash;5 |
-| `part2_zain.mkv` | Zain | 6&ndash;10 |
-| `part3_talha_demo.mkv` | Talha | 11 (terminal), then 12&ndash;15 |
-| `part4_zain.mkv` | Zain | 16&ndash;19 |
-| `part5_both.mkv` | both | 20&ndash;23 |
+| File | Speaker | Slides | Length |
+|---|---|---|---|
+| `part1_talha.mkv` | Talha, with Zain's one line on slide 1 | 1&ndash;10 | 6:08 |
+| `part2_talha_demo.mkv` | Talha, at the terminal | 11 | 1:20 |
+| `part3_zain.mkv` | Zain | 12&ndash;19 | 5:40 |
+| `part4_zain_close.mkv` | Zain, with Talha on slide 23 | 20&ndash;23 | 2:24 |
 
-The demonstration and the four result slides after it are one Talha segment, so
-the switch from terminal back to the slides happens inside a single take and
-needs no join.
+Four files rather than one long take each, because a 6-minute unbroken read is
+hard to get clean and a fluffed sentence 5 minutes in costs the whole take.
 
-Slides 20 to 23 alternate speaker every slide, so record them as **one joint
-segment with both members at the microphone** rather than four separate files.
-It is simpler and sounds more natural than cutting between single slides.
+Two of them need both members at the microphone: `part1` for Zain's
+self-introduction on slide 1, and `part4` for Talha's closing line on slide 23.
+Everything else is one voice.
+
+The demonstration is its own file because it is the only segment that leaves
+the slides for the terminal. Record it last, once the commands are familiar.
 
 Start each file with two seconds of silence on the first slide and end with two
 seconds after the last word. That gives clean joins.
@@ -150,8 +151,8 @@ No video editor is installed here, but the parts are all encoded identically, so
 
 ```bash
 cd ~/Videos
-printf "file '%s'\n" part1_talha.mkv part2_zain.mkv part3_talha_demo.mkv \
-    part4_zain.mkv part5_both.mkv > parts.txt
+printf "file '%s'\n" part1_talha.mkv part2_talha_demo.mkv part3_zain.mkv \
+    part4_zain_close.mkv > parts.txt
 ffmpeg -f concat -safe 0 -i parts.txt -c copy Phase6_Presentation_i232548_i232582.mkv
 ```
 
@@ -172,7 +173,7 @@ ffprobe -hide_banner Phase6_Presentation_i232548_i232582.mp4
 If a segment needs trimming, cut on a slide boundary:
 
 ```bash
-ffmpeg -i part4_zain.mkv -ss 00:00:03 -c copy part4_trimmed.mkv
+ffmpeg -i part3_zain.mkv -ss 00:00:03 -c copy part3_trimmed.mkv
 ```
 
 ---
@@ -181,8 +182,10 @@ ffmpeg -i part4_zain.mkv -ss 00:00:03 -c copy part4_trimmed.mkv
 
 - [ ] Both voices are clearly audible and at a similar level.
 - [ ] Both members are named out loud, with roll numbers, in the first minute
-      and again in the last.
-- [ ] Every handoff between speakers is spoken, not just a silent cut.
+      and again in the last. With a single handoff this is what proves the
+      two-member requirement to anyone who samples the video rather than
+      watching it through.
+- [ ] The handoff at the end of slide 11 is spoken, not a silent cut.
 - [ ] The terminal text is readable when the video is played at 1080p in a
       window, not only full screen.
 - [ ] No notification, message preview or personal file name appears anywhere.
@@ -221,28 +224,28 @@ YouTube is the simpler of the two options the brief allows.
    https://github.com/Minato-sudo/encrypted-traffic-observation-budgets
 
    00:00 Introduction
-   00:20 The problem: what an observation budget is
-   01:02 Budget and padding are confounded
-   01:36 Research gap
-   02:03 Objectives
-   02:44 Methodology: the measurement pipeline
-   03:18 The leakage gate
-   03:53 Padding decomposed
-   04:27 The causal early-exit classifier
-   05:27 Implementation
-   06:04 Live demonstration
-   07:24 Results: the leakage gate
-   07:59 Results: the budget response
-   08:51 Results: the architecture control
-   09:29 Results: per-class behaviour
-   10:09 Results: padding attribution
-   10:43 Results: accuracy per byte read
-   11:32 Results: the train/test split confound
-   12:15 Comparison with the base papers
+   00:26 The problem: what an observation budget is
+   01:08 Budget and padding are confounded
+   01:42 Research gap
+   02:09 Objectives
+   02:50 Methodology: the measurement pipeline
+   03:21 The leakage gate
+   03:56 Padding decomposed
+   04:30 The causal early-exit classifier
+   05:30 Implementation
+   06:08 Live demonstration
+   07:28 Results: the leakage gate
+   08:06 Results: the budget response
+   08:58 Results: the architecture control
+   09:36 Results: per-class behaviour
+   10:12 Results: padding attribution
+   10:46 Results: accuracy per byte read
+   11:34 Results: the train/test split confound
+   12:17 Comparison with the base papers
    13:07 Key findings
    13:51 Limitations
    14:36 Conclusion
-   15:13 Thank you
+   15:12 Thank you
    ```
 
    **Fix those timestamps against the finished video before posting.** The ones

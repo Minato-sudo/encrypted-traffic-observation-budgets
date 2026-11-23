@@ -46,30 +46,23 @@ Page size comes from the @page rule in slides.html, so the output is exactly
 
 What each member presents
 -------------------------
-  Talha (i232548)   slides 1-5, 11-15, 20, 22        about 8:09
-                    problem, padding confound, research gap, objectives; the
-                    live demonstration at the terminal; the leakage gate,
-                    budget response, architecture control and per-class
-                    behaviour; key findings; conclusion
+One contiguous half each, with a single handoff at the end of slide 11.
 
-  Zain  (i232582)   slides 6-10, 16-19, 21, 23        about 7:21
-                    methodology and implementation; padding attribution,
-                    accuracy per byte, the split confound and the comparison
-                    with the base papers; limitations; closing
+  Talha (i232548)   slides 1-11                       about 7:28
+                    the problem, the padding confound, the research gap, the
+                    objectives, the whole methodology, the implementation, and
+                    the live demonstration at the terminal
 
-Talha drives the terminal, so slide 11 opens his second block rather than
-closing Zain's. The split also keeps each member's results beside the material
-they introduced: Talha frames the four gaps and reports the results answering
-them, Zain builds the padding modes and the early-exit encoder and reports what
-those measured.
+  Zain  (i232582)   slides 12-23                      about 8:04
+                    every result, the comparison with the base papers, the key
+                    findings, the limitations and the conclusion
 
-Backup slides
--------------
-Pages 24 and 25 are numbered B1 and B2 and are not part of the 23-slide talk.
-They carry the ISCX budget response and the ISCX accuracy-per-byte frontier,
-which the narration quotes but does not show, so they are there for the
-question most likely to be asked: "and on the other corpus?". Stop advancing at
-slide 23 during the recording.
+The boundary falls where the talk turns: Talha finishes by showing the
+measurement running, Zain takes everything it produced.
+
+Because there is only one handoff, slide 1 and slide 23 each carry both voices,
+so a marker who samples the video rather than watching it through still hears
+that two people presented. Do not cut those lines.
 
 Every number
 ------------

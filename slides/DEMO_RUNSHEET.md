@@ -5,10 +5,9 @@ what it actually printed. Nothing here trains a model, so nothing can stall in
 front of the camera: **the whole sequence takes under 20 seconds of compute, and
 about 1 minute 20 seconds to present.**
 
-Presented by **Muhammad Talha Arshad (i232548)** on slide 11. Zain hands the
-terminal over at the end of slide 10, and Talha carries straight on into the
-results on slide 12 afterwards, so the demonstration opens his block rather than
-closing Zain's.
+Presented by **Muhammad Talha Arshad (i232548)** on slide 11, which is the last
+slide of his half. He runs the terminal, then hands over to Zain for the results
+on slide 12, so the demonstration closes the first half of the talk.
 
 ---
 
