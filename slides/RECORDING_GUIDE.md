@@ -14,27 +14,48 @@ What the brief requires, and how to produce it on this machine.
 
 ---
 
-## Check this first: there is no microphone attached
+## Check this first: the microphone is not exposed yet
 
-On this machine every audio input is currently a loopback monitor, not a
-microphone:
+The machine has a working built-in microphone, an ALC257 on the onboard Intel
+card, and ALSA can see it:
 
 ```bash
-pactl list short sources
+arecord -l
 ```
 
-prints only `*.monitor` devices. If you record now, OBS will capture system
-audio and **no voice at all**. Before recording, plug in a headset or USB
-microphone and confirm a non-monitor source appears:
+```
+card 0: PCH [HDA Intel PCH], device 0: ALC257 Analog
+```
+
+But PulseAudio has that card in an **output-only** profile, so no capture source
+is published and OBS has nothing to record. Check:
 
 ```bash
 pactl list short sources | grep -v monitor
 ```
 
-A wired headset microphone is the best option available cheaply. Laptop
-built-in microphones pick up fan noise, which is audible under a long
-narration. Do not record voice separately on a phone unless you are willing to
-align it by hand afterwards.
+If that prints nothing, switch the card to the duplex profile, which the card
+reports as available:
+
+```bash
+pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:analog-stereo
+```
+
+Then re-run the `pactl list short sources` check above. A real source should
+appear, and it is the one to select in OBS. The change is per-user and
+reversible: `output:analog-stereo` puts it back.
+
+Two further notes:
+
+- The external 3.5 mm microphone jack reports **not available**, meaning nothing
+  is plugged into it. The internal microphone is what you will get.
+- **A wired headset microphone is still worth using.** The internal mic sits in
+  the chassis and picks up fan noise, which becomes obvious under a continuous
+  15-minute narration. Plug one in and the jack port becomes available, taking
+  priority over the internal mic.
+
+Do not record voice separately on a phone unless you are willing to align it by
+hand afterwards.
 
 ---
 
