@@ -14,6 +14,11 @@ Deliverables
                             print
   RECORDING_GUIDE.md        OBS settings, how to join the segments, the upload
                             steps and the pre-upload checklist
+  TALHA_PREP.md             Talha's own prep notes for slides 1-11: what each
+                            slide means in plain terms, everyday analogies,
+                            Roman Urdu where a concept is hard, the numbers not
+                            to get wrong, and the questions each slide invites.
+                            Not for recording, for understanding.
 
 The video itself is not in the repository. Record it against SCRIPT.md, upload
 it unlisted to YouTube, and submit the link.
