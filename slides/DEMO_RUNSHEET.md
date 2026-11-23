@@ -5,8 +5,10 @@ what it actually printed. Nothing here trains a model, so nothing can stall in
 front of the camera: **the whole sequence takes under 20 seconds of compute, and
 about 1 minute 20 seconds to present.**
 
-Presented by **Zain Shahid (i232582)** on slide 11, between the implementation
-slide and the results.
+Presented by **Muhammad Talha Arshad (i232548)** on slide 11. Zain hands the
+terminal over at the end of slide 10, and Talha carries straight on into the
+results on slide 12 afterwards, so the demonstration opens his block rather than
+closing Zain's.
 
 ---
 

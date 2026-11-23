@@ -15,22 +15,28 @@ Both members present, and each presents a mix of conceptual and technical
 material rather than one taking "the theory" and the other "the code". Each
 member also presents results of their own.
 
-| Member | Slides | Covers |
-|---|---|---|
-| **Talha** (i232548) | 1&ndash;5 | problem, the padding confound, research gap, objectives |
-| **Zain** (i232582) | 6&ndash;11 | methodology, implementation, **live demonstration** |
-| **Talha** (i232548) | 12&ndash;16 | results: leakage gate, budget response, architecture control, per-class, padding |
-| **Zain** (i232582) | 17&ndash;19 | results: accuracy per byte, the split confound, comparison with base papers |
-| **Talha** (i232548) | 20 | key findings |
-| **Zain** (i232582) | 21 | limitations and threats to validity |
-| **Talha** (i232548) | 22 | conclusion and future work |
-| **Zain** (i232582) | 23 | closing, repository, questions |
+| Member | Slides | Covers | Time |
+|---|---|---|---|
+| **Talha** (i232548) | 1&ndash;5 | problem, the padding confound, research gap, objectives | 2:44 |
+| **Zain** (i232582) | 6&ndash;10 | methodology and implementation | 3:21 |
+| **Talha** (i232548) | **11**, 12&ndash;15 | **live demonstration**, then results: leakage gate, budget response, architecture control, per-class | 4:05 |
+| **Zain** (i232582) | 16&ndash;19 | results: padding attribution, accuracy per byte, the split confound, comparison with base papers | 2:58 |
+| **Talha** (i232548) | 20 | key findings | 0:44 |
+| **Zain** (i232582) | 21 | limitations and threats to validity | 0:45 |
+| **Talha** (i232548) | 22 | conclusion and future work | 0:37 |
+| **Zain** (i232582) | 23 | closing, repository, questions | 0:17 |
 
-**This is the 15-minute version.** 2,110 spoken words at a normal narration pace
-of 150 words per minute is 14 minutes 4 seconds, plus a live demonstration of
+Talha runs the terminal, so the demonstration sits inside his block. The split
+also keeps each member's results next to the material they introduced: Talha
+frames the four gaps and then reports the results that answer them, while Zain
+builds the padding modes and the early-exit encoder and then reports what those
+measured.
+
+**This is the 15-minute version.** 2,126 spoken words at a normal narration pace
+of 150 words per minute is 14 minutes 10 seconds, plus a live demonstration of
 about 1 minute 20 seconds, paced by the commands rather than by the words: a
-total of about **15 and a half minutes**. Talha speaks 7:20 and Zain 6:44 plus
-the demo, so the two shares are even.
+total of about **15 and a half minutes**. Talha speaks 8:09 including the
+demonstration and Zain 7:21, so the two shares are even to within a minute.
 
 Nothing is cut from the project to get here. All 23 slides are presented, both
 members present problem, method, results and conclusion, and all seven of the
@@ -112,7 +118,7 @@ for questions. Stop advancing at slide 23 while recording.
 
 ---
 
-# Part 2. Zain: methodology, implementation and the demonstration
+# Part 2. Zain: methodology and implementation
 
 ## Slide 6, the pipeline (0:34)
 
@@ -184,14 +190,19 @@ for questions. Stop advancing at slide 23 while recording.
 > including one that plants a cue at a known byte depth and requires the sweep to
 > find it.
 >
-> Let me show you some of this running.
+> Talha will show you some of this running.
 
-## Slide 11, live demonstration (about 1:20)
+---
 
-> **[Switch to the terminal. Follow `DEMO_RUNSHEET.md`. Let the commands set the
-> pace; the lines below are what to say over them, not a paragraph to read.]**
+# Part 3. Talha: the demonstration and the budget results
+
+## Slide 11, live demonstration (Talha, about 1:20)
+
+> **[Talha takes over here and drives the terminal. Follow `DEMO_RUNSHEET.md`.
+> Let the commands set the pace; the lines below are what to say over them, not
+> a paragraph to read.]**
 >
-> > First the receptive-field probe. One byte changes at position 100. Positions
+> > Thanks Zain. First the receptive-field probe. One byte changes at position 100. Positions
 > > 100 to 604 move, so forward reach is 505 bytes, the analytic figure, and
 > > backward reach is zero.
 >
@@ -209,15 +220,11 @@ for questions. Stop advancing at slide 23 while recording.
 > > And the generated report. Every table here comes from those JSON files, which
 > > is why nothing in the deck was typed by hand.
 >
-> **[Switch back to the slides. Hand back to Talha.]**
-
----
-
-# Part 3. Talha: results
+> **[Switch back to the slides and carry straight on to slide 12.]**
 
 ## Slide 12, the leakage gate result (0:34)
 
-> Thanks Zain. Starting with the gate, because nothing else means anything
+> Back to the slides, and to the gate, because nothing else means anything
 > without it.
 >
 > On USTC a probe trained on the anonymised identifier positions reaches 0.1351
@@ -273,10 +280,17 @@ for questions. Stop advancing at slide 23 while recording.
 > These are not thin classes: the 44-session `vpn_email` reaches 0.955 recall.
 > And the concealment reverses sign between corpora, flattering the model by 13
 > points on ISCX and understating by one on USTC.
+>
+> Zain will take the padding attribution and the early-exit results.
+
+---
+
+# Part 4. Zain: padding, the classifier and comparability
 
 ## Slide 16, padding attribution (0:35)
 
-> Back to padding. The decomposition shows where the gain actually lives.
+> Thank you Talha. Back to padding, where the decomposition shows what the gain
+> actually is.
 >
 > On ISCX at 1024 bytes the representation term, scalar byte to learned
 > embedding, is worth plus 0.2408. The PAD-symbol term is worth plus 0.0086. A
@@ -284,11 +298,7 @@ for questions. Stop advancing at slide 23 while recording.
 > so we report it as inconclusive. On USTC both terms are inside seed noise.
 >
 > The reading is short: use a learned byte embedding; the padding symbol buys
-> nothing we can measure. Zain will take the early-exit results.
-
----
-
-# Part 4. Zain: the classifier, the split confound and the comparison
+> nothing we can measure.
 
 ## Slide 17, accuracy per byte read (0:48)
 
@@ -335,6 +345,8 @@ for questions. Stop advancing at slide 23 while recording.
 >
 > So we do not claim to beat these numbers. What we claim is the budget:
 > comparable work reads 784 to 1024 bytes where we read 144.
+>
+> Talha will give the key findings.
 
 ---
 
@@ -405,9 +417,9 @@ for questions. Stop advancing at slide 23 while recording.
 - **Say the numbers carefully.** "Zero point nine seven three one", not "point
   nine seven". Precision is most of what this project argues for.
 - **Name the handoffs.** Every transition between speakers is written into the
-  script, at the end of slides 5, 11, 16 and 19, and in the headings of 20 to
-  23. That is what makes the two-member requirement audible rather than
-  something the marker has to infer.
+  script: at the end of slides 5, 10, 15 and 19, at the start of 11 and 16, and
+  in the headings of 20 to 23. That is what makes the two-member requirement
+  audible rather than something the marker has to infer.
 - **Record in parts.** Each member's slide ranges are contiguous, so each can
   record their own segments separately and the parts can be joined in the
   editor. Cut on a slide advance, never mid-sentence.

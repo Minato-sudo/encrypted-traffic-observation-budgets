@@ -46,16 +46,22 @@ Page size comes from the @page rule in slides.html, so the output is exactly
 
 What each member presents
 -------------------------
-  Talha (i232548)   slides 1-5, 12-16, 20, 22
+  Talha (i232548)   slides 1-5, 11-15, 20, 22        about 8:09
                     problem, padding confound, research gap, objectives; the
-                    leakage gate, budget response, architecture control,
-                    per-class behaviour and padding attribution; key findings;
-                    conclusion
+                    live demonstration at the terminal; the leakage gate,
+                    budget response, architecture control and per-class
+                    behaviour; key findings; conclusion
 
-  Zain  (i232582)   slides 6-11, 17-19, 21, 23
-                    methodology, implementation and the live demonstration;
+  Zain  (i232582)   slides 6-10, 16-19, 21, 23        about 7:21
+                    methodology and implementation; padding attribution,
                     accuracy per byte, the split confound and the comparison
                     with the base papers; limitations; closing
+
+Talha drives the terminal, so slide 11 opens his second block rather than
+closing Zain's. The split also keeps each member's results beside the material
+they introduced: Talha frames the four gaps and reports the results answering
+them, Zain builds the padding modes and the early-exit encoder and reports what
+those measured.
 
 Backup slides
 -------------

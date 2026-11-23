@@ -6,9 +6,9 @@ What the brief requires, and how to produce it on this machine.
 |---|---|
 | Screen recording with voice-over | OBS Studio, already installed at `/usr/bin/obs` |
 | Both members actively participate | `SCRIPT.md` assigns contiguous slide ranges to each member, with the handoffs spoken aloud |
-| Different parts explained by each | Talha: problem, gap, objectives, five results, findings, conclusion. Zain: methodology, implementation, demo, three results, limitations |
+| Different parts explained by each | Talha: problem, gap, objectives, the live demo, four results, findings, conclusion. Zain: methodology, implementation, four results, limitations |
 | Problem, objectives, methodology, implementation, results, key findings, conclusion | Slides 2&ndash;5, 6&ndash;10, 10&ndash;11, 12&ndash;19, 20, 22 |
-| Demonstrate implementation, code, experiments, results | Slide 11, per `DEMO_RUNSHEET.md`, live terminal |
+| Demonstrate implementation, code, experiments, results | Slide 11, per `DEMO_RUNSHEET.md`, live terminal, driven by Talha |
 | Clear audio, readable recording, professional quality | Settings below |
 | Upload to YouTube or Vimeo and share the link | Steps at the end |
 
@@ -126,14 +126,17 @@ record six files:
 |---|---|---|
 | `part1_talha.mkv` | Talha | 1&ndash;5 |
 | `part2_zain.mkv` | Zain | 6&ndash;10 |
-| `part3_zain_demo.mkv` | Zain | 11, terminal |
-| `part4_talha.mkv` | Talha | 12&ndash;16 |
-| `part5_zain.mkv` | Zain | 17&ndash;19, 21 |
-| `part6_talha.mkv` | Talha | 20, 22, and Zain closes on 23 |
+| `part3_talha_demo.mkv` | Talha | 11 (terminal), then 12&ndash;15 |
+| `part4_zain.mkv` | Zain | 16&ndash;19 |
+| `part5_both.mkv` | both | 20&ndash;23 |
 
-Slide 21 is Zain and sits between two Talha segments, so either record it with
-`part5` and cut it in, or record slides 20 to 23 as one joint segment with both
-members at the microphone. The second is simpler and sounds more natural.
+The demonstration and the four result slides after it are one Talha segment, so
+the switch from terminal back to the slides happens inside a single take and
+needs no join.
+
+Slides 20 to 23 alternate speaker every slide, so record them as **one joint
+segment with both members at the microphone** rather than four separate files.
+It is simpler and sounds more natural than cutting between single slides.
 
 Start each file with two seconds of silence on the first slide and end with two
 seconds after the last word. That gives clean joins.
@@ -147,8 +150,8 @@ No video editor is installed here, but the parts are all encoded identically, so
 
 ```bash
 cd ~/Videos
-printf "file '%s'\n" part1_talha.mkv part2_zain.mkv part3_zain_demo.mkv \
-    part4_talha.mkv part5_zain.mkv part6_talha.mkv > parts.txt
+printf "file '%s'\n" part1_talha.mkv part2_zain.mkv part3_talha_demo.mkv \
+    part4_zain.mkv part5_both.mkv > parts.txt
 ffmpeg -f concat -safe 0 -i parts.txt -c copy Phase6_Presentation_i232548_i232582.mkv
 ```
 
@@ -169,7 +172,7 @@ ffprobe -hide_banner Phase6_Presentation_i232548_i232582.mp4
 If a segment needs trimming, cut on a slide boundary:
 
 ```bash
-ffmpeg -i part4_talha.mkv -ss 00:00:03 -c copy part4_trimmed.mkv
+ffmpeg -i part4_zain.mkv -ss 00:00:03 -c copy part4_trimmed.mkv
 ```
 
 ---
@@ -229,17 +232,17 @@ YouTube is the simpler of the two options the brief allows.
    05:27 Implementation
    06:04 Live demonstration
    07:24 Results: the leakage gate
-   07:58 Results: the budget response
-   08:50 Results: the architecture control
-   09:28 Results: per-class behaviour
-   10:04 Results: padding attribution
-   10:40 Results: accuracy per byte read
-   11:28 Results: the train/test split confound
-   12:11 Comparison with the base papers
-   13:01 Key findings
-   13:45 Limitations
-   14:30 Conclusion
-   15:06 Thank you
+   07:59 Results: the budget response
+   08:51 Results: the architecture control
+   09:29 Results: per-class behaviour
+   10:09 Results: padding attribution
+   10:43 Results: accuracy per byte read
+   11:32 Results: the train/test split confound
+   12:15 Comparison with the base papers
+   13:07 Key findings
+   13:51 Limitations
+   14:36 Conclusion
+   15:13 Thank you
    ```
 
    **Fix those timestamps against the finished video before posting.** The ones
