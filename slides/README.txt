@@ -14,6 +14,11 @@ Deliverables
                             print
   RECORDING_GUIDE.md        OBS settings, how to join the segments, the upload
                             steps and the pre-upload checklist
+  Talha_Script_Slides_1-6.pdf
+                            Talha's half as a printable A4 reading script,
+                            4 pages: large type, numbers highlighted, the demo
+                            as a run-this / say-this table, and the handoff
+                            cue marked. Source is TALHA_SCRIPT_PRINT.html.
   TALHA_PREP.md             Talha's own prep notes for slides 1-6: what each
                             slide means in plain terms, everyday analogies,
                             Roman Urdu where a concept is hard, the numbers not

@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Talha, slides 1 to 6, reading script</title>
+<style>
+@page { size: A4 portrait; margin: 16mm 15mm 14mm; }
+
+:root {
+  --ink:    #1d2124;
+  --ink-2:  #3c4247;
+  --muted:  #7b8187;
+  --rule:   #d7dadd;
+  --accent: #2a78d6;
+  --warn:   #c8521f;
+  --dark:   #33383d;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0; color: var(--ink-2);
+  font-family: "Noto Sans", "Liberation Sans", "DejaVu Sans", sans-serif;
+  font-size: 12.6pt; line-height: 1.62;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+
+/* ---- masthead, first page only ------------------------------------- */
+.mast { border-bottom: 2.4pt solid var(--dark); padding-bottom: 5mm; margin-bottom: 7mm; }
+.mast h1 { font-size: 19pt; color: var(--ink); margin: 0 0 1.5mm; letter-spacing: -0.01em; }
+.mast .who { font-size: 11pt; color: var(--muted); margin: 0; }
+.facts { display: flex; gap: 0; margin-top: 5mm; border: 1pt solid var(--rule); border-radius: 2mm; overflow: hidden; }
+.facts div { flex: 1; padding: 3mm 4mm; border-right: 1pt solid var(--rule); }
+.facts div:last-child { border-right: none; }
+.facts .k { font-size: 8pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.facts .v { font-size: 13pt; font-weight: 700; color: var(--ink); margin-top: 1mm; }
+
+/* ---- per-slide block ------------------------------------------------ */
+.slide { margin: 0 0 9mm; break-inside: avoid; }
+.shead { display: flex; align-items: baseline; gap: 4mm; border-bottom: 1pt solid var(--rule);
+         padding-bottom: 2mm; margin-bottom: 4mm; }
+.shead .n { background: var(--dark); color: #fff; font-weight: 700; font-size: 11pt;
+            border-radius: 1.6mm; padding: 1mm 3.2mm; flex: none; }
+.shead .t { font-size: 13pt; font-weight: 700; color: var(--ink); flex: 1; }
+.shead .d { font-size: 11pt; font-weight: 700; color: var(--accent); flex: none; }
+
+p.say { margin: 0 0 4.2mm; }
+p.say:last-child { margin-bottom: 0; }
+b, strong { color: var(--ink); font-weight: 700; }
+.num { color: var(--warn); font-weight: 700; }
+
+/* ---- cues and stage directions -------------------------------------- */
+.cue {
+  border-left: 3pt solid var(--accent); background: #f2f6fc;
+  padding: 3mm 4mm; margin: 0 0 4.2mm; border-radius: 0 1.6mm 1.6mm 0;
+}
+.cue .lbl { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent); display: block; margin-bottom: 1.5mm; }
+.stage {
+  border: 1pt dashed var(--muted); background: #f6f7f8; color: var(--muted);
+  padding: 3mm 4mm; margin: 0 0 4.2mm; border-radius: 1.6mm; font-size: 11pt; font-style: italic;
+}
+.who-tag { font-weight: 700; color: var(--dark); }
+
+/* ---- the demo table -------------------------------------------------- */
+table { border-collapse: collapse; width: 100%; font-size: 10.5pt; margin: 0 0 4.2mm; }
+th { background: var(--dark); color: #fff; text-align: left; padding: 2mm 3mm; font-size: 9.5pt;
+     letter-spacing: 0.04em; }
+td { border-bottom: 1pt solid var(--rule); padding: 2mm 3mm; vertical-align: top; }
+td.cmd { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 9.5pt;
+         color: var(--ink); width: 46%; }
+
+.foot { border-top: 1pt solid var(--rule); margin-top: 8mm; padding-top: 4mm;
+        font-size: 10.5pt; color: var(--muted); }
+.foot.pre { border: 1pt solid var(--rule); border-top: 2.4pt solid var(--warn);
+            background: #fbfbfa; border-radius: 2mm; margin: 0 0 8mm; padding: 4mm 5mm;
+            break-inside: avoid; }
+.foot b { color: var(--ink-2); }
+ul { margin: 2mm 0 0; padding-left: 5mm; }
+li { margin-bottom: 1.6mm; }
+.pb { break-before: page; }
+</style></head>
+<body>
+
+<div class="mast">
+  <h1>Reading script, slides 1 to 6</h1>
+  <p class="who">Muhammad Talha Arshad (i232548) &nbsp;&middot;&nbsp; Phase 6 recorded presentation
+     &nbsp;&middot;&nbsp; Observation Budgets in Raw-Byte Traffic Classification</p>
+  <div class="facts">
+    <div><div class="k">Your half</div><div class="v">6:13</div></div>
+    <div><div class="k">Slides</div><div class="v">1 to 6</div></div>
+    <div><div class="k">Hand over</div><div class="v">end of 6</div></div>
+    <div><div class="k">Full talk</div><div class="v">14:17</div></div>
+  </div>
+</div>
+
+<div class="foot pre">
+  <b>Reminders.</b>
+  <ul>
+    <li><b>Do not rush.</b> The sentences are short on purpose. The pauses between them are part
+    of the delivery.</li>
+    <li><b>Say the numbers in full:</b> &ldquo;zero point nine seven three one&rdquo;, not
+    &ldquo;point nine seven&rdquo;. Everything in orange is a figure worth getting exactly right.</li>
+    <li><b>If a command fails on camera, keep going.</b> Say the result is in
+    <span style="font-family:monospace">results/ustc/REPORT.md</span> and show it there. A recovery
+    reads better than a cut.</li>
+    <li><b>Never start a training run.</b> It will not finish inside the video.</li>
+    <li>Run every demo command once before recording, so Python's import time is not a pause on
+    camera.</li>
+  </ul>
+</div>
+
+<!-- ---------------------------------------------------------- slide 1 -->
+<div class="slide">
+  <div class="shead"><span class="n">1</span><span class="t">Title</span><span class="d">0:22</span></div>
+  <p class="say"><span class="who-tag">TALHA:</span> Good afternoon. Our research project asks one
+  question: how many bytes does encrypted traffic classification actually need?</p>
+  <p class="say">I am Muhammad Talha Arshad, <b>i232548</b>. I will take the problem, the method,
+  and a live demonstration of the code.</p>
+  <div class="cue"><span class="lbl">Zain speaks here, then you continue</span>
+  <span class="who-tag">ZAIN:</span> And I am Zain Shahid, i232582. I will take the second half:
+  every result, and the conclusions.</div>
+</div>
+
+<!-- ---------------------------------------------------------- slide 2 -->
+<div class="slide">
+  <div class="shead"><span class="n">2</span><span class="t">The problem, and the four gaps</span><span class="d">0:58</span></div>
+  <p class="say">Let me start with what a traffic classifier actually sees.</p>
+  <p class="say">Not the whole flow. Just the first <b>B bytes</b>, zero-padded to a fixed length.
+  That prefix is what we call the <b>observation budget</b>.</p>
+  <p class="say">And it is not a minor setting. It decides three things: how quickly you can
+  detect, how much memory you need per flow, and how early you can act on the answer.</p>
+  <p class="say">So we checked what the field does. <span class="num">Twelve</span> papers,
+  <span class="num">2025</span> and <span class="num">2026</span>. Budgets from
+  <span class="num">five to twenty packets</span>, or <span class="num">784 to 1024 bytes</span>.
+  Not one of them measured it.</p>
+  <p class="say">That is the first of four gaps. The budget is inherited rather than measured.
+  The aggregate hides per-class failure. Corpora are called encrypted without anyone checking.
+  And shortcut learning is rarely excluded, which matters: one of our own base papers shows that
+  leaving identifier bytes in is worth up to <span class="num">0.45 accuracy</span>.</p>
+</div>
+
+<!-- ---------------------------------------------------------- slide 3 -->
+<div class="slide">
+  <div class="shead"><span class="n">3</span><span class="t">The padding confound, and the objectives</span><span class="d">1:04</span></div>
+  <p class="say">Now the part that makes this more than an unexamined setting.</p>
+  <p class="say">Flows are short. The median ISCX session is <span class="num">274 bytes</span>.
+  USTC is <span class="num">474</span>.</p>
+  <p class="say">So if your budget is <span class="num">1024</span>, you are not reading more
+  traffic. You are reading more padding. At <span class="num">512 bytes</span> almost half of an
+  average ISCX session is padding. At <span class="num">1500</span> it is
+  <span class="num">seventy percent</span>.</p>
+  <p class="say">Which means budget and padding always move together. Any gain someone reports
+  from a bigger budget mixes two things: more real bytes, and more padding the model can use as a
+  length cue. Nobody separates them. So a paper saying &ldquo;1024 bytes works best&rdquo; may
+  have measured a <b>length classifier</b>.</p>
+  <p class="say">That gives us five objectives, on the right. Measure the curve and find where it
+  saturates. Test whether that is the model or the traffic. Split padding into its two parts.
+  Build a classifier that reads only what it needs. And report honestly, including what the
+  train-test split alone is worth.</p>
+</div>
+
+<!-- ---------------------------------------------------------- slide 4 -->
+<div class="slide">
+  <div class="shead"><span class="n">4</span><span class="t">The pipeline and the leakage gate</span><span class="d">0:51</span></div>
+  <p class="say">So, how we measured it.</p>
+  <p class="say">One requirement drove the whole design. If the budget is the thing being
+  measured, it has to be <b>the only thing that changes</b>.</p>
+  <p class="say">So a single pass writes a fixed <span class="num">2048-byte</span> store, and
+  every budget is a slice of that one store. Parsing, sessionization, deduplication and
+  anonymisation all happen once, before any budget exists. Nothing can drift between
+  <span class="num">256</span> bytes and <span class="num">512</span>.</p>
+  <p class="say">On the right is the <b>leakage gate</b>. Gap four is usually handled with one
+  sentence promising identifiers were removed. We made it a condition the pipeline enforces.</p>
+  <p class="say">A probe trains on the anonymised identifier bytes alone. If it beats guessing by
+  more than a small margin, the anonymisation has failed and the run stops. <b>It does not warn.
+  It stops.</b></p>
+</div>
+
+<!-- ---------------------------------------------------------- slide 5 -->
+<div class="slide">
+  <div class="shead"><span class="n">5</span><span class="t">Padding decomposed, and the classifier</span><span class="d">1:06</span></div>
+  <p class="say">Two pieces of method here.</p>
+  <p class="say">On the left, five input modes. The literature changes the representation and the
+  padding symbol together, then credits the whole gain to padding-aware input. We change one at a
+  time. <b>Zero to embed</b> gives the representation term. <b>Embed to mask</b> gives the
+  padding-symbol term.</p>
+  <p class="say">On the right, the classifier. Heads at <span class="num">64, 128, 256, 512 and
+  1024 bytes</span>. At inference you stop at the first head that is confident enough, and charge
+  the flow only the bytes that head used.</p>
+  <p class="say">But that only works if head <i>k</i> genuinely cannot see byte <i>k</i> plus
+  one.</p>
+  <p class="say">So the encoder is <b>causal</b>. Six dilated convolution blocks, left-padding
+  only, receptive field <span class="num">505 bytes</span>. And the normalisation is
+  per-position, never BatchNorm or GroupNorm, because both average across the length axis. One
+  wrong line there and a byte at position <span class="num">900</span> could shift the activation
+  at position <span class="num">10</span>.</p>
+  <p class="say">We prove that by induction. We also test it, and I will show you the test in a
+  moment.</p>
+</div>
+
+<!-- ---------------------------------------------------------- slide 6 -->
+<div class="slide">
+  <div class="shead"><span class="n">6</span><span class="t">Implementation, and the live demonstration</span><span class="d">1:52</span></div>
+  <p class="say">Briefly, what was built. <span class="num">Fifteen</span> modules,
+  <span class="num">385 thousand</span> sessions out of about <span class="num">55
+  gigabytes</span> of captures.</p>
+  <p class="say">One thing is worth saying. Every table and figure in this project is generated
+  from the result JSON. <b>No number in the paper, the poster or this deck was typed by
+  hand.</b></p>
+  <p class="say">Let me show you.</p>
+
+  <div class="stage">Switch to the terminal. Let the commands set the pace. The lines below are
+  what to say over them, not a paragraph to read.</div>
+
+  <table>
+    <tr><th>Run this</th><th>Say this</th></tr>
+    <tr>
+      <td class="cmd">PYTHONPATH=src python3 scripts/measure_receptive_field.py</td>
+      <td>First the receptive-field probe. One byte changes at position
+      <span class="num">100</span>. Positions <span class="num">100 to 604</span> move, so forward
+      reach is <span class="num">505 bytes</span>, the analytic figure, and backward reach is
+      <span class="num">zero</span>.</td>
+    </tr>
+    <tr>
+      <td class="cmd">PYTHONPATH=src python3 tests/test_models_causality.py</td>
+      <td>Now the causality test. The second block is the one that matters: head <i>k</i> fed only
+      its own prefix gives logits identical to head <i>k</i> fed the whole sequence.</td>
+    </tr>
+    <tr>
+      <td class="cmd">sed -n '170,189p' src/nettc/models.py</td>
+      <td>Here is the encoder, and the line the guarantee rests on, <b>ChannelNorm1d</b>.</td>
+    </tr>
+    <tr>
+      <td class="cmd">jq -r '.bytes | to_entries[] | "\(.key) \(.value.macro_f1.mean)"' results/ustc/e2_budget_sweep_wang1d.json</td>
+      <td>The USTC budget sweep, straight out of its JSON: <span class="num">0.9731</span> at 512
+      bytes, <span class="num">0.9564</span> at 784, <span class="num">0.9367</span> at 1500.
+      <b>The curve goes down.</b></td>
+    </tr>
+    <tr>
+      <td class="cmd">jq -c '.pairs.saturation.mcnemar' results/ustc/significance.json</td>
+      <td>The significance file for the same comparison: <span class="num">2488</span> sessions
+      correct at 512 and wrong at 784, against <span class="num">94</span> the other way.</td>
+    </tr>
+    <tr>
+      <td class="cmd">sed -n '126,142p' results/ustc/REPORT.md</td>
+      <td>And the generated report. Every table here comes from those JSON files, which is why
+      nothing in the deck was typed by hand.</td>
+    </tr>
+  </table>
+
+  <div class="cue"><span class="lbl">Your handoff. Do not shorten this line.</span>
+  That is the implementation. <b>Zain will take you through what it measured.</b><br>
+  <span style="font-size:10.5pt;color:var(--muted);font-style:italic">Then switch back to the
+  slides. Zain takes over from slide 7, and your half is done.</span></div>
+</div>
+
+
+
+</body></html>
