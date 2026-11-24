@@ -14,7 +14,7 @@ Read against `Phase6_Presentation.pdf`. Slide numbers below match the deck.
 
 | Member | Slides | Covers | Time |
 |---|---|---|---|
-| **Talha** (i232548) | **1&ndash;6** | the problem, the padding confound, the research gap, the objectives, the whole methodology, the implementation, and the **live demonstration** | 7:28 |
+| **Talha** (i232548) | **1&ndash;6** | the problem, the padding confound, the research gap, the objectives, the whole methodology, the implementation, and the **live demonstration** | 6:13 |
 | **Zain** (i232582) | **7&ndash;14** | every result, the comparison with the base papers, the key findings, the limitations and the conclusion | 8:04 |
 
 The boundary falls where the talk itself turns. Talha sets up the problem,
@@ -28,10 +28,13 @@ one line on slide 1** as well, introducing himself and saying which half is his,
 and **both members speak on slide 14**. That puts both voices inside the first
 minute and the last.
 
-**This is the 15-minute version.** 2,143 spoken words at a normal narration
-pace of 150 words per minute, plus a live demonstration of about 1 minute 20
-seconds paced by the commands rather than by the words: a total of about
-**15:32**.
+**About 14:17 in total.** 2,106 spoken words at a normal narration pace of 150
+words per minute, plus a live demonstration of about 1 minute 20 seconds paced by
+the commands rather than by the words.
+
+Talha's half is written **short and spoken**: short sentences, one idea each, and
+the slide carries the detail. Read it at a normal speaking pace and do not rush;
+the pauses between sentences are part of it.
 
 Nothing is cut from the project. All seven of the required topics are covered,
 and both members present problem, method, results and conclusion. What is cut is
@@ -49,128 +52,105 @@ from the result JSON in `results/`.
 
 # Part 1. Talha: slides 1 to 6, the problem, the method and the demonstration
 
-## Slide 1, title (0:26)
+## Slide 1, title (0:22)
 
-> **Talha:** Good afternoon. Our Computer Networks research project asks one
-> question: how many bytes does encrypted traffic classification actually need?
-> I am Muhammad Talha Arshad, i232548, and I will take the problem, the research
-> gap, the methodology and a live demonstration of the code.
+> **Talha:** Good afternoon. Our research project asks one question: how many
+> bytes does encrypted traffic classification actually need?
+>
+> I am Muhammad Talha Arshad, i232548. I will take the problem, the method, and a
+> live demonstration of the code.
 >
 > **Zain:** And I am Zain Shahid, i232582. I will take the second half: every
-> result, the comparison with the published work, and the conclusions.
+> result, and the conclusions.
+## Slide 2, the problem, and the four gaps (0:58)
 
-## Slide 2, the problem, and the four gaps (1:10)
+> Let me start with what a traffic classifier actually sees.
+>
+> Not the whole flow. Just the first B bytes, zero-padded to a fixed length. That
+> prefix is what we call the observation budget.
+>
+> And it is not a minor setting. It decides three things: how quickly you can
+> detect, how much memory you need per flow, and how early you can act on the
+> answer.
+>
+> So we checked what the field does. Twelve papers, 2025 and 2026. Budgets from
+> five to twenty packets, or 784 to 1024 bytes. Not one of them measured it.
+>
+> That is the first of four gaps. The budget is inherited rather than measured.
+> The aggregate hides per-class failure. Corpora are called encrypted without
+> anyone checking. And shortcut learning is rarely excluded, which matters: one of
+> our own base papers shows that leaving identifier bytes in is worth up to 0.45
+> accuracy.
+## Slide 3, the padding confound, and the objectives (1:04)
 
-> A deep traffic classifier does not see a flow. It sees the first B bytes of it,
-> zero-padded to a fixed length. That prefix is the observation budget.
+> Now the part that makes this more than an unexamined setting.
 >
-> It is not a knob on the side, it is the operating point: a 1024-byte budget
-> cannot decide before 1024 bytes arrive, and a middlebox holds B bytes for every
-> concurrent flow.
+> Flows are short. The median ISCX session is 274 bytes. USTC is 474.
 >
-> Across twelve studies from 2025 and 2026 the budget runs from five to twenty
-> packets, or 784 to 1024 bytes, and in not one is it measured. Zero of twelve
-> report accuracy as a function of the budget. That curve is what this project is
-> for.
+> So if your budget is 1024, you are not reading more traffic. You are reading
+> more padding. At 512 bytes almost half of an average ISCX session is padding.
+> At 1500 it is seventy percent.
 >
-> Four gaps come out of the literature, and we address them in this order.
+> Which means budget and padding always move together. Any gain someone reports
+> from a bigger budget mixes two things: more real bytes, and more padding the
+> model can use as a length cue. Nobody separates them. So a paper saying
+> &ldquo;1024 bytes works best&rdquo; may have measured a length classifier.
 >
-> One, the budget is inherited rather than measured. Two, aggregate accuracy
-> conceals per-class failure. Three, corpora are called encrypted without anyone
-> measuring how much of them is. Four, shortcut learning from addresses and ports
-> is rarely excluded, and one of our base papers shows leaving those bytes in is
-> worth up to 0.45 accuracy.
+> That gives us five objectives, on the right. Measure the curve and find where
+> it saturates. Test whether that is the model or the traffic. Split padding into
+> its two parts. Build a classifier that reads only what it needs. And report
+> honestly, including what the train-test split alone is worth.
+## Slide 4, the pipeline and the leakage gate (0:51)
 
-## Slide 3, the padding confound, and the objectives (1:14)
+> So, how we measured it.
+>
+> One requirement drove the whole design. If the budget is the thing being
+> measured, it has to be the only thing that changes.
+>
+> So a single pass writes a fixed 2048-byte store, and every budget is a slice of
+> that one store. Parsing, sessionization, deduplication and anonymisation all
+> happen once, before any budget exists. Nothing can drift between 256 bytes and
+> 512.
+>
+> On the right is the leakage gate. Gap four is usually handled with one sentence
+> promising identifiers were removed. We made it a condition the pipeline
+> enforces.
+>
+> A probe trains on the anonymised identifier bytes alone. If it beats guessing by
+> more than a small margin, the anonymisation has failed and the run stops. It
+> does not warn. It stops.
+## Slide 5, padding decomposed, and the classifier (1:06)
 
-> It is worse than an unexamined hyperparameter.
+> Two pieces of method here.
 >
-> Flows are short and heavy-tailed. The median ISCX session is 274 bytes, the
-> median USTC session 474, so a larger budget reads more padding, not more
-> traffic: at 512 bytes the average ISCX session is 48 percent padding.
+> On the left, five input modes. The literature changes the representation and the
+> padding symbol together, then credits the whole gain to padding-aware input. We
+> change one at a time. Zero to embed gives the representation term. Embed to mask
+> gives the padding-symbol term.
 >
-> Any gain from a larger budget therefore mixes two effects, more real bytes and
-> more padding to use as a length cue, and nobody separates them. A paper
-> concluding 1024 bytes works best may have measured a length classifier.
+> On the right, the classifier. Heads at 64, 128, 256, 512 and 1024 bytes. At
+> inference you stop at the first head that is confident enough, and charge the
+> flow only the bytes that head used.
 >
-> Five objectives, each with a measurable answer.
+> But that only works if head k genuinely cannot see byte k plus one.
 >
-> One, measure the budget response and locate the saturation budget: the
-> smallest budget beyond which no larger one is reliably better. Two, test
-> whether that is a property of the model, by repeating the sweep with a
-> different architecture. Three, decompose the padding effect into a
-> representation term and a padding-symbol term. Four, build a classifier that
-> reads only what it needs, with a causality guarantee. Five, report honestly:
-> exclude shortcut learning, report per-class behaviour, and quantify what the
-> split alone explains.
+> So the encoder is causal. Six dilated convolution blocks, left-padding only,
+> receptive field 505 bytes. And the normalisation is per-position, never
+> BatchNorm or GroupNorm, because both average across the length axis. One wrong
+> line there and a byte at position 900 could shift the activation at position 10.
 >
-> Two corpora, 385 thousand sessions, 31 classes. Here is how we built it.
+> We prove that by induction. We also test it, and I will show you the test in a
+> moment.
+## Slide 6, implementation, and the live demonstration (1:52, of which about 1:20 at the terminal)
 
-## Slide 4, the pipeline and the leakage gate (1:06)
-
-> The design requirement follows from the objective: if the budget is a measured
-> variable, it must be the only thing that changes between two points on the
-> curve.
+> Briefly, what was built. Fifteen modules, 385 thousand sessions out of about 55
+> gigabytes of captures.
 >
-> So one pass writes a fixed 2048-byte HDF5 session store and every budget is a
-> slice of it. Parsing, sessionization, deduplication and anonymisation happen
-> once, before any budget exists, so nothing can drift. Only the dashed region
-> repeats per budget. Splits are group-wise by capture file, every point three
-> seeds.
+> One thing is worth saying. Every table and figure in this project is generated
+> from the result JSON. No number in the paper, the poster or this deck was typed
+> by hand.
 >
-> Gap four is usually handled with a sentence promising identifiers were removed.
-> We made it a precondition the pipeline enforces.
->
-> The gate is the condition on screen: a probe trained only on the anonymised
-> identifier bytes must score no higher than the majority-class rate plus a
-> margin of 0.1. If it does, the anonymisation has failed and the pipeline halts.
-> It does not warn, it stops.
->
-> `id_positions` is the gate; `ident` measures what the shortcut would have been
-> worth if left in; `ports` masks the port bytes.
-
-## Slide 5, padding decomposed, and the classifier (1:34)
-
-> For the padding question we built five input modes. `zero` is the baseline,
-> each byte as a scalar. `embed` swaps in a learned embedding but leaves padding
-> as zero. `mask` keeps the embedding and adds a distinct PAD symbol. `convmask`
-> also makes the convolution ignore padded positions. And `length_balanced`
-> removes length as a cue altogether.
->
-> The literature changes representation and padding symbol together, then credits
-> the whole gain to padding-aware input. Comparing zero to embed to mask
-> separates them, each term checked against the seed spread.
->
-> This is where the project could most easily have fooled itself.
->
-> The idea is simple: heads at 64, 128, 256, 512 and 1024 bytes; at inference,
-> stop at the first head whose confidence clears a threshold tau, and charge that
-> flow only the bytes it consumed. But the claim holds only if head k is
-> incapable of having seen byte k plus one.
->
-> So the encoder is six causal dilated convolution blocks, dilations one through
-> 32, left-padding only, receptive field 505 bytes. And the normalisation is
-> per-position, `ChannelNorm1d`, never BatchNorm or GroupNorm: both average over
-> the length axis, which would let a byte at position 900 shift the activation at
-> position 10.
->
-> We prove it by induction over the layer index and we test it: 505 bytes of
-> forward reach, zero backwards. The test exists because a one-line change there
-> would destroy the property while the accuracy numbers stayed plausible.
-
-## Slide 6, implementation, and the live demonstration (1:57, of which about 1:20 at the terminal)
-
-> Fifteen modules, from a streaming pcap reader through sessionization, the
-> store, the slicer, four model families and the experiment layer. 385 thousand
-> sessions out of about 55 gigabytes of captures.
->
-> Reproducibility here is mechanical, not aspirational. Every table and figure is
-> generated from the result JSON by `make_report.py`, so no number is typed by
-> hand in the paper, the poster or this deck. And five regression tests,
-> including one that plants a cue at a known byte depth and requires the sweep to
-> find it.
->
-> Let me show you some of this running.
+> Let me show you.
 >
 > **[Switch to the terminal. Follow `DEMO_RUNSHEET.md`. Let the commands set the
 > pace; the lines below are what to say over them, not a paragraph to read.]**

@@ -125,10 +125,10 @@ record six files:
 
 | File | Speaker | Slides | Length |
 |---|---|---|---|
-| `part1_talha.mkv` | Talha, with Zain's one line on slide 1 | 1&ndash;5 | 5:30 |
-| `part2_talha_demo.mkv` | Talha, at the terminal | 6 | 1:57 |
-| `part3_zain.mkv` | Zain | 7&ndash;12 | 5:39 |
-| `part4_zain_close.mkv` | Zain, with Talha on slide 14 | 13&ndash;14 | 2:25 |
+| `part1_talha.mkv` | Talha, with Zain's one line on slide 1 | 1&ndash;5 | 4:21 |
+| `part2_talha_demo.mkv` | Talha, at the terminal | 6 | 1:52 |
+| `part3_zain.mkv` | Zain | 7&ndash;12 | 5:40 |
+| `part4_zain_close.mkv` | Zain, with Talha on slide 14 | 13&ndash;14 | 2:24 |
 
 Four files rather than one long take each, because a 5-minute unbroken read is
 hard to get clean and a fluffed sentence 4 minutes in costs the whole take.
@@ -225,19 +225,19 @@ YouTube is the simpler of the two options the brief allows.
    https://github.com/Minato-sudo/encrypted-traffic-observation-budgets
 
    00:00 Introduction
-   00:26 The problem, and the four gaps
-   01:36 Padding is confounded with budget; objectives
-   02:50 Methodology: the pipeline and the leakage gate
-   03:56 Padding decomposed, and the causal classifier
-   05:30 Implementation and live demonstration
-   07:28 Results: the gate, and the budget response
-   08:58 Results: the architecture control and per-class failure
-   10:12 Results: padding attribution
-   10:46 Results: accuracy per byte read
-   11:34 Results: the train/test split confound
-   12:17 Comparison with the base papers
-   13:07 Key findings and limitations
-   14:36 Conclusion and thank you
+   00:21 The problem, and the four gaps
+   01:20 Padding is confounded with budget; objectives
+   02:24 Methodology: the pipeline and the leakage gate
+   03:14 Padding decomposed, and the causal classifier
+   04:21 Implementation and live demonstration
+   06:12 Results: the gate, and the budget response
+   07:43 Results: the architecture control and per-class failure
+   08:57 Results: padding attribution
+   09:30 Results: accuracy per byte read
+   10:19 Results: the train/test split confound
+   11:02 Comparison with the base papers
+   11:52 Key findings and limitations
+   13:20 Conclusion and thank you
    ```
 
    **Fix those timestamps against the finished video before posting.** The ones
@@ -258,8 +258,8 @@ YouTube is the simpler of the two options the brief allows.
 
 ## Vimeo, if you prefer it
 
-Free Vimeo accounts cap uploads at 500 MB per week, which a 15-minute 1080p
-recording at 12 Mbps will exceed, at roughly 1.3 GB. Either re-encode smaller first:
+Free Vimeo accounts cap uploads at 500 MB per week, which a 14-minute 1080p
+recording at 12 Mbps will exceed, at roughly 1.25 GB. Either re-encode smaller first:
 
 ```bash
 ffmpeg -i Phase6_Presentation_i232548_i232582.mp4 -c:v libx264 -crf 26 \

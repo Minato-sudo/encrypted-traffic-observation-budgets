@@ -6,9 +6,9 @@ Deliverables
   Phase6_Presentation.pdf   16 pages, 16:9 (13.333 x 7.5 in), for screen:
                             14 slides for the talk, plus two backup slides
                             (B1, B2) held for questions about ISCX
-  SCRIPT.md                 the voice-over script, about 15 and a half minutes,
-                            split evenly between both members, with the handoffs
-                            written in as spoken lines
+  SCRIPT.md                 the voice-over script, about 14 minutes, one
+                            handoff, with Talha's half written short and spoken
+                            and both members' lines on slides 1 and 14
   DEMO_RUNSHEET.md          the live terminal walkthrough for slide 11, with
                             the real commands and the output they actually
                             print
@@ -56,7 +56,7 @@ What each member presents
 -------------------------
 One contiguous half each, with a single handoff at the end of slide 6.
 
-  Talha (i232548)   slides 1-6                        about 7:28
+  Talha (i232548)   slides 1-6                        about 6:13
                     the problem, the padding confound, the research gap, the
                     objectives, the whole methodology, the implementation, and
                     the live demonstration at the terminal
